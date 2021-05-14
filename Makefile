@@ -35,8 +35,9 @@ OBJCOPY 	= $(TCPREFIX)-objcopy
 #-----------------------------------------------------------------
 #		Directorys of source to build
 #-----------------------------------------------------------------
+SRC_DIR_APP											=	./0_Src/App
+SRC_DIR_APP_SCHEDULER								=	./0_Src/App/Scheduler
 SRC_DIR_MIDDLE										=	./0_Src/Middle
-
 SRC_DIR_DRIVER										=	./0_Src/Driver
 SRC_DIR_DRIVER_DRIVERSTM							=	./0_Src/Driver/DriverStm
 SRC_DIR_DRIVER_DRIVERWATCHDOG						=	./0_Src/Driver/DriverWatchdog
@@ -54,8 +55,6 @@ SRC_DIR_DRIVER_DRIVERTLF_CDRV_TRICORE				= 	./0_Src/Driver/DriverTlf/CDrv/Tricor
 SRC_DIR_ADAPTION									= 	./0_Src/Adaption
 SRC_DIR_ADAPTION_ADAPTIONDIO						= 	./0_Src/Adaption/AdaptionDio
 SRC_DIR_SERVICE										=	./0_Src/Service
-SRC_DIR_SERVICE_SCHEDULER							=	./0_Src/Service/Scheduler
-SRC_DIR_SERVICE_COMMON								=	./0_Src/Service/Common
 SRC_DIR_COMPONENT									=	./0_Src/Component
 SRC_DIR_COMPONENT_DATAINTERFACE						=	./0_Src/Component/DataInterface
 
@@ -65,6 +64,8 @@ OBJ_DIR				= $(DEBUG_DIR)/Obj
 #-----------------------------------------------------------------
 #		Define include directorys to build
 #-----------------------------------------------------------------    
+INCLUDE 			+= $(SRC_DIR_APP)
+INCLUDE 			+= $(SRC_DIR_APP_SCHEDULER)
 INCLUDE 			+= $(SRC_DIR_MIDDLE)
 INCLUDE 			+= $(SRC_DIR_DRIVER)
 INCLUDE 			+= $(SRC_DIR_DRIVER_DRIVERSTM)
@@ -74,17 +75,12 @@ INCLUDE 			+= $(SRC_DIR_DRIVER_DRIVERADC)
 INCLUDE 			+= $(SRC_DIR_DRIVER_DRIVERASC)
 INCLUDE 			+= $(SRC_DIR_DRIVER_DRIVERGTM)
 INCLUDE 			+= $(SRC_DIR_DRIVER_DRIVERTLF)
-
 INCLUDE 			+= $(SRC_DIR_DRIVER_DRIVERTLF_CFGILLD)
 INCLUDE 			+= $(SRC_DIR_DRIVER_DRIVERTLF_TFTAPP)
 INCLUDE 			+= $(SRC_DIR_DRIVER_DRIVERTLF_CDRV_TRICORE_QSPI)
 INCLUDE 			+= $(SRC_DIR_DRIVER_DRIVERTLF_CDRV_TRICORE_TFT)
 INCLUDE 			+= $(SRC_DIR_DRIVER_DRIVERTLF_CDRV_TRICORE)
-
 INCLUDE 			+= $(SRC_DIR_ADAPTION_ADAPTIONDIO)
-
-INCLUDE 			+= $(SRC_DIR_SERVICE_SCHEDULER)
-INCLUDE 			+= $(SRC_DIR_SERVICE_COMMON)
 INCLUDE 			+= $(SRC_DIR_COMPONENT_DATAINTERFACE)
 #-----------------------------------------------------------------
 #		Set search path
@@ -189,11 +185,12 @@ dir:
 	@if test ! -d $(EXE_DIR); then mkdir -p $(EXE_DIR);fi
 	@if test ! -d $(OBJ_DIR); then mkdir -p $(OBJ_DIR);fi
 		
-build : $(APP_OBJECTS) 
-	$(LD) -mcpu=$(MCPU) -o $(TARGET_ELE_FILE) $^ $(ILLD_OBJECTS) $(LDFLAGS) $(LIBS) 
-	$(OBJCOPY) -O binary $(TARGET_ELE_FILE) $(TARGET_BIN_FILE)
-	$(OBJCOPY) -O ihex $(TARGET_ELE_FILE) $(TARGET_HEX_FILE)
-
+build : $(APP_OBJECTS)
+	@echo /****Linking Start****/
+	@$(LD) -mcpu=$(MCPU) -o $(TARGET_ELE_FILE) $^ $(ILLD_OBJECTS) $(LDFLAGS) $(LIBS) 
+	@$(OBJCOPY) -O binary $(TARGET_ELE_FILE) $(TARGET_BIN_FILE)
+	@$(OBJCOPY) -O ihex $(TARGET_ELE_FILE) $(TARGET_HEX_FILE)
+	@echo /****Linking Success****/
 clean:
 	@rm	-rf	$(OBJ_DIR)/*.o $(TARGET_ELE_FILE) $(TARGET_BIN_FILE) $(TARGET_MAP_FILE)
 	@if test -d $(EXE_DIR); then rm -r $(EXE_DIR);fi
