@@ -195,6 +195,7 @@ ASFLAGS		= $(CFLAGS);
 #-----------------------------------------------------------------
 #		Source files to build
 #-----------------------------------------------------------------
+SOURCE				=	Ifx_InterfaceConst.c
 SOURCE				+= 	CompilerGnuc.c
 SOURCE				+= 	IfxCpu_cfg.c
 SOURCE				+= 	IfxCpu_CStart0.c

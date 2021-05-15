@@ -129,8 +129,6 @@ static void DrvAsc0Init(void)
     /** - Enable the global interrupts of this CPU */
     restoreInterrupts(TRUE);
 
-    Ifx_SizeT count = 52;
-
     /** - Initialise the shell interface  */
     {
         Ifx_Shell_Config config;
@@ -253,4 +251,17 @@ static void initSerialInterface(void)
 
     /* Assert initialisation */
     Ifx_Assert_setStandardIo(&g_AsclinShellInterface.stdIf.asc);
+}
+
+void DrvAsc_Test(void)
+{
+	uint32_t u32nuMemberNo = 4u;
+	uint32_t u32nuMyAge = 34u;
+	uint32_t u32nuMyHeight = 168u;
+	uint32_t u32nuMyWeight = 64u;	
+
+	/*For Asc Test*/
+	AscPrintf("Hello! GreenFrog!\r\n");
+	AscPrintf("GreenFrog has %d Members!\r\n", u32nuMemberNo);
+	AscPrintf("Eunhwan Age : %d, Height: %d Weight: %d \r\n", u32nuMyAge, u32nuMyHeight, u32nuMyWeight);
 }

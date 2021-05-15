@@ -79,11 +79,12 @@ typedef struct
 /*----------------------------------------------------------------*/
 /*						Static Function Prototype				  */
 /*----------------------------------------------------------------*/
+#if 0
 static void GtmTomTimer_initTimer(void);
 static void GtmTomTestPwm_init(void);
 static void GtmTomPwmHl_initTimer(void);
 static void GtmTomPwmHl_init(void);
-
+#endif
 /*----------------------------------------------------------------*/
 /*						Variables				  				  */
 /*----------------------------------------------------------------*/
@@ -195,7 +196,7 @@ void DrvGtmTomInit(void)
 	GtmTomTestPwm_init();
 	#endif
 }
-
+#if 0
 static void GtmTomTimer_initTimer(void)
 {
     {   // Create Gtm Timer Output Module (TOM) configuration for timer
@@ -230,7 +231,6 @@ static void GtmTomTimer_initTimer(void)
 }
 
 
-
 static void GtmTomTestPwm_init(void)
 {
     /* disable interrupts */
@@ -254,6 +254,7 @@ static void GtmTomTestPwm_init(void)
 
     IfxGtm_Cmu_enableClocks(gtm, IFXGTM_CMU_CLKEN_FXCLK | IFXGTM_CMU_CLKEN_CLK0);
 }
+
 
 
 static void GtmTomPwmHl_initTimer(void)
@@ -340,4 +341,4 @@ static void GtmTomPwmHl_init(void)
 
     IfxGtm_Cmu_enableClocks(gtm, IFXGTM_CMU_CLKEN_FXCLK | IFXGTM_CMU_CLKEN_CLK0);
 }
-
+#endif

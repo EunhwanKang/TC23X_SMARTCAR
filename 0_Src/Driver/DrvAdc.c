@@ -59,8 +59,8 @@ void VadcAutoScanDemo_run(void)
 
 	for (chnIx = 0; chnIx < 5; ++chnIx)
 	{
-	    unsigned     group   = adc0Channel[chnIx].group->groupId;
-	    unsigned     channel = adc0Channel[chnIx].channel;
+	    //unsigned     group   = adc0Channel[chnIx].group->groupId;
+	    //unsigned     channel = adc0Channel[chnIx].channel;
 
 	    /* wait for valid result */
 	    Ifx_VADC_RES conversionResult;
@@ -82,8 +82,8 @@ void VadcBackgroundScanDemo_run(void)
 	/* check results */
 	for (chnIx = 0; chnIx < 2; ++chnIx)
 	{
-	    unsigned     group   = adc1Channel[chnIx].group->groupId;
-	    unsigned     channel = adc1Channel[chnIx].channel;
+	    //unsigned     group   = adc1Channel[chnIx].group->groupId;
+	    //unsigned     channel = adc1Channel[chnIx].channel;
 
 	    /* wait for valid result */
 	    Ifx_VADC_RES conversionResult;
