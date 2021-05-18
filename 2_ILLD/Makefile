@@ -336,7 +336,7 @@ $(OBJ_DIR)/%.o: %.c
 #-----------------------------------------------------------------
 .PHONY: dir all clean 
 
-all: dir $(OBJECTS)
+all: clean dir $(OBJECTS)
 
 dir: 
 	@echo make dir...

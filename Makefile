@@ -154,6 +154,11 @@ $(OBJ_DIR)/%.o: %.c
 
 all: dir build
 
+total: clean illd dir build
+
+illd : 
+	$(MAKE) -C 2_ILLD
+
 dir: 
 	@echo make dir...
 	@if test ! -d $(DEBUG_DIR); then mkdir -p $(DEBUG_DIR);fi
