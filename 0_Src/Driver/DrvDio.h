@@ -5,6 +5,7 @@
 /*						Include Header File						  */
 /*----------------------------------------------------------------*/
 #include "Ifx_Types.h"
+#include "IfxPort.h"
 
 /*----------------------------------------------------------------*/
 /*						Define						  			  */
@@ -24,19 +25,10 @@
 /*----------------------------------------------------------------*/
 /*						Global Function Prototype				  */
 /*----------------------------------------------------------------*/
-/*---------------------Driver API--------------------------*/
-/*Set*/
-void Drv_Set_nuDioP13_0(uint8_t param_nuDioP13_0);
-void Drv_Set_nuDioP13_1(uint8_t param_nuDioP13_1);
-void Drv_Set_nuDioP13_2(uint8_t param_nuDioP13_2);
-void Drv_Set_nuDioP13_3(uint8_t param_nuDioP13_3);
+extern void DrvDio_SetPinLow(IfxPort_Pin param_PortPin);
+extern void DrvDio_SetPinHigh(IfxPort_Pin param_PortPin);
+extern void DrvDioInit(void);
 
-/*Get*/
-uint8_t Drv_Get_nuDioP22_0(void);
-uint8_t Drv_Get_nuDioP22_1(void);
-
-/*---------------------Init Function--------------------------*/
-void DrvDioInit(void);
 
 #endif
 

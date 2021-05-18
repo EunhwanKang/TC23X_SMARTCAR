@@ -4,7 +4,7 @@
 #include "Scheduler.h"
 #include "MidStm.h"
 #include "Common.h"
-
+#include "DrvDio.h"
 /*----------------------------------------------------------------*/
 /*						Define						  			  */
 /*----------------------------------------------------------------*/
@@ -105,9 +105,18 @@ static void AppTask500ms(void)
 /*AppTask 1s*/
 static void AppTask1s(void)
 {
-	static uint32_t ulAppTask1sCounter = 0u;
+	static uint8_t ucSwitchFlag = 0u;
 
-	ulAppTask1sCounter++;
+	if(ucSwitchFlag == 0)
+    {
+		DrvDio_SetPinLow(IfxPort_P33_6);
+		ucSwitchFlag = 1u;
+    }
+	else
+	{
+		DrvDio_SetPinHigh(IfxPort_P33_6); 
+		ucSwitchFlag = 0u;
+	}	
 }
 
 
