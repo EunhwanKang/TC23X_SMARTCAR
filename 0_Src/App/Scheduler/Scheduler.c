@@ -109,12 +109,12 @@ static void AppTask1s(void)
 
 	if(ucSwitchFlag == 0)
     {
-		DrvDio_SetPinLow(IfxPort_P33_6);
+		DrvDio_SetPinLow(IfxPort_P13_0);
 		ucSwitchFlag = 1u;
     }
 	else
 	{
-		DrvDio_SetPinHigh(IfxPort_P33_6); 
+		DrvDio_SetPinHigh(IfxPort_P13_0); 
 		ucSwitchFlag = 0u;
 	}	
 }

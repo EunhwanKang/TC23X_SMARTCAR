@@ -45,8 +45,8 @@ void DrvDio_SetPinHigh(IfxPort_Pin param_PortPin)
 void DrvDioInit(void)
 {
 	/*P33_6	Digital Output*/
-    IfxPort_setPinModeOutput(IfxPort_P33_6.port, IfxPort_P33_6.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-	IfxPort_setPinLow(IfxPort_P33_6.port, IfxPort_P33_6.pinIndex);
+    IfxPort_setPinModeOutput(IfxPort_P13_0.port, IfxPort_P13_0.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+	IfxPort_setPinLow(IfxPort_P13_0.port, IfxPort_P13_0.pinIndex);
 }
 
 
