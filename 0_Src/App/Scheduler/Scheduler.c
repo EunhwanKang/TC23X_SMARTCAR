@@ -5,6 +5,8 @@
 #include "MidStm.h"
 #include "Common.h"
 #include "DrvDio.h"
+#include "ExeVerification.h"
+
 /*----------------------------------------------------------------*/
 /*						Define						  			  */
 /*----------------------------------------------------------------*/
@@ -61,51 +63,53 @@ static void AppNoTimeTask(void)
 /*AppTask 1ms*/
 static void AppTask1ms(void)
 {
-
+	CYCLE_CHECK(TASK_1MS);
 }
 
 
 /*AppTask 5ms*/
 static void AppTask5ms(void)
 {
-
+	CYCLE_CHECK(TASK_5MS);
 }
 
 
 /*AppTask 10ms*/
 static void AppTask10ms(void)
 {
-
+	CYCLE_CHECK(TASK_10MS);
 }
 
 /*AppTask 50ms*/
 static void AppTask50ms(void)
 {
-
+	CYCLE_CHECK(TASK_50MS);
 }
 
 /*AppTask 100ms*/
 static void AppTask100ms(void)
 {
-
+	CYCLE_CHECK(TASK_100MS);
 }
 
 /*AppTask 200ms*/
 static void AppTask200ms(void)
 {
-
+	CYCLE_CHECK(TASK_200MS);
 }
 
 /*AppTask 500ms*/
 static void AppTask500ms(void)
 {
-
+	CYCLE_CHECK(TASK_500MS);
 }
 
 /*AppTask 1s*/
 static void AppTask1s(void)
 {
 	static uint8_t ucSwitchFlag = 0u;
+
+	CYCLE_CHECK(TASK_1S);
 
 	if(ucSwitchFlag == 0)
     {
@@ -128,6 +132,11 @@ static void TaskSchedulerCallbackFnc(void)
 	stAppTaskInfo.ucScheduler1msFlag = ON;
 
 	if((ulScheduler1msCounter % 1u) == 0u)
+	{
+		stAppTaskInfo.ucScheduler1msFlag = ON;
+	}
+
+	if((ulScheduler1msCounter % 5u) == 0u)
 	{
 		stAppTaskInfo.ucScheduler5msFlag = ON;
 	}
@@ -182,47 +191,47 @@ void Scheduler(void)
 	{
 		stAppTaskInfo.ucScheduler1msFlag = OFF;
 		AppTask1ms();
-	}
 
-	if(stAppTaskInfo.ucScheduler5msFlag == ON)
-	{
-		stAppTaskInfo.ucScheduler5msFlag = OFF;
-		AppTask5ms();
-	}
+		if(stAppTaskInfo.ucScheduler5msFlag == ON)
+		{
+			stAppTaskInfo.ucScheduler5msFlag = OFF;
+			AppTask5ms();
+		}
 
-	if(stAppTaskInfo.ucScheduler10msFlag == ON)
-	{
-		stAppTaskInfo.ucScheduler10msFlag = OFF;
-		AppTask10ms();
-	}
+		if(stAppTaskInfo.ucScheduler10msFlag == ON)
+		{
+			stAppTaskInfo.ucScheduler10msFlag = OFF;
+			AppTask10ms();
+		}
 
-	if(stAppTaskInfo.ucScheduler50msFlag == ON)
-	{
-		stAppTaskInfo.ucScheduler50msFlag = OFF;
-		AppTask50ms();
-	}
+		if(stAppTaskInfo.ucScheduler50msFlag == ON)
+		{
+			stAppTaskInfo.ucScheduler50msFlag = OFF;
+			AppTask50ms();
+		}
 
-	if(stAppTaskInfo.ucScheduler100msFlag == ON)
-	{
-		stAppTaskInfo.ucScheduler100msFlag = OFF;
-		AppTask100ms();
-	}
+		if(stAppTaskInfo.ucScheduler100msFlag == ON)
+		{
+			stAppTaskInfo.ucScheduler100msFlag = OFF;
+			AppTask100ms();
+		}
 
-	if(stAppTaskInfo.ucScheduler200msFlag == ON)
-	{
-		stAppTaskInfo.ucScheduler200msFlag = OFF;
-		AppTask200ms();
-	}
+		if(stAppTaskInfo.ucScheduler200msFlag == ON)
+		{
+			stAppTaskInfo.ucScheduler200msFlag = OFF;
+			AppTask200ms();
+		}
 
-	if(stAppTaskInfo.ucScheduler500msFlag == ON)
-	{
-		stAppTaskInfo.ucScheduler500msFlag = OFF;
-		AppTask500ms();
-	}
+		if(stAppTaskInfo.ucScheduler500msFlag == ON)
+		{
+			stAppTaskInfo.ucScheduler500msFlag = OFF;
+			AppTask500ms();
+		}
 
-	if(stAppTaskInfo.ucScheduler1sFlag == ON)
-	{
-		stAppTaskInfo.ucScheduler1sFlag = OFF;
-		AppTask1s();
+		if(stAppTaskInfo.ucScheduler1sFlag == ON)
+		{
+			stAppTaskInfo.ucScheduler1sFlag = OFF;
+			AppTask1s();
+		}
 	}
 }

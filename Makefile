@@ -37,6 +37,7 @@ OBJCOPY 	= $(TCPREFIX)-objcopy
 #-----------------------------------------------------------------
 SRC_DIR_APP											=	./0_Src/App
 SRC_DIR_APP_SCHEDULER								=	./0_Src/App/Scheduler
+SRC_DIR_APP_EXEVERIFICATION							=	./0_Src/App/ExeVerification
 SRC_DIR_MIDDLE										=	./0_Src/Middle
 SRC_DIR_MIDDLE_TLF									= 	./0_Src/Middle/Tlf
 SRC_DIR_MIDDLE_TLF_CFGILLD							=	./0_Src/Middle/Tlf/Cfg_Illd
@@ -54,6 +55,7 @@ OBJ_DIR				= $(DEBUG_DIR)/Obj
 #-----------------------------------------------------------------    
 INCLUDE 			+= $(SRC_DIR_APP)
 INCLUDE 			+= $(SRC_DIR_APP_SCHEDULER)
+INCLUDE 			+= $(SRC_DIR_APP_EXEVERIFICATION)
 INCLUDE 			+= $(SRC_DIR_MIDDLE)
 INCLUDE 			+= $(SRC_DIR_MIDDLE_TLF)
 INCLUDE 			+= $(SRC_DIR_MIDDLE_TLF_CFGILLD)
@@ -102,6 +104,7 @@ LDFLAGS		+= -T./1_ToolEnv/0_Build/1_Config/Config_Tricore_Gnuc/Lcf_Gnuc_Tricore_
 #-----------------------------------------------------------------
 APP_SOURCE				+= 	Main.c
 APP_SOURCE				+= 	Scheduler.c
+APP_SOURCE				+= 	ExeVerification.c
 
 APP_SOURCE				+= 	MidStm.c
 
