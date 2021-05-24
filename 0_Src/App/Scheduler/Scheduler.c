@@ -6,6 +6,9 @@
 #include "Common.h"
 #include "DrvDio.h"
 #include "ExeVerification.h"
+#include "tft_app.h"
+#include "Configuration.h"
+#include "Perf_Meas.h"
 
 /*----------------------------------------------------------------*/
 /*						Define						  			  */
@@ -57,7 +60,7 @@ uint32_t ulScheduler1msCounter = 0u;
 /*NoTime Taksing*/
 static void AppNoTimeTask(void)
 {
-
+	perf_meas_idle();
 }
 
 /*AppTask 1ms*/
@@ -90,12 +93,14 @@ static void AppTask50ms(void)
 static void AppTask100ms(void)
 {
 	CYCLE_CHECK(TASK_100MS);
+	controlmenu.cpuseconds += controlmenu.cpusecondsdelta;
 }
 
 /*AppTask 200ms*/
 static void AppTask200ms(void)
 {
 	CYCLE_CHECK(TASK_200MS);
+	IfxSrc_setRequest(&TFT_UPDATE_IRQ);    /*trigger the tft lib*/
 }
 
 /*AppTask 500ms*/
@@ -219,7 +224,7 @@ void Scheduler(void)
 		if(stAppTaskInfo.ucScheduler200msFlag == ON)
 		{
 			stAppTaskInfo.ucScheduler200msFlag = OFF;
-			AppTask200ms();
+			AppTask200ms();			
 		}
 
 		if(stAppTaskInfo.ucScheduler500msFlag == ON)

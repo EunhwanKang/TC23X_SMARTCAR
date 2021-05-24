@@ -4,6 +4,7 @@
 #include "Main.h"
 #include "DrvSys.h"
 #include "Scheduler.h"
+#include "DrvTlf.h"
 
 /*----------------------------------------------------------------*/
 /*						Define						  			  */
@@ -20,6 +21,7 @@
 /*----------------------------------------------------------------*/
 /*						Variables				  				  */
 /*----------------------------------------------------------------*/
+App_Cpu g_AppCpu0;
 
 /*----------------------------------------------------------------*/
 /*						Functions				  				  */
@@ -36,6 +38,8 @@ int main(void)
 
     /*Enable the global interrupts of this CPU*/
     IfxCpu_enableInterrupts();
+
+	DrvTlfInit();
 
     while(1u)
     {

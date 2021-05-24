@@ -47,6 +47,17 @@ void DrvDioInit(void)
 	/*P33_6	Digital Output*/
     IfxPort_setPinModeOutput(IfxPort_P13_0.port, IfxPort_P13_0.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
 	IfxPort_setPinLow(IfxPort_P13_0.port, IfxPort_P13_0.pinIndex);
+
+    /*CS to touch*/
+    IfxPort_setPinModeInput(TOUCH_USE_CHIPSELECT.pin.port, TOUCH_USE_CHIPSELECT.pin.pinIndex, IfxPort_Mode_inputPullUp);
+    /*CS to tft*/
+    IfxPort_setPinModeInput(TFT_USE_CHIPSELECT.pin.port, TFT_USE_CHIPSELECT.pin.pinIndex, IfxPort_Mode_inputPullUp);
+    /*INT from touch*/
+    IfxPort_setPinModeInput(TOUCH_USE_INT.port, TOUCH_USE_INT.pinIndex, IfxPort_Mode_inputPullUp);
+
+    /* we enable the background light Application Kit */
+    IfxPort_setPinModeOutput(BACKGROUND_LIGHT.pin.port, BACKGROUND_LIGHT.pin.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_alt1);
+
 }
 
 

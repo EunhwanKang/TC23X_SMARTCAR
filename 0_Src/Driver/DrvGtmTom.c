@@ -98,8 +98,8 @@ uint32_t u32nuMyTestPwmDuty = 500u; /*Unit: 0.1%, 500 -> 50.0% duty*/
 /*----------------------------------------------------------------*/
 
 /*---------------------Interrupt Define--------------------------*/
-IFX_INTERRUPT(ISR_Timer_10ms, 0, ISR_PRIORITY_TIMER_10MS);
-IFX_INTERRUPT(ISR_Timer, 0, ISR_PRIORITY_TIMER);
+//IFX_INTERRUPT(ISR_Timer_10ms, 0, ISR_PRIORITY_TIMER_10MS);
+//IFX_INTERRUPT(ISR_Timer, 0, ISR_PRIORITY_TIMER);
 
 
 /*Interrupt Isr*/
