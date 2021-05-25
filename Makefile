@@ -39,12 +39,12 @@ SRC_DIR_APP											=	./0_Src/App
 SRC_DIR_APP_SCHEDULER								=	./0_Src/App/Scheduler
 SRC_DIR_APP_EXEVERIFICATION							=	./0_Src/App/ExeVerification
 SRC_DIR_MIDDLE										=	./0_Src/Middle
-SRC_DIR_MIDDLE_TLF									= 	./0_Src/Middle/Tlf
-SRC_DIR_MIDDLE_TLF_CFGILLD							=	./0_Src/Middle/Tlf/Cfg_Illd
-SRC_DIR_MIDDLE_TLF_TFTAPP							= 	./0_Src/Middle/Tlf/TftApp
-SRC_DIR_MIDDLE_TLF_CDRV_TRICORE_QSPI				= 	./0_Src/Middle/Tlf/CDrv/Tricore/Qspi
-SRC_DIR_MIDDLE_TLF_CDRV_TRICORE_TFT					= 	./0_Src/Middle/Tlf/CDrv/Tricore/Tft
-SRC_DIR_MIDDLE_TLF_CDRV_TRICORE						= 	./0_Src/Middle/Tlf/CDrv/Tricore
+SRC_DIR_MIDDLE_TFT									= 	./0_Src/Middle/Tft
+SRC_DIR_MIDDLE_TFT_CFGILLD							=	./0_Src/Middle/Tft/Cfg_Illd
+SRC_DIR_MIDDLE_TFT_TFTAPP							= 	./0_Src/Middle/Tft/TftApp
+SRC_DIR_MIDDLE_TFT_CDRV_TRICORE_QSPI				= 	./0_Src/Middle/Tft/CDrv/Tricore/Qspi
+SRC_DIR_MIDDLE_TFT_CDRV_TRICORE_TFT					= 	./0_Src/Middle/Tft/CDrv/Tricore/Tft
+SRC_DIR_MIDDLE_TFT_CDRV_TRICORE						= 	./0_Src/Middle/Tft/CDrv/Tricore
 SRC_DIR_DRIVER										=	./0_Src/Driver
 
 DEBUG_DIR			= ./Debug
@@ -57,12 +57,12 @@ INCLUDE 			+= $(SRC_DIR_APP)
 INCLUDE 			+= $(SRC_DIR_APP_SCHEDULER)
 INCLUDE 			+= $(SRC_DIR_APP_EXEVERIFICATION)
 INCLUDE 			+= $(SRC_DIR_MIDDLE)
-INCLUDE 			+= $(SRC_DIR_MIDDLE_TLF)
-INCLUDE 			+= $(SRC_DIR_MIDDLE_TLF_CFGILLD)
-INCLUDE 			+= $(SRC_DIR_MIDDLE_TLF_TFTAPP)
-INCLUDE 			+= $(SRC_DIR_MIDDLE_TLF_CDRV_TRICORE_QSPI)
-INCLUDE 			+= $(SRC_DIR_MIDDLE_TLF_CDRV_TRICORE_TFT)
-INCLUDE 			+= $(SRC_DIR_MIDDLE_TLF_CDRV_TRICORE)
+INCLUDE 			+= $(SRC_DIR_MIDDLE_TFT)
+INCLUDE 			+= $(SRC_DIR_MIDDLE_TFT_CFGILLD)
+INCLUDE 			+= $(SRC_DIR_MIDDLE_TFT_TFTAPP)
+INCLUDE 			+= $(SRC_DIR_MIDDLE_TFT_CDRV_TRICORE_QSPI)
+INCLUDE 			+= $(SRC_DIR_MIDDLE_TFT_CDRV_TRICORE_TFT)
+INCLUDE 			+= $(SRC_DIR_MIDDLE_TFT_CDRV_TRICORE)
 INCLUDE 			+= $(SRC_DIR_DRIVER)
 
 #-----------------------------------------------------------------
@@ -116,7 +116,7 @@ APP_SOURCE				+= 	DrvAdc.c
 APP_SOURCE				+= 	DrvAsc.c
 APP_SOURCE				+= 	DrvGtmTom.c
 
-APP_SOURCE				+= 	DrvTlf.c
+APP_SOURCE				+= 	TftMain.c
 APP_SOURCE				+= 	Qspi0.c
 APP_SOURCE				+= 	conio_tft.c
 APP_SOURCE				+= 	fifo.c

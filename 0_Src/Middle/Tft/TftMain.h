@@ -1,5 +1,5 @@
-#ifndef DRVTLF_H
-#define DRVTLF_H
+#ifndef TFTMAIN_H
+#define TFTMAIN_H
 
 /*----------------------------------------------------------------*/
 /*						Include Header File						  */
@@ -24,7 +24,8 @@
 /*----------------------------------------------------------------*/
 /*						Global Function Prototype				  */
 /*----------------------------------------------------------------*/
-void DrvTlfInit(void);
+extern void Tft_Init(void);
+
 
 
 

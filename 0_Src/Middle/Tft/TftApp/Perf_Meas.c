@@ -13,6 +13,7 @@
 #include "Perf_Meas.h"
 #include <Gtm/Tom/Timer/IfxGtm_Tom_Timer.h>
 #include "Main.h"
+#include "ExeVerification.h"
 
 /******************************************************************************/
 /*------------------------Inline Function Prototypes--------------------------*/
@@ -209,11 +210,19 @@ void ISR_perf_meas_call(void)
     {
         if (cpu_load < 0.0f) cpu_load = 0.0f;
     	conio_ascii_printfxy (DISPLAY_IO1, 1,  2, (uint8 *)"CPU0 Load %.3f %c ", cpu_load, 0x25);
-//        conio_ascii_printfxy (DISPLAY_IO1, 1,  3, (uint8 *)"CPU0 Idle Counter-Diff %.10u ", counter_diff);
-//        conio_ascii_printfxy (DISPLAY_IO1, 1,  4, (uint8 *)"CPU0 in use for %.3e Cycles/s ", g_AppCpu0.info.cpuFreq/100.0f*cpu_load);
+		conio_ascii_printfxy (DISPLAY_IO1, 1,  3, (uint8 *)"Task1Ms Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_1MS]);
+		conio_ascii_printfxy (DISPLAY_IO1, 1,  4, (uint8 *)"Task5Ms Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_5MS]);
+		conio_ascii_printfxy (DISPLAY_IO1, 1,  5, (uint8 *)"Task10Ms Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_10MS]);
+		conio_ascii_printfxy (DISPLAY_IO1, 1,  6, (uint8 *)"Task50Ms Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_50MS]);
+		conio_ascii_printfxy (DISPLAY_IO1, 1,  7, (uint8 *)"Task100Ms Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_100MS]);
+		conio_ascii_printfxy (DISPLAY_IO1, 1,  8, (uint8 *)"Task200Ms Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_200MS]);
+		conio_ascii_printfxy (DISPLAY_IO1, 1,  9, (uint8 *)"Task500Ms Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_500MS]);
+		conio_ascii_printfxy (DISPLAY_IO1, 1,  10, (uint8 *)"Task1s Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_1S]);
+
         CpuLoad0.counter_diff = counter_diff;
         CpuLoad0.cpu_load = cpu_load;
     }
+
 #if IFXCPU_NUM_MODULES > 1
     counter_diff = act_cpu1_idle_counter-cpu1_last_count_value;
     cpu1_last_count_value = act_cpu1_idle_counter;

@@ -4,7 +4,7 @@
 #include "Main.h"
 #include "DrvSys.h"
 #include "Scheduler.h"
-#include "DrvTlf.h"
+#include "TftMain.h"
 
 /*----------------------------------------------------------------*/
 /*						Define						  			  */
@@ -39,7 +39,8 @@ int main(void)
     /*Enable the global interrupts of this CPU*/
     IfxCpu_enableInterrupts();
 
-	DrvTlfInit();
+	/*TLF Init*/
+	Tft_Init();
 
     while(1u)
     {

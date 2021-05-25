@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------*/
 /*						Include Header File						  */
 /*----------------------------------------------------------------*/
-#include "DrvTlf.h"
+#include "TftMain.h"
 #include <background_light.h>
 #include "Configuration.h"
 #include <Tft/conio_tft.h>
@@ -35,7 +35,7 @@
 /*----------------------------------------------------------------*/
 
 /*---------------------Init Function--------------------------*/
-void DrvTlfInit(void)
+void Tft_Init(void)
 {
 	/* Initialise the application state */
 	g_AppCpu0.info.pllFreq = IfxScuCcu_getPllFrequency();

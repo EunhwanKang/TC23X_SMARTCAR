@@ -35,7 +35,7 @@ typedef struct
 	uint8_t ucCycleFlag[TASK_NUMBER];
 	uint32_t ulCycleStartCnt[TASK_NUMBER];
 	uint32_t ulCycleEndCnt[TASK_NUMBER]; 
-	uint32_t fCycleTaskMs[TASK_NUMBER];
+	float32_t fCycleTaskMs[TASK_NUMBER];
 }CycleInfo;
 
 /*----------------------------------------------------------------*/
