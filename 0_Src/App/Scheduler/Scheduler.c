@@ -9,6 +9,7 @@
 #include "tft_app.h"
 #include "Configuration.h"
 #include "Perf_Meas.h"
+#include "DrvGtmTom.h"
 
 /*----------------------------------------------------------------*/
 /*						Define						  			  */
@@ -87,6 +88,7 @@ static void AppTask10ms(void)
 static void AppTask50ms(void)
 {
 	CYCLE_CHECK(TASK_50MS);
+	GtmTomMyPwmTest();
 }
 
 /*AppTask 100ms*/
