@@ -58,6 +58,23 @@ void DrvDioInit(void)
     /* we enable the background light Application Kit */
     IfxPort_setPinModeOutput(BACKGROUND_LIGHT.pin.port, BACKGROUND_LIGHT.pin.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_alt1);
 
+	/*P02_0	Digital Output*/
+    IfxPort_setPinModeOutput(IfxPort_P02_0.port, IfxPort_P02_0.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+	IfxPort_setPinLow(IfxPort_P02_0.port, IfxPort_P02_0.pinIndex);
+
+	/*P02_2	Digital Output*/
+    IfxPort_setPinModeOutput(IfxPort_P02_2.port, IfxPort_P02_2.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+	IfxPort_setPinLow(IfxPort_P02_2.port, IfxPort_P02_2.pinIndex);
+
+	/*P02_4	Digital Output*/
+    IfxPort_setPinModeOutput(IfxPort_P02_4.port, IfxPort_P02_4.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+	IfxPort_setPinLow(IfxPort_P02_4.port, IfxPort_P02_4.pinIndex);
+
+	/*P02_6	Digital Output*/
+    IfxPort_setPinModeOutput(IfxPort_P02_6.port, IfxPort_P02_6.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+	IfxPort_setPinLow(IfxPort_P02_6.port, IfxPort_P02_6.pinIndex);
+
+
 }
 
 
