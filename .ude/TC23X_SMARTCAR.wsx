@@ -3,7 +3,7 @@
 	<OriginalWsp type="string">TC23X_SMARTCAR.wsx</OriginalWsp>
 	<BackupWspFlag type="flag">0</BackupWspFlag>
 	<UseWspCnt type="int">0</UseWspCnt>
-	<WspCloseCnt type="int">1</WspCloseCnt>
+	<WspCloseCnt type="int">0</WspCloseCnt>
 	<ProdInfo type="bin" size="52">vQTv/gAAAQABAAMAqR8BAAoABAAAAAAAPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAA==</ProdInfo>
 	<ProdInfoString type="string">4.10</ProdInfoString>
 	<CreationDate type="string">11.05.2021 23:33:26:000</CreationDate>

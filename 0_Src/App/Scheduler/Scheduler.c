@@ -10,6 +10,7 @@
 #include "Configuration.h"
 #include "Perf_Meas.h"
 #include "DrvGtmTom.h"
+#include "DrvAsc.h"
 
 /*----------------------------------------------------------------*/
 /*						Define						  			  */
@@ -82,6 +83,7 @@ static void AppTask5ms(void)
 static void AppTask10ms(void)
 {
 	CYCLE_CHECK(TASK_10MS);
+	DrvAsc_Test1();
 }
 
 /*AppTask 50ms*/

@@ -24,16 +24,8 @@
 /*----------------------------------------------------------------*/
 /*						Global Function Prototype				  */
 /*----------------------------------------------------------------*/
-/*---------------------Driver API--------------------------*/
-void AsclinShellInterface_run(void);
-void AscPrintf(pchar format, ...);
-
-/*---------------------Test Code--------------------------*/
-void AscSerialPlotTest(void);
-
-/*---------------------Init Function--------------------------*/
-void DrvAscInit(void);
-
+extern void DrvAscInit(void);
+extern void DrvAsc_Test1(void);
 #endif
 
 
