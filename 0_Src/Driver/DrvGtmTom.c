@@ -49,6 +49,7 @@ typedef struct
 /*----------------------------------------------------------------*/
 static void GtmTomTimer_initTimer(void);
 static void GtmTomTestPwm_init(void);
+static void GtmTimInit(void);
 
 /*----------------------------------------------------------------*/
 /*						Variables				  				  */
@@ -63,6 +64,7 @@ float32_t fMyTestPwmDuty = 0.5f;
 
 /*---------------------Interrupt Define--------------------------*/
 IFX_INTERRUPT(ISR_Timer_10ms, 0, ISR_PRIORITY_TIMER_10MS);
+IFX_INTERRUPT(ISR_TIM00_TEST, 0, 200);
 
 
 /*Interrupt Isr*/
@@ -72,6 +74,13 @@ void ISR_Timer_10ms(void)
 
     IfxGtm_Tom_Timer_acknowledgeTimerIrq(&g_GtmTomTimer.drivers.timerOneMs);
     g_GtmTomTimer.isrCounter.slotOneMs++;
+}
+
+void ISR_TIM00_TEST(void)
+{
+	static uint32_t ulTim00Cnt = 0u;
+    IfxCpu_enableInterrupts();
+	ulTim00Cnt++;
 }
 
 /*---------------------Test Code--------------------------*/
@@ -93,6 +102,7 @@ void GtmTomMyPwmTest(void)
 void DrvGtmTomInit(void)
 {
 	GtmTomTestPwm_init();
+	GtmTimInit();
 }
 
 static void GtmTomTimer_initTimer(void)
@@ -156,4 +166,30 @@ static void GtmTomTestPwm_init(void)
 
 	/*enable Cmu clock*/
     IfxGtm_Cmu_enableClocks(gtm, IFXGTM_CMU_CLKEN_FXCLK | IFXGTM_CMU_CLKEN_CLK0);
+}
+
+static void GtmTimInit(void)
+{
+	float32_t temp = 0.0f;
+	
+	IfxGtm_PinMap_setTimTin(&IfxGtm_TIM0_0_TIN26_P33_4_IN, IfxPort_InputMode_pullUp);
+
+	GTM_TIM0_CH0_CTRL.B.TIM_MODE = 2u; 
+	GTM_TIM0_CH0_CTRL.B.ISL = 0u;
+	GTM_TIM0_CH0_CTRL.B.DSL = 0u;
+
+	GTM_TIM0_CH0_CTRL.B.FLT_EN = 1;
+	temp = 2.0f * PWM_FREQ;
+
+	GTM_TIM0_CH0_FLT_FE.B.FLT_FE = (uint32_t)temp;
+	GTM_TIM0_CH0_CTRL.B.FLT_MODE_FE = (uint8_t)IfxGtm_Tim_FilterMode_individualDeglitchTime;
+	GTM_TIM0_CH0_CTRL.B.FLT_CTR_FE = (uint8_t)IfxGtm_Tim_FilterCounter_upDown;
+
+	SRC_GTMTIM00.B.SRE = 1;
+	SRC_GTMTIM00.B.SRPN = 200u;
+	GTM_TIM0_CH0_CNT.U = 0;
+	GTM_TIM0_CH0_IRQ_EN.U = 0x1;
+	GTM_TIM0_CH0_CTRL.B.TIM_EN = 1;
+	GTM_IRQ_MODE.B.IRQ_MODE = 2;
+	GTM_TIM0_CH0_IRQ_MODE.B.IRQ_MODE = 2;	
 }
