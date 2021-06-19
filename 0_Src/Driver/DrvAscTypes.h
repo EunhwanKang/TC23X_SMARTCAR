@@ -13,8 +13,8 @@
 #define ASC_TX_BUFFER_SIZE 64
 #define ASC_RX_BUFFER_SIZE 64
 
-#define ISR_PRIORITY_ASC_0_RX 4
-#define ISR_PRIORITY_ASC_0_TX 5
+#define ISR_PRIORITY_ASC_0_RX 167
+#define ISR_PRIORITY_ASC_0_TX 168
 #define ISR_PRIORITY_ASC_0_EX 6
 
 /*----------------------------------------------------------------*/

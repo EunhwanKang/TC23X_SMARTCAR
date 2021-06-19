@@ -11,6 +11,7 @@
 #include "Perf_Meas.h"
 #include "DrvGtmTom.h"
 #include "DrvAsc.h"
+#include "MotorControl.h"
 
 /*----------------------------------------------------------------*/
 /*						Define						  			  */
@@ -54,6 +55,7 @@ static void TaskSchedulerCallbackFnc(void);
 AppTask stAppTaskInfo;
 uint32_t ulScheduler1msCounter = 0u;
 
+extern uint32_t gu32nuAscRxData;
 /*----------------------------------------------------------------*/
 /*						Functions				  				  */
 /*----------------------------------------------------------------*/
@@ -82,8 +84,41 @@ static void AppTask5ms(void)
 /*AppTask 10ms*/
 static void AppTask10ms(void)
 {
+	uint8_t ucTemp = 0u;
+
 	CYCLE_CHECK(TASK_10MS);
-	DrvAsc_Test1();
+
+	ucTemp = (uint8_t)gu32nuAscRxData;
+
+	if(ucTemp == 'w')
+    {
+    	Unit_MotorFrontDirectionCtl(1u);
+		Unit_MotorRearDirectionCtl(1u);
+    }
+	else if(ucTemp == 'd')
+	{
+    	Unit_MotorFrontDirectionCtl(2u);	
+		Unit_MotorRearDirectionCtl(2u);
+	}
+	else if(ucTemp == 'a')
+	{
+    	Unit_MotorFrontDirectionCtl(3u);	
+		Unit_MotorRearDirectionCtl(3u);
+	}
+	else if(ucTemp == 's')
+	{
+    	Unit_MotorFrontDirectionCtl(0u);	
+		Unit_MotorRearDirectionCtl(0u);
+	}	
+	else if(ucTemp == 'x')
+	{
+    	Unit_MotorFrontDirectionCtl(4u);	
+		Unit_MotorRearDirectionCtl(4u);
+	}
+	else
+	{
+		/*No Code*/
+	}	
 }
 
 /*AppTask 50ms*/
@@ -115,21 +150,8 @@ static void AppTask500ms(void)
 
 /*AppTask 1s*/
 static void AppTask1s(void)
-{
-	static uint8_t ucSwitchFlag = 0u;
-
+{	
 	CYCLE_CHECK(TASK_1S);
-
-	if(ucSwitchFlag == 0)
-    {
-		DrvDio_SetPinLow(IfxPort_P13_0);
-		ucSwitchFlag = 1u;
-    }
-	else
-	{
-		DrvDio_SetPinHigh(IfxPort_P13_0); 
-		ucSwitchFlag = 0u;
-	}	
 }
 
 

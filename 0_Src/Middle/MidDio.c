@@ -34,11 +34,11 @@ void MidDio_SetFrontIn1(uint8_t param_SetIn1)
 {
 	if(param_SetIn1 == 0u)
     {
-		DrvDio_SetPinLow(IfxPort_P02_0);
+		DrvDio_SetPinLow(IfxPort_P33_5);
 	}
 	else
     {
-		DrvDio_SetPinHigh(IfxPort_P02_0);
+		DrvDio_SetPinHigh(IfxPort_P33_5);
 	}
 }
 
@@ -46,11 +46,11 @@ void MidDio_SetFrontIn2(uint8_t param_SetIn2)
 {
 	if(param_SetIn2 == 0u)
     {
-		DrvDio_SetPinLow(IfxPort_P02_2);
+		DrvDio_SetPinLow(IfxPort_P33_3);
 	}
 	else
     {
-		DrvDio_SetPinHigh(IfxPort_P02_2);
+		DrvDio_SetPinHigh(IfxPort_P33_3);
 	}
 }
 
@@ -58,11 +58,11 @@ void MidDio_SetFrontIn3(uint8_t param_SetIn3)
 {
 	if(param_SetIn3 == 0u)
     {
-		DrvDio_SetPinLow(IfxPort_P02_4);
+		DrvDio_SetPinLow(IfxPort_P33_1);
 	}
 	else
     {
-		DrvDio_SetPinHigh(IfxPort_P02_4);
+		DrvDio_SetPinHigh(IfxPort_P33_1);
 	}
 }
 
@@ -70,11 +70,11 @@ void MidDio_SetFrontIn4(uint8_t param_SetIn4)
 {
 	if(param_SetIn4 == 0u)
     {
-		DrvDio_SetPinLow(IfxPort_P02_6);
+		DrvDio_SetPinLow(IfxPort_P33_8);
 	}
 	else
     {
-		DrvDio_SetPinHigh(IfxPort_P02_6);
+		DrvDio_SetPinHigh(IfxPort_P33_8);
 	}
 }
 

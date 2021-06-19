@@ -74,6 +74,22 @@ void DrvDioInit(void)
     IfxPort_setPinModeOutput(IfxPort_P02_6.port, IfxPort_P02_6.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
 	IfxPort_setPinLow(IfxPort_P02_6.port, IfxPort_P02_6.pinIndex);
 
+	/*P33_5	Digital Output*/
+    IfxPort_setPinModeOutput(IfxPort_P33_5.port, IfxPort_P33_5.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+	IfxPort_setPinLow(IfxPort_P33_5.port, IfxPort_P33_5.pinIndex);
+
+	/*P33_3	Digital Output*/
+    IfxPort_setPinModeOutput(IfxPort_P33_3.port, IfxPort_P33_3.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+	IfxPort_setPinLow(IfxPort_P33_3.port, IfxPort_P33_3.pinIndex);
+
+	/*P33_1	Digital Output*/
+    IfxPort_setPinModeOutput(IfxPort_P33_1.port, IfxPort_P33_1.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+	IfxPort_setPinLow(IfxPort_P33_1.port, IfxPort_P33_1.pinIndex);
+
+	/*P33_8	Digital Output*/
+    IfxPort_setPinModeOutput(IfxPort_P33_8.port, IfxPort_P33_8.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+	IfxPort_setPinLow(IfxPort_P33_8.port, IfxPort_P33_8.pinIndex);
+
 
 }
 

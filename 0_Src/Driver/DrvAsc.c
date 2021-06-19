@@ -46,7 +46,7 @@ void ASCRxInt0Handler(void)
 	IfxAsclin_Asc_read(&g_AsclinAsc.drivers.asc0, g_AsclinAsc.rxData, &g_AsclinAsc.count, TIME_INFINITE);	
 	gu32nuAscRxData = g_AsclinAsc.rxData[0];
 
-	#if 0
+	#if 1
     g_AsclinAsc.txData[0] = gu32nuAscRxData;    
     IfxAsclin_Asc_write(&g_AsclinAsc.drivers.asc0, g_AsclinAsc.txData, &g_AsclinAsc.count, TIME_INFINITE);
 	#endif
@@ -71,7 +71,7 @@ static void DrvAsc0Init(void)
 
     /* set the desired baudrate */
     ascConfig.baudrate.prescaler    = 1;
-    ascConfig.baudrate.baudrate     = 115200; /* FDR values will be calculated in initModule */
+    ascConfig.baudrate.baudrate     = 9600; /* FDR values will be calculated in initModule */
     ascConfig.baudrate.oversampling = IfxAsclin_OversamplingFactor_4;
 
     /* ISR priorities and interrupt target */
@@ -99,14 +99,18 @@ static void DrvAsc0Init(void)
 
     /* initialize module */
     IfxAsclin_Asc_initModule(&g_AsclinAsc.drivers.asc0, &ascConfig);
+
+    g_AsclinAsc.count = 1;
+    
+    /* Transmit data */
+    IfxAsclin_Asc_write(&g_AsclinAsc.drivers.asc0, g_AsclinAsc.txData, &g_AsclinAsc.count, TIME_INFINITE);
 }
 
 /*---------------------Driver API--------------------------*/
 void DrvAsc_Test1(void)
 {
     g_AsclinAsc.count = 1;
-    g_AsclinAsc.txData[0] = 'a';    
- 
+    
     /* Transmit data */
     IfxAsclin_Asc_write(&g_AsclinAsc.drivers.asc0, g_AsclinAsc.txData, &g_AsclinAsc.count, TIME_INFINITE);
 }

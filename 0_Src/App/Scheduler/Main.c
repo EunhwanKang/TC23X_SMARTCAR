@@ -5,6 +5,7 @@
 #include "DrvSys.h"
 #include "Scheduler.h"
 #include "TftMain.h"
+#include "DrvAsc.h"
 
 /*----------------------------------------------------------------*/
 /*						Define						  			  */
@@ -41,7 +42,7 @@ int main(void)
 
 	/*TLF Init*/
 	Tft_Init();
-
+	
     while(1u)
     {
     	Scheduler();

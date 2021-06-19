@@ -102,7 +102,7 @@ void GtmTomMyPwmTest(void)
 void DrvGtmTomInit(void)
 {
 	GtmTomTestPwm_init();
-	GtmTimInit();
+	//GtmTimInit();
 }
 
 static void GtmTomTimer_initTimer(void)
