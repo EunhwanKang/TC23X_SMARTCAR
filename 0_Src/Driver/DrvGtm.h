@@ -1,5 +1,5 @@
-#ifndef DRVGTMTOM_H
-#define DRVGTMTOM_H
+#ifndef DRVGTM_H
+#define DRVGTM_H
 
 /*----------------------------------------------------------------*/
 /*						Include Header File						  */
@@ -25,11 +25,11 @@
 /*						Global Function Prototype				  */
 /*----------------------------------------------------------------*/
 /*---------------------Test Code--------------------------*/
-void GtmTomMyPwmTest(void);
-void GtmTomPwmHl_run(void);
+
 
 /*---------------------Init Function--------------------------*/
-void DrvGtmTomInit(void);
+extern void DrvGtmInit(void);
+extern void DrvGtmPwmTest(float32_t param_Ch4Duty, float32_t param_Ch5Duty, float32_t param_Ch6Duty, float32_t param_Ch7Duty);
 
 
 

@@ -45,38 +45,38 @@ extern void keyboard (sint16 x, sint16 y);
 /*------------------------------Global variables------------------------------*/
 /******************************************************************************/
 #if TFT_DISPLAY_VAR_LOCATION == 0
-	#if defined(__GNUC__)
-	#pragma section ".bss_cpu0" awc0
-	#endif
-	#if defined(__TASKING__)
-	#pragma section farbss "bss_cpu0"
-	#pragma section fardata "data_cpu0"
-	#endif
-	#if defined(__DCC__)
-	#pragma section DATA ".data_cpu0" ".bss_cpu0" far-absolute RW
-	#endif
+    #if defined(__GNUC__)
+    #pragma section ".bss_cpu0" awc0
+    #endif
+    #if defined(__TASKING__)
+    #pragma section farbss "bss_cpu0"
+    #pragma section fardata "data_cpu0"
+    #endif
+    #if defined(__DCC__)
+    #pragma section DATA ".data_cpu0" ".bss_cpu0" far-absolute RW
+    #endif
 #elif TFT_DISPLAY_VAR_LOCATION == 1
-	#if defined(__GNUC__)
-	#pragma section ".bss_cpu1" awc1
-	#endif
-	#if defined(__TASKING__)
-	#pragma section farbss "bss_cpu1"
-	#pragma section fardata "data_cpu1"
-	#endif
-	#if defined(__DCC__)
-	#pragma section DATA ".data_cpu1" ".bss_cpu1" far-absolute RW
-	#endif
+    #if defined(__GNUC__)
+    #pragma section ".bss_cpu1" awc1
+    #endif
+    #if defined(__TASKING__)
+    #pragma section farbss "bss_cpu1"
+    #pragma section fardata "data_cpu1"
+    #endif
+    #if defined(__DCC__)
+    #pragma section DATA ".data_cpu1" ".bss_cpu1" far-absolute RW
+    #endif
 #elif TFT_DISPLAY_VAR_LOCATION == 2
-	#if defined(__GNUC__)
-	#pragma section ".bss_cpu2" awc2
-	#endif
-	#if defined(__TASKING__)
-	#pragma section farbss "bss_cpu2"
-	#pragma section fardata "data_cpu2"
-	#endif
-	#if defined(__DCC__)
-	#pragma section DATA ".data_cpu2" ".bss_cpu2" far-absolute RW
-	#endif
+    #if defined(__GNUC__)
+    #pragma section ".bss_cpu2" awc2
+    #endif
+    #if defined(__TASKING__)
+    #pragma section farbss "bss_cpu2"
+    #pragma section fardata "data_cpu2"
+    #endif
+    #if defined(__DCC__)
+    #pragma section DATA ".data_cpu2" ".bss_cpu2" far-absolute RW
+    #endif
 #else
 #error "Set TFT_DISPLAY_VAR_LOCATION to a valid value!"
 #endif
@@ -172,8 +172,8 @@ void tft_appl_init (uint8 RtcRunning)
 IFX_INTERRUPT (cpu_service0Irq, 0, ISR_PRIORITY_CPUSRV0)
 {
 
-	__enable();
-	if (tft_ready == 0) return;
+    __enable();
+    if (tft_ready == 0) return;
     touch_periodic ();
     conio_periodic (touch_driver.xdisp, touch_driver.ydisp, conio_driver.pmenulist, conio_driver.pstdlist);
     conio_driver.blinky += 1;

@@ -236,9 +236,9 @@ typedef struct
  * Framework has built in Trap Service Routines, which has minimal set of debug information.
  * The execution of trap service is as below,\n
  * 1) When a trap occurs, a variable "trapInfo" is updated with the information:\n
- * 		a. Which CPU caused this trap,\n
- *  	b. What is the trap address, trap class and\n
- *  	c. What is the trap identification number\n
+ *         a. Which CPU caused this trap,\n
+ *      b. What is the trap address, trap class and\n
+ *      c. What is the trap identification number\n
  * 2) Call to a configurable hook function, passing structure trapInfo as parameter.\n
  * 3) Then debug instruction executed.\n
  * 4) Returning from the trap. (This instruction is not reached if debugger is connected because of

@@ -144,12 +144,12 @@
  *
  *     // pin configuration, in case of multi input capture mode select the respective CC6xIn and CCPOSxIn pins of the selected channel
  *     const IfxCcu6_Icu_Pins pins = {
- *         IfxCcu60_CC60INA_P02_0_IN,	// CC60In pin
- *         NULL,	// CC61In pin not used
- *         NULL,	// CC62In pin not used
- *         NULL,	// CCPOS0In pin not used
- *         NULL,	// CCPOS1In pin not used
- *         NULL,	// CCPOS2In pin not used
+ *         IfxCcu60_CC60INA_P02_0_IN,    // CC60In pin
+ *         NULL,    // CC61In pin not used
+ *         NULL,    // CC62In pin not used
+ *         NULL,    // CCPOS0In pin not used
+ *         NULL,    // CCPOS1In pin not used
+ *         NULL,    // CCPOS2In pin not used
  *         IfxPort_InputMode_pullUp,
  *         IfxPort_InputMode_pullUp
  *     };

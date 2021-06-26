@@ -65,7 +65,7 @@ float32 ymax;               // is equal to coordinate TERMINAL_MAXY-1
 
 typedef struct TOUCH_DRIVER
 {
-	uint32 time;
+    uint32 time;
     uint32 prev_time;
     uint32 prev_time_down;
     uint32 bounce_limit;

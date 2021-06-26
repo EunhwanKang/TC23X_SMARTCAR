@@ -48,50 +48,50 @@
 
 /** Function call without return
  */
-#define __non_return_call(fun)	__asm__ volatile ("ji %0"::"a"(fun))
+#define __non_return_call(fun)    __asm__ volatile ("ji %0"::"a"(fun))
 
 /** Jump and link
  */
 IFX_INLINE void __jump_and_link(void (*fun)(void))
 {
-	__asm__ volatile ("jli %0"::"a"(fun));
+    __asm__ volatile ("jli %0"::"a"(fun));
 }
 
 IFX_INLINE void __moveToDataParam0(unsigned int var)
 {
-	__asm__ volatile ("mov\t %%d4, %0"::"d"(var));
+    __asm__ volatile ("mov\t %%d4, %0"::"d"(var));
 }
 
 IFX_INLINE void __moveToDataParamRet(unsigned int var)
 {
-	__asm__ volatile ("mov\t %%d2, %0"::"d"(var));
+    __asm__ volatile ("mov\t %%d2, %0"::"d"(var));
 }
 
 IFX_INLINE unsigned int __getDataParamRet(void)
 {
-	unsigned int var;
-	__asm__ volatile (" mov\t %0, %%d2":"=d"(var));
-	return var;
+    unsigned int var;
+    __asm__ volatile (" mov\t %0, %%d2":"=d"(var));
+    return var;
 }
 
 IFX_INLINE void __moveToAddrParam0(const void *var)
 {
-	__asm__ volatile ("mov.aa\t %%a4, %0"::"a"(var));
+    __asm__ volatile ("mov.aa\t %%a4, %0"::"a"(var));
 }
 
 IFX_INLINE void __jumpToFunction(const void *fun)
 {
-	__non_return_call(fun);
+    __non_return_call(fun);
 }
 
 IFX_INLINE void __jumpToFunctionWithLink(const void *fun)
 {
-	__jump_and_link((void (*)(void))fun);
+    __jump_and_link((void (*)(void))fun);
 }
 
 IFX_INLINE void __jumpBackToLink(void)
 {
-	__asm__ volatile ("ji %a11");
+    __asm__ volatile ("ji %a11");
 }
 /** \defgroup IfxLld_Cpu_Intrinsics_Gnuc_any_type Cross type arithmetic operation
  *
@@ -321,7 +321,7 @@ IFX_INLINE sfract __round16(fract a)
     __asm__ volatile ("mov.u  %0,0x8000        \n\
                     adds  %0,%1              \n\
                     insert  %0,%0,0,0,0x10 \n\
-					sh  %0,%0,-16"
+                    sh  %0,%0,-16"
                       :"=&d"(res):"d"(a):"memory");
     return res;
 }
@@ -1554,7 +1554,7 @@ IFX_INLINE uint32 IfxCpu_calculateCrc32(uint32 *startaddress, uint8 length)
     uint32 returnvalue = 0; /* set seed value to 0 */
     for (;length > 0; length--) 
     { 
-    	  /* calculate the CRC over all data */
+          /* calculate the CRC over all data */
         __asm__ ("CRC32 %0,%0,%1" : "+d" (returnvalue) : "d" (*startaddress)); 
         startaddress++; 
     } 
@@ -1563,7 +1563,7 @@ IFX_INLINE uint32 IfxCpu_calculateCrc32(uint32 *startaddress, uint8 length)
 
 IFX_INLINE uint32 IfxCpu_getRandomVal(uint32 a, uint32 x, uint32 m)
 {
-	uint32 result;
+    uint32 result;
     __asm("      mul.u     %%e14,%1,%2       # d15 = Eh; d14 = El    \n"
         "        mov       %%d12,%%d14       #   e12 = El            \n"
         "        mov       %%d13, 0          #                       \n"
@@ -1580,9 +1580,9 @@ IFX_INLINE uint32 IfxCpu_getRandomVal(uint32 a, uint32 x, uint32 m)
 
 IFX_INLINE sint32 __popcnt(sint32 a)
 { 
-	sint32 res; 
-	__asm__ volatile ("popcnt %0,%1":"=d"(res):"d"(a)); 
-		return res; 
+    sint32 res; 
+    __asm__ volatile ("popcnt %0,%1":"=d"(res):"d"(a)); 
+        return res; 
 }
 
 /**  Invalidate cache address "p". Generates CACHEA.I [Ab].

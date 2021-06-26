@@ -40,29 +40,29 @@ void IfxStdIf_Timer_initConfig(IfxStdIf_Timer_Config *config)
     config->trigger.isrPriority        = 0;
     config->trigger.isrProvider        = IfxSrc_Tos_cpu0;
     config->countDir                   = IfxStdIf_Timer_CountDir_up;
-    config->startOffset 					   = 0.0;
+    config->startOffset                        = 0.0;
 }
 
 
 static float32 IfxStdIf_Timer_nopGetFrequency(IfxStdIf_InterfaceDriver stdif)
 {
-	return 0.0;
+    return 0.0;
 }
 static Ifx_TimerValue IfxStdIf_Timer_nopGetPeriod(IfxStdIf_InterfaceDriver stdif)
 {
-	return 0;
+    return 0;
 }
 static float32 IfxStdIf_Timer_nopGetResolution(IfxStdIf_InterfaceDriver stdif)
 {
-	return 0.0;
+    return 0.0;
 }
 static Ifx_TimerValue IfxStdIf_Timer_nopGetTrigger(IfxStdIf_InterfaceDriver stdif)
 {
-	return 0;
+    return 0;
 }
 static boolean IfxStdIf_Timer_nopSetFrequency(IfxStdIf_InterfaceDriver stdif, float32 frequency)
 {
-	return FALSE;
+    return FALSE;
 }
 static void IfxStdIf_Timer_nopUpdateInputFrequency(IfxStdIf_InterfaceDriver stdif)
 {
@@ -75,14 +75,14 @@ static void IfxStdIf_Timer_nopDisableUpdate(IfxStdIf_InterfaceDriver stdif)
 }
 static float32 IfxStdIf_Timer_nopGetInputFrequency(IfxStdIf_InterfaceDriver stdif)
 {
-	return 0.0;
+    return 0.0;
 }
 static void IfxStdIf_Timer_nopRun(IfxStdIf_InterfaceDriver stdif)
 {
 }
 static boolean IfxStdIf_Timer_nopSetPeriod(IfxStdIf_InterfaceDriver stdif, Ifx_TimerValue period)
 {
-	return FALSE;
+    return FALSE;
 }
 static void IfxStdIf_Timer_nopSetSingleMode(IfxStdIf_InterfaceDriver stdif, boolean enabled)
 {
@@ -95,11 +95,11 @@ static void IfxStdIf_Timer_nopStop(IfxStdIf_InterfaceDriver stdif)
 }
 static boolean IfxStdIf_Timer_nopAckTimerIrq(IfxStdIf_InterfaceDriver stdif)
 {
-	return FALSE;
+    return FALSE;
 }
 static boolean IfxStdIf_Timer_nopAckTriggerIrq(IfxStdIf_InterfaceDriver stdif)
 {
-	return FALSE;
+    return FALSE;
 }
 
 

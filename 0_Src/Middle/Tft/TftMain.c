@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------*/
-/*						Include Header File						  */
+/*                        Include Header File                          */
 /*----------------------------------------------------------------*/
 #include "TftMain.h"
 #include <background_light.h>
@@ -13,46 +13,46 @@
 #include "Main.h"
 
 /*----------------------------------------------------------------*/
-/*						Define						  			  */
+/*                        Define                                        */
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
-/*						Typedefs						  		  */
+/*                        Typedefs                                    */
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
-/*						Static Function Prototype				  */
+/*                        Static Function Prototype                  */
 /*----------------------------------------------------------------*/
 
 /*----------------------------------------------------------------*/
-/*						Variables				  				  */
+/*                        Variables                                    */
 /*----------------------------------------------------------------*/
 
 /*----------------------------------------------------------------*/
-/*						Functions				  				  */
+/*                        Functions                                    */
 /*----------------------------------------------------------------*/
 
 /*---------------------Init Function--------------------------*/
 void Tft_Init(void)
 {
-	/* Initialise the application state */
-	g_AppCpu0.info.pllFreq = IfxScuCcu_getPllFrequency();
-	g_AppCpu0.info.cpuFreq = IfxScuCcu_getCpuFrequency(IfxCpu_getCoreIndex());
-	g_AppCpu0.info.sysFreq = IfxScuCcu_getSpbFrequency();
-	g_AppCpu0.info.stmFreq = IfxStm_getFrequency(&MODULE_STM0);
+    /* Initialise the application state */
+    g_AppCpu0.info.pllFreq = IfxScuCcu_getPllFrequency();
+    g_AppCpu0.info.cpuFreq = IfxScuCcu_getCpuFrequency(IfxCpu_getCoreIndex());
+    g_AppCpu0.info.sysFreq = IfxScuCcu_getSpbFrequency();
+    g_AppCpu0.info.stmFreq = IfxStm_getFrequency(&MODULE_STM0);
 
-	/*Init TFT-display*/
-	tft_appl_init(1);
+    /*Init TFT-display*/
+    tft_appl_init(1);
 
-	/*Init the backroundlight*/
-	background_light_init();
-	graph_drawInfineonLogo();
+    /*Init the backroundlight*/
+    background_light_init();
+    graph_drawInfineonLogo();
 
-	/*Init the performance measurement*/
-	perf_meas_init();
-	display_io_init();
+    /*Init the performance measurement*/
+    perf_meas_init();
+    display_io_init();
 
 }
 

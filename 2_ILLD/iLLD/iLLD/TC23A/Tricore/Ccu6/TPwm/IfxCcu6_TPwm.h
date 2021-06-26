@@ -117,13 +117,13 @@
  *
  *     // pin configuration
  *     const IfxCcu6_TPwm_Pins pins = {
- *         NULL,	// CC60Out pin not used
- *         NULL,	// CC61Out pin not used
- *         NULL,	// CC62Out pin not used
- *         NULL,	// COUT60 pin not used
- *         NULL,	// COUT61 pin not used
- *         NULL,	// COUT62 pin not used
- *         IfxCcu60_COUT63_P00_0_OUT,	// COUT63 pin
+ *         NULL,    // CC60Out pin not used
+ *         NULL,    // CC61Out pin not used
+ *         NULL,    // CC62Out pin not used
+ *         NULL,    // COUT60 pin not used
+ *         NULL,    // COUT61 pin not used
+ *         NULL,    // COUT62 pin not used
+ *         IfxCcu60_COUT63_P00_0_OUT,    // COUT63 pin
  *         IfxPort_OutputMode_pushPull,
  *         IfxPort_PadDriver_cmosAutomotiveSpeed1
  *     };

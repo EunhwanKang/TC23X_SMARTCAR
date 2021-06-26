@@ -412,27 +412,27 @@ boolean Ifx_AngleTrkF32_stdIfPosInit(IfxStdIf_Pos *stdif, Ifx_AngleTrkF32 *drive
 
     /* *INDENT-OFF* Note: this file was indented manually by the author. */
     /* Set the API link */
-	stdif->onZeroIrq          =(IfxStdIf_Pos_OnZeroIrq               )NULL_PTR;
-	stdif->getAbsolutePosition=(IfxStdIf_Pos_GetAbsolutePosition     )&Ifx_AngleTrkF32_getAbsolutePosition;
-	stdif->getDirection		  =(IfxStdIf_Pos_GetDirection            )&Ifx_AngleTrkF32_getDirection;
-	stdif->getFault           =(IfxStdIf_Pos_GetFault                )&Ifx_AngleTrkF32_getFault;
-	stdif->getOffset		  =(IfxStdIf_Pos_GetOffset			     )&Ifx_AngleTrkF32_getOffset;
-	stdif->getPeriodPerRotation  =(IfxStdIf_Pos_GetPeriodPerRotation )&Ifx_AngleTrkF32_getPeriodPerRotation;
-	stdif->getPosition		  =(IfxStdIf_Pos_GetPosition			 )&Ifx_AngleTrkF32_getPosition;
-	stdif->getRawPosition	  =(IfxStdIf_Pos_GetRawPosition          )&Ifx_AngleTrkF32_getRawPosition;
-	stdif->getRefreshPeriod   =(IfxStdIf_Pos_GetRefreshPeriod        )&Ifx_AngleTrkF32_getRefreshPeriod;
-	stdif->getResolution      =(IfxStdIf_Pos_GetResolution           )&Ifx_AngleTrkF32_getResolution;
+    stdif->onZeroIrq          =(IfxStdIf_Pos_OnZeroIrq               )NULL_PTR;
+    stdif->getAbsolutePosition=(IfxStdIf_Pos_GetAbsolutePosition     )&Ifx_AngleTrkF32_getAbsolutePosition;
+    stdif->getDirection          =(IfxStdIf_Pos_GetDirection            )&Ifx_AngleTrkF32_getDirection;
+    stdif->getFault           =(IfxStdIf_Pos_GetFault                )&Ifx_AngleTrkF32_getFault;
+    stdif->getOffset          =(IfxStdIf_Pos_GetOffset                 )&Ifx_AngleTrkF32_getOffset;
+    stdif->getPeriodPerRotation  =(IfxStdIf_Pos_GetPeriodPerRotation )&Ifx_AngleTrkF32_getPeriodPerRotation;
+    stdif->getPosition          =(IfxStdIf_Pos_GetPosition             )&Ifx_AngleTrkF32_getPosition;
+    stdif->getRawPosition      =(IfxStdIf_Pos_GetRawPosition          )&Ifx_AngleTrkF32_getRawPosition;
+    stdif->getRefreshPeriod   =(IfxStdIf_Pos_GetRefreshPeriod        )&Ifx_AngleTrkF32_getRefreshPeriod;
+    stdif->getResolution      =(IfxStdIf_Pos_GetResolution           )&Ifx_AngleTrkF32_getResolution;
     stdif->getSensorType      =(IfxStdIf_Pos_GetSensorType           )&Ifx_AngleTrkF32_getSensorType;
-	stdif->reset			  =(IfxStdIf_Pos_Reset				     )&Ifx_AngleTrkF32_reset;
-	stdif->resetFaults		  =(IfxStdIf_Pos_ResetFaults			 )&Ifx_AngleTrkF32_resetFaults;
-	stdif->getSpeed           =(IfxStdIf_Pos_GetSpeed                )&Ifx_AngleTrkF32_getSpeed;
-	stdif->update			  =(IfxStdIf_Pos_Update				     )&Ifx_AngleTrkF32_update;
-	stdif->setPosition		  =(IfxStdIf_Pos_SetPosition			 )NULL_PTR;
-	stdif->setRawPosition	  =(IfxStdIf_Pos_SetRawPosition			 )NULL_PTR;
-	stdif->setSpeed		      =(IfxStdIf_Pos_SetSpeed			     )NULL_PTR;
-	stdif->setOffset		  =(IfxStdIf_Pos_SetOffset			     )&Ifx_AngleTrkF32_setOffset;
-	stdif->setRefreshPeriod   =(IfxStdIf_Pos_SetRefreshPeriod        )&Ifx_AngleTrkF32_setRefreshPeriod;
-	stdif->getTurn            =(IfxStdIf_Pos_GetTurn                 )&Ifx_AngleTrkF32_getTurn;
+    stdif->reset              =(IfxStdIf_Pos_Reset                     )&Ifx_AngleTrkF32_reset;
+    stdif->resetFaults          =(IfxStdIf_Pos_ResetFaults             )&Ifx_AngleTrkF32_resetFaults;
+    stdif->getSpeed           =(IfxStdIf_Pos_GetSpeed                )&Ifx_AngleTrkF32_getSpeed;
+    stdif->update              =(IfxStdIf_Pos_Update                     )&Ifx_AngleTrkF32_update;
+    stdif->setPosition          =(IfxStdIf_Pos_SetPosition             )NULL_PTR;
+    stdif->setRawPosition      =(IfxStdIf_Pos_SetRawPosition             )NULL_PTR;
+    stdif->setSpeed              =(IfxStdIf_Pos_SetSpeed                 )NULL_PTR;
+    stdif->setOffset          =(IfxStdIf_Pos_SetOffset                 )&Ifx_AngleTrkF32_setOffset;
+    stdif->setRefreshPeriod   =(IfxStdIf_Pos_SetRefreshPeriod        )&Ifx_AngleTrkF32_setRefreshPeriod;
+    stdif->getTurn            =(IfxStdIf_Pos_GetTurn                 )&Ifx_AngleTrkF32_getTurn;
     /* *INDENT-ON* */
 
     return TRUE;

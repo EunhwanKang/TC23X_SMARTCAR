@@ -33,50 +33,50 @@
 
 /** Function call without return
  */
-#define __non_return_call(fun)	__asm__ volatile ("\tji %0"::"a"(fun))
+#define __non_return_call(fun)    __asm__ volatile ("\tji %0"::"a"(fun))
 
 /** Jump and link
  */
 IFX_INLINE void __jump_and_link(void (*fun)(void))
 {
-	__asm__ volatile ("jli %0"::"a"(fun));
+    __asm__ volatile ("jli %0"::"a"(fun));
 }
 
 IFX_INLINE void __moveToDataParam0(unsigned int var)
 {
-	__asm("mov d4, %0"::"d"(var));
+    __asm("mov d4, %0"::"d"(var));
 }
 
 IFX_INLINE void __moveToAddrParam0(const void *var)
 {
-	__asm("mov.aa a4, %0"::"a"(var));
+    __asm("mov.aa a4, %0"::"a"(var));
 }
 
 IFX_INLINE unsigned int __getDataParamRet(void)
 {
-	unsigned int var;
-	__asm(" mov\t %0, d2":"=d"(var));
-	return var;
+    unsigned int var;
+    __asm(" mov\t %0, d2":"=d"(var));
+    return var;
 }
 
 IFX_INLINE void __moveToDataParamRet(unsigned int var)
 {
-	__asm("mov d2, %0"::"d"(var));
+    __asm("mov d2, %0"::"d"(var));
 }
 
 IFX_INLINE void __jumpToFunction(const void *fun)
 {
-	__non_return_call(fun);
+    __non_return_call(fun);
 }
 
 IFX_INLINE void __jumpToFunctionWithLink(const void *fun)
 {
-	__jump_and_link((void (*)(void))fun);
+    __jump_and_link((void (*)(void))fun);
 }
 
 IFX_INLINE void __jumpBackToLink(void)
 {
-	__asm("ji a11");
+    __asm("ji a11");
 }
 /** \defgroup IfxLld_Cpu_Intrinsics_Tasking_any_type Cross type arithmetic operation
  *
@@ -347,7 +347,7 @@ IFX_INLINE uint32 IfxCpu_calculateCrc32(uint32 *startaddress, uint8 length)
 
 IFX_INLINE uint32 IfxCpu_getRandomVal(uint32 a, uint32 x, uint32 m)
 {
-	uint32 result;
+    uint32 result;
     __asm("      mul.u     e14,%1,%2      ; d15 = Eh; d14 = El    \n"
         "        mov       d12,d14        ;   e12 = El            \n"
         "        mov       d13,#0         ;                       \n"
@@ -364,9 +364,9 @@ IFX_INLINE uint32 IfxCpu_getRandomVal(uint32 a, uint32 x, uint32 m)
 
 IFX_INLINE sint32 __popcnt(sint32 a)
 { 
-	sint32 res; 
-	__asm("popcnt %0,%1":"=d"(res):"d"(a)); 
-		return res; 
+    sint32 res; 
+    __asm("popcnt %0,%1":"=d"(res):"d"(a)); 
+        return res; 
 }
 
 /* *INDENT-ON* */

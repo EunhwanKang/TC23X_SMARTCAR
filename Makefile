@@ -119,7 +119,7 @@ APP_SOURCE				+= 	DrvStm.c
 APP_SOURCE				+= 	DrvDio.c
 APP_SOURCE				+= 	DrvAdc.c
 APP_SOURCE				+= 	DrvAsc.c
-APP_SOURCE				+= 	DrvGtmTom.c
+APP_SOURCE				+= 	DrvGtm.c
 
 APP_SOURCE				+= 	TftMain.c
 APP_SOURCE				+= 	Qspi0.c

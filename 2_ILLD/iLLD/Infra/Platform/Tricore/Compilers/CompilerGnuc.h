@@ -106,25 +106,25 @@
 #ifndef IFX_INTERRUPT_INTERNAL
 #define IFX_INTERRUPT_INTERNAL(isr, vectabNum, prio) \
 __asm__ (".ifndef .intr.entry.include                        \n"\
-		".altmacro                                           \n"\
-		".macro .int_entry.2 intEntryLabel, name # define the section and inttab entry code \n"\
-        "	.pushsection .\\intEntryLabel,\"ax\",@progbits   \n"\
-        "	__\\intEntryLabel :                              \n"\
-        "		svlcx                                        \n"\
-        "		movh.a  %a14, hi:\\name                      \n"\
-        "		lea     %a14, [%a14]lo:\\name                \n"\
-        "		ji      %a14                                 \n"\
-        "	.popsection                                      \n"\
-		".endm                                               \n"\
-		".macro .int_entry.1 prio,vectabNum,u,name           \n"\
-			".int_entry.2 intvec_tc\\vectabNum\\u\\prio,(name) # build the unique name \n"\
-		".endm                                               \n"\
+        ".altmacro                                           \n"\
+        ".macro .int_entry.2 intEntryLabel, name # define the section and inttab entry code \n"\
+        "    .pushsection .\\intEntryLabel,\"ax\",@progbits   \n"\
+        "    __\\intEntryLabel :                              \n"\
+        "        svlcx                                        \n"\
+        "        movh.a  %a14, hi:\\name                      \n"\
+        "        lea     %a14, [%a14]lo:\\name                \n"\
+        "        ji      %a14                                 \n"\
+        "    .popsection                                      \n"\
+        ".endm                                               \n"\
+        ".macro .int_entry.1 prio,vectabNum,u,name           \n"\
+            ".int_entry.2 intvec_tc\\vectabNum\\u\\prio,(name) # build the unique name \n"\
+        ".endm                                               \n"\
         "                                                    \n"\
-		".macro .intr.entry name,vectabNum,prio              \n"\
-			".int_entry.1 %(prio),%(vectabNum),_,name # evaluate the priority and the cpu number \n"\
-		".endm                                               \n"\
-		".intr.entry.include:                                \n"\
-		".endif                                              \n"\
+        ".macro .intr.entry name,vectabNum,prio              \n"\
+            ".int_entry.1 %(prio),%(vectabNum),_,name # evaluate the priority and the cpu number \n"\
+        ".endm                                               \n"\
+        ".intr.entry.include:                                \n"\
+        ".endif                                              \n"\
         ".intr.entry "#isr","#vectabNum","#prio               );\
 IFX_EXTERN void __attribute__ ((interrupt_handler)) isr(); \
 void isr (void)

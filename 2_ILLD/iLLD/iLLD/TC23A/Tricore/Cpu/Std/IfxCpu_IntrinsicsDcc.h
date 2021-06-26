@@ -58,43 +58,43 @@ asm volatile void __moveToDataParam0(unsigned int var)
 {
 % reg var
 ! "%d4"
-	mov %d4, var
+    mov %d4, var
 }
 
 asm volatile void __moveToDataParamRet(unsigned int var)
 {
 % reg var
 ! "%d2"
-	mov %d2, var
+    mov %d2, var
 }
 
 asm volatile unsigned int __getDataParamRet(void)
 {
 ! "%d2"
-	mov %d2, %d2
+    mov %d2, %d2
 }
 
 asm volatile void __moveToAddrParam0(const void *var)
 {
 % reg var
 ! "%a4"
-	mov.aa %a4, var
+    mov.aa %a4, var
 }
 
 IFX_INLINE void __jumpToFunction(const void *fun)
 {
-	__non_return_call((void (*)(void))fun);
+    __non_return_call((void (*)(void))fun);
 }
 
 IFX_INLINE void __jumpToFunctionWithLink(const void *fun)
 {
-	__jump_and_link((void (*)(void))fun);
+    __jump_and_link((void (*)(void))fun);
 }
 
 asm volatile void __jumpBackToLink(void)
 {
 ! "%a11"
-	ji %a11
+    ji %a11
 }
 
 /** \defgroup IfxLld_Cpu_Intrinsics_Dcc_any_type Cross type arithmetic operation
@@ -187,8 +187,8 @@ asm fract __float_to_fract(float a)
 {
 % reg a
 ! "%d2", "%d3"
-	mov    %d3, 0
-	ftoq31 %d2, a, %d3
+    mov    %d3, 0
+    ftoq31 %d2, a, %d3
 }
 
 /** \brief Convert fract to float
@@ -262,7 +262,7 @@ asm sfract __round16(fract a)
 ! "%d2"
     mov.u  %d2, 0x8000
     adds  %d2, a
-	extr  %d2,%d2,0x10,0x10
+    extr  %d2,%d2,0x10,0x10
 }
 
 #define __fract_to_sfract __round16
@@ -282,7 +282,7 @@ asm sfract __s16_to_sfract(short a)
 % reg a
 ! "%d2"
     sh  %d2, a, 16
-	sh  %d2, %d2, -16
+    sh  %d2, %d2, -16
 }
 
 /** Convert sfract to signed short
@@ -1290,7 +1290,7 @@ asm volatile void __ldmst(volatile void *address, uint32 mask, uint32 value)
 !"%d2", "%d3"
  mov     %d3, mask
  mov     %d2, value
- ldmst	[address],%e2
+ ldmst    [address],%e2
 }
 
 #endif
@@ -1381,7 +1381,7 @@ asm volatile unsigned int __cmpAndSwap(unsigned int *address, unsigned long valu
 asm volatile void __stopPerfCounters(void)
 {
 ! "%d0"
-	mov %d0,0
+    mov %d0,0
     mtcr 0xFC00,%d0
     isync
 }
@@ -1407,21 +1407,21 @@ asm float __fixpoint_to_float32(fract value, sint32 shift)
 asm volatile void* __getA11(void)
 {
 ! "%a11", "%a4"
-	mov.aa %a4, %a11
+    mov.aa %a4, %a11
 }
 
 asm void __setStackPointer(void *stackAddr)
 {
 % reg stackAddr
 ! "%a10"
-	mov.aa %a10, stackAddr
+    mov.aa %a10, stackAddr
 }
 
 asm volatile unsigned int __crc32(uint32 b,uint32 a)
 {
 % reg b, a
 ! "%d2"
-	CRC32 %d2, b, a
+    CRC32 %d2, b, a
 }
 
 IFX_INLINE unsigned int IfxCpu_calculateCrc32(uint32 *startaddress, uint8 length)

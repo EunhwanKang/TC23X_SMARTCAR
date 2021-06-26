@@ -66,10 +66,10 @@ boolean IfxSmu_initFsp(Ifx_SMU *smu, IfxSmu_configFsp *config)
             tSmuFs = (1 << (smu->FSP.B.PRE1 + 1)) / fBack;
 
             /*
-             *	tFSP_FS = tSMU_FS *(SMU_FSP.TFSP_HIGH[] & SMU_FSP.TFSP_LOW[] + 1)
+             *    tFSP_FS = tSMU_FS *(SMU_FSP.TFSP_HIGH[] & SMU_FSP.TFSP_LOW[] + 1)
              *
-             *	tFSP_FS = tSMU_FS *(SMU_FSP.TFSP + 1)
-             *	(SMU_FSP.TFSP + 1) = tFSP_FS / tSMU_FS
+             *    tFSP_FS = tSMU_FS *(SMU_FSP.TFSP + 1)
+             *    (SMU_FSP.TFSP + 1) = tFSP_FS / tSMU_FS
              *
              *
              */

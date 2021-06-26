@@ -27,42 +27,42 @@
 /*------------------------Private Variables/Constants-------------------------*/
 /******************************************************************************/
 #if TFT_DISPLAY_VAR_LOCATION == 0
-	#if defined(__GNUC__)
+    #if defined(__GNUC__)
 #pragma section ".data_cpu0" awc0
-	#endif
-	#if defined(__TASKING__)
-	#pragma section fardata "data_cpu0"
-	#endif
-	#if defined(__DCC__)
+    #endif
+    #if defined(__TASKING__)
+    #pragma section fardata "data_cpu0"
+    #endif
+    #if defined(__DCC__)
     #pragma section DATA ".data_cpu0" ".bss_cpu0" far-absolute RW
-	#endif
+    #endif
 #elif TFT_DISPLAY_VAR_LOCATION == 1
-	#if defined(__GNUC__)
-	#pragma section ".data_cpu1" awc1
-	#endif
-	#if defined(__TASKING__)
-	#pragma section fardata "data_cpu1"
-	#endif
-	#if defined(__DCC__)
+    #if defined(__GNUC__)
+    #pragma section ".data_cpu1" awc1
+    #endif
+    #if defined(__TASKING__)
+    #pragma section fardata "data_cpu1"
+    #endif
+    #if defined(__DCC__)
     #pragma section DATA ".data_cpu1" ".bss_cpu1" far-absolute RW
-	#endif
+    #endif
 #elif TFT_DISPLAY_VAR_LOCATION == 2
-	#if defined(__GNUC__)
-	#pragma section ".data_cpu2" awc2
-	#endif
-	#if defined(__TASKING__)
-	#pragma section fardata "data_cpu2"
-	#endif
-	#if defined(__DCC__)
+    #if defined(__GNUC__)
+    #pragma section ".data_cpu2" awc2
+    #endif
+    #if defined(__TASKING__)
+    #pragma section fardata "data_cpu2"
+    #endif
+    #if defined(__DCC__)
     #pragma section DATA ".data_cpu2" ".bss_cpu2" far-absolute RW
-	#endif
+    #endif
 #else
 #error "Set TFT_DISPLAY_VAR_LOCATION to a valid value!"
 #endif
 
 TCOLORTABLE colortable_graphics =
 {
-	COLOR_RGB_BLACK, COLOR_RGB_WHITE, COLOR_RGB_RED, COLOR_RGB_GREEN, COLOR_RGB_BROWN, COLOR_RGB_BLUE, COLOR_RGB_MAGENTA, COLOR_RGB_CYAN,
+    COLOR_RGB_BLACK, COLOR_RGB_WHITE, COLOR_RGB_RED, COLOR_RGB_GREEN, COLOR_RGB_BROWN, COLOR_RGB_BLUE, COLOR_RGB_MAGENTA, COLOR_RGB_CYAN,
     COLOR_RGB_LIGHTGRAY, COLOR_RGB_DARKGRAY, COLOR_RGB_LIGHTRED, COLOR_RGB_LIGHTGREEN, COLOR_RGB_YELLOW, COLOR_RGB_LIGHTBLUE,
     COLOR_RGB_LIGHTMAGENTA,
     COLOR_RGB_LIGHTCYAN,
@@ -311,7 +311,7 @@ void conio_graphics_clrscr (TDISPLAYMODE displaymode)
         }
         break;
     default:
-      	/* This is not a valid graphic display */
+          /* This is not a valid graphic display */
         __debug ();
         break;
     }
@@ -337,8 +337,8 @@ void conio_graphics_gotoxy (TDISPLAYMODE displaymode, sint32 x, sint32 y)
 {
     if ((conio_driver.display[displaymode].mode == RAWMODE) || (conio_driver.display[displaymode].mode == TEXTMODE))
     {
-    	/* This is not a graphic display */
-    	__debug();
+        /* This is not a graphic display */
+        __debug();
     }
     if (x >= TFT_XSIZE || y >= (TFT_YSIZE - FONT_YSIZE))
         return;
@@ -352,8 +352,8 @@ void conio_graphics_cputs (TDISPLAYMODE displaymode, uint8 * s)
     sint32 i = 0;
     if ((conio_driver.display[displaymode].mode == RAWMODE) || (conio_driver.display[displaymode].mode == TEXTMODE))
     {
-    	/* This is not a graphic display */
-    	__debug();
+        /* This is not a graphic display */
+        __debug();
     }
     while (*s != 0)
     {
@@ -453,7 +453,7 @@ inline void conio_graphics_set_opt (TDISPLAYMODE displaymode, sint32 x, sint32 y
                 video_data[offs] = color;
                 break;
             default:
-              	/* This is not a valid graphic display */
+                  /* This is not a valid graphic display */
                 __debug ();
                 break;
             }
@@ -584,7 +584,7 @@ void conio_graphics_set (TDISPLAYMODE displaymode, sint32 x, sint32 y, uint8 col
                 video_data[offs] = color;
                 break;
             default:
-              	/* This is not a valid graphic display */
+                  /* This is not a valid graphic display */
                 __debug ();
                 break;
             }
@@ -694,9 +694,9 @@ static void tft_prepare_graphics_lines (TMODE mode, uint8 * pdisplay, uint8 * pd
             uint8 temp = 0;
             temp = pdisplay[cnt];
             if ((i & 1) == 1)
-            	Row_Buff[i-1] = colortable_graphics[temp];
+                Row_Buff[i-1] = colortable_graphics[temp];
             else
-            	Row_Buff[i+1] = colortable_graphics[temp];
+                Row_Buff[i+1] = colortable_graphics[temp];
             cnt += 1;
         }
         break;
@@ -708,23 +708,23 @@ static void tft_prepare_graphics_lines (TMODE mode, uint8 * pdisplay, uint8 * pd
 static uint32 tft_graphics_lines_written(void)
 {
     // we prepare the ascii line
-	tft_prepare_graphics_lines (cpy_mode, cpy_pdisplay, cpy_pdisplaycolor);
+    tft_prepare_graphics_lines (cpy_mode, cpy_pdisplay, cpy_pdisplaycolor);
 
     YSIZE_cnt += FONT_YSIZE;             //ROW counter
 
     if (YSIZE_cnt > (TFT_YSIZE - 2*FONT_YSIZE))
-	{
-		// this are our last graphics lines
-		// we send the Row_Buff to the display without callback function
-	    tft_flush_row_buff( (void *)0, FONT_YSIZE*TERMINAL_MAXX*FONT_XSIZE);
-	}
-	else
-	{
-		// this are not our last graphics lines
-		// we send the Row_Buff to the display with callback function
-	    tft_flush_row_buff( &tft_graphics_lines_written, FONT_YSIZE*TERMINAL_MAXX*FONT_XSIZE);
-	}
-	return 0;
+    {
+        // this are our last graphics lines
+        // we send the Row_Buff to the display without callback function
+        tft_flush_row_buff( (void *)0, FONT_YSIZE*TERMINAL_MAXX*FONT_XSIZE);
+    }
+    else
+    {
+        // this are not our last graphics lines
+        // we send the Row_Buff to the display with callback function
+        tft_flush_row_buff( &tft_graphics_lines_written, FONT_YSIZE*TERMINAL_MAXX*FONT_XSIZE);
+    }
+    return 0;
 }
 
 void tft_graphic (TMODE mode, uint8 * pdisplay, uint8 * pdisplaycolor)
@@ -733,8 +733,8 @@ void tft_graphic (TMODE mode, uint8 * pdisplay, uint8 * pdisplaycolor)
     cpy_mode = mode;
     cpy_pdisplay = pdisplay;
     cpy_pdisplaycolor = pdisplaycolor;
-	// we remove one line from display which is used by bar
-	YSIZE_cnt = 0;
-	// send the
-	tft_graphics_lines_written();
+    // we remove one line from display which is used by bar
+    YSIZE_cnt = 0;
+    // send the
+    tft_graphics_lines_written();
 }

@@ -53,47 +53,47 @@
 //it is not rgb it is bgr, because LSB shifted first
 //RGB for DAS and BGR for display
 
-#define COLOR_RGB(r,g,b)		(((r & 0xF8) << 8) | ((g & 0xFC) << 3) | ((b & 0xF8) >> 3))
-#define COLOR_BGR(r,g,b)		(((b & 0xF8) << 8) | ((g & 0xFC) << 3) | ((r & 0xF8) >> 3))
+#define COLOR_RGB(r,g,b)        (((r & 0xF8) << 8) | ((g & 0xFC) << 3) | ((b & 0xF8) >> 3))
+#define COLOR_BGR(r,g,b)        (((b & 0xF8) << 8) | ((g & 0xFC) << 3) | ((r & 0xF8) >> 3))
 
 
-#define	COLOR_RGB_BLACK         COLOR_RGB(0,0,0)			//0x0000
-#define	COLOR_RGB_RED           COLOR_RGB(255,0,0)			//0xF800
-#define	COLOR_RGB_GREEN         COLOR_RGB(0,255,0)			//0x07E0
-#define	COLOR_RGB_BROWN         COLOR_RGB(139,69,19)		//0x0 // 139 69 19
-#define	COLOR_RGB_BLUE          COLOR_RGB(0,0,255)			//0x001F
-#define COLOR_RGB_MAGENTA       COLOR_RGB(255,0,255)		//0xF81F
-#define COLOR_RGB_CYAN          COLOR_RGB(0,255,255)		//0x07FF
-#define COLOR_RGB_LIGHTGRAY     COLOR_RGB(200,200,200)		//0xCE59  // 200 200 200
-#define COLOR_RGB_DARKGRAY      COLOR_RGB(80,80,80)			//0x528A  //  80  80  80
-#define COLOR_RGB_LIGHTRED      COLOR_RGB(240,128,128)		//0x0 // 240 128 128
-#define COLOR_RGB_LIGHTGREEN    COLOR_RGB(128,240,128)		//0x0 // 128 240 128
-#define COLOR_RGB_YELLOW        COLOR_RGB(255,255,0)		//0xFFE0
-#define COLOR_RGB_LIGHTBLUE     COLOR_RGB(128,128,240)		//0x0 // 128 128 240
-#define COLOR_RGB_LIGHTMAGENTA  COLOR_RGB(240,128,240)		//0x0 // 240 128 240
-#define COLOR_RGB_LIGHTCYAN     COLOR_RGB(128,240,240)		//0x0 // 128 240 240
-#define COLOR_RGB_WHITE         COLOR_RGB(255,255,255)		//0xFFFF
+#define    COLOR_RGB_BLACK         COLOR_RGB(0,0,0)            //0x0000
+#define    COLOR_RGB_RED           COLOR_RGB(255,0,0)            //0xF800
+#define    COLOR_RGB_GREEN         COLOR_RGB(0,255,0)            //0x07E0
+#define    COLOR_RGB_BROWN         COLOR_RGB(139,69,19)        //0x0 // 139 69 19
+#define    COLOR_RGB_BLUE          COLOR_RGB(0,0,255)            //0x001F
+#define COLOR_RGB_MAGENTA       COLOR_RGB(255,0,255)        //0xF81F
+#define COLOR_RGB_CYAN          COLOR_RGB(0,255,255)        //0x07FF
+#define COLOR_RGB_LIGHTGRAY     COLOR_RGB(200,200,200)        //0xCE59  // 200 200 200
+#define COLOR_RGB_DARKGRAY      COLOR_RGB(80,80,80)            //0x528A  //  80  80  80
+#define COLOR_RGB_LIGHTRED      COLOR_RGB(240,128,128)        //0x0 // 240 128 128
+#define COLOR_RGB_LIGHTGREEN    COLOR_RGB(128,240,128)        //0x0 // 128 240 128
+#define COLOR_RGB_YELLOW        COLOR_RGB(255,255,0)        //0xFFE0
+#define COLOR_RGB_LIGHTBLUE     COLOR_RGB(128,128,240)        //0x0 // 128 128 240
+#define COLOR_RGB_LIGHTMAGENTA  COLOR_RGB(240,128,240)        //0x0 // 240 128 240
+#define COLOR_RGB_LIGHTCYAN     COLOR_RGB(128,240,240)        //0x0 // 128 240 240
+#define COLOR_RGB_WHITE         COLOR_RGB(255,255,255)        //0xFFFF
 
-#define COLOR_RGB_SIMPSONS      COLOR_RGB(255,217,15)		// 255 217 15
+#define COLOR_RGB_SIMPSONS      COLOR_RGB(255,217,15)        // 255 217 15
 
-#define	COLOR_BGR_BLACK         COLOR_BGR(0,0,0)			//0x0000
-#define	COLOR_BGR_RED           COLOR_BGR(255,0,0)			//0xF800
-#define	COLOR_BGR_GREEN         COLOR_BGR(0,255,0)			//0x07E0
-#define	COLOR_BGR_BROWN         COLOR_BGR(139,69,19)		//0x0 // 139 69 19
-#define	COLOR_BGR_BLUE          COLOR_BGR(0,0,255)			//0x001F
-#define COLOR_BGR_MAGENTA       COLOR_BGR(255,0,255)		//0xF81F
-#define COLOR_BGR_CYAN          COLOR_BGR(0,255,255)		//0x07FF
-#define COLOR_BGR_LIGHTGRAY     COLOR_BGR(200,200,200)		//0xCE59  // 200 200 200
-#define COLOR_BGR_DARKGRAY      COLOR_BGR(80,80,80)			//0x528A  //  80  80  80
-#define COLOR_BGR_LIGHTRED      COLOR_BGR(240,128,128)		//0x0 // 240 128 128
-#define COLOR_BGR_LIGHTGREEN    COLOR_BGR(128,240,128)		//0x0 // 128 240 128
-#define COLOR_BGR_YELLOW        COLOR_BGR(255,255,0)		//0xFFE0
-#define COLOR_BGR_LIGHTBLUE     COLOR_BGR(128,128,240)		//0x0 // 128 128 240
-#define COLOR_BGR_LIGHTMAGENTA  COLOR_BGR(240,128,240)		//0x0 // 240 128 240
-#define COLOR_BGR_LIGHTCYAN     COLOR_BGR(128,240,240)		//0x0 // 128 240 240
-#define COLOR_BGR_WHITE         COLOR_BGR(255,255,255)		//0xFFFF
+#define    COLOR_BGR_BLACK         COLOR_BGR(0,0,0)            //0x0000
+#define    COLOR_BGR_RED           COLOR_BGR(255,0,0)            //0xF800
+#define    COLOR_BGR_GREEN         COLOR_BGR(0,255,0)            //0x07E0
+#define    COLOR_BGR_BROWN         COLOR_BGR(139,69,19)        //0x0 // 139 69 19
+#define    COLOR_BGR_BLUE          COLOR_BGR(0,0,255)            //0x001F
+#define COLOR_BGR_MAGENTA       COLOR_BGR(255,0,255)        //0xF81F
+#define COLOR_BGR_CYAN          COLOR_BGR(0,255,255)        //0x07FF
+#define COLOR_BGR_LIGHTGRAY     COLOR_BGR(200,200,200)        //0xCE59  // 200 200 200
+#define COLOR_BGR_DARKGRAY      COLOR_BGR(80,80,80)            //0x528A  //  80  80  80
+#define COLOR_BGR_LIGHTRED      COLOR_BGR(240,128,128)        //0x0 // 240 128 128
+#define COLOR_BGR_LIGHTGREEN    COLOR_BGR(128,240,128)        //0x0 // 128 240 128
+#define COLOR_BGR_YELLOW        COLOR_BGR(255,255,0)        //0xFFE0
+#define COLOR_BGR_LIGHTBLUE     COLOR_BGR(128,128,240)        //0x0 // 128 128 240
+#define COLOR_BGR_LIGHTMAGENTA  COLOR_BGR(240,128,240)        //0x0 // 240 128 240
+#define COLOR_BGR_LIGHTCYAN     COLOR_BGR(128,240,240)        //0x0 // 128 240 240
+#define COLOR_BGR_WHITE         COLOR_BGR(255,255,255)        //0xFFFF
 
-#define COLOR_BGR_SIMPSONS      COLOR_BGR(255,217,15)		// 255 217 15
+#define COLOR_BGR_SIMPSONS      COLOR_BGR(255,217,15)        // 255 217 15
 
 
 /*!< \enum Mode of for single variable display */
@@ -183,17 +183,17 @@ typedef struct CONTROL
 } TCONTROL;
 
 #if TFT_DISPLAY_VAR_LOCATION == 0
-	#if defined(__DCC__)
-	#pragma section DATA ".data_cpu0" ".bss_cpu0" far-absolute RW
-	#endif
+    #if defined(__DCC__)
+    #pragma section DATA ".data_cpu0" ".bss_cpu0" far-absolute RW
+    #endif
 #elif TFT_DISPLAY_VAR_LOCATION == 1
-	#if defined(__DCC__)
-	#pragma section DATA ".data_cpu1" ".bss_cpu1" far-absolute RW
-	#endif
+    #if defined(__DCC__)
+    #pragma section DATA ".data_cpu1" ".bss_cpu1" far-absolute RW
+    #endif
 #elif TFT_DISPLAY_VAR_LOCATION == 2
-	#if defined(__DCC__)
-	#pragma section DATA ".data_cpu2" ".bss_cpu2" far-absolute RW
-	#endif
+    #if defined(__DCC__)
+    #pragma section DATA ".data_cpu2" ".bss_cpu2" far-absolute RW
+    #endif
 #else
 #error "Set TFT_DISPLAY_VAR_LOCATION to a valid value!"
 #endif

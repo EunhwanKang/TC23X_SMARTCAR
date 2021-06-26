@@ -55,7 +55,7 @@ struct Icu_s
 typedef struct
 {
     float32 frequency;             /**< \brief dummy member to avoid error */
-//	  IfxCcu6_Timer	*timer;
+//      IfxCcu6_Timer    *timer;
 } Icu_Config;
 
 #if IFX_CFG_USE_STANDARD_INTERFACE

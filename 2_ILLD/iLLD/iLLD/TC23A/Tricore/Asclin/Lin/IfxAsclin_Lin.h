@@ -161,7 +161,7 @@
  * This means: you can receive a header and based on the id byte received,
  * you can send or receive response and can also ignore the header based on the id:
  * \code
- * uint8 id;	// for storing received id byte
+ * uint8 id;    // for storing received id byte
  *
  * // prepare transmit bytes incase of sending response
  * uint8 txData[8] = { 1, 2, 3, 4, 5, 6, 7, 8 };

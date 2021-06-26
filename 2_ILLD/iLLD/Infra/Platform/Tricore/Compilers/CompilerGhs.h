@@ -111,9 +111,9 @@ MHWS- */
 #define IFX_INTERRUPT_INTERNAL(isr, vectabNum, prio) \
 __attribute__((section(".intvec_tc"#vectabNum"_"#prio))) void iVecEntry##vectabNum##_##prio(void) \
 { \
-	__asm__("movh.a  a14, %hi("#isr") \n" \
-			"lea     a14, [a14]%lo("#isr")\n" \
-			"ji      a14"); \
+    __asm__("movh.a  a14, %hi("#isr") \n" \
+            "lea     a14, [a14]%lo("#isr")\n" \
+            "ji      a14"); \
 } \
 __interrupt void isr(void)
 

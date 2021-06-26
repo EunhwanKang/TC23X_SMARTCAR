@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------*/
-/*						Include Header File						  */
+/*                        Include Header File                          */
 /*----------------------------------------------------------------*/
 #include "Main.h"
 #include "DrvSys.h"
@@ -8,44 +8,44 @@
 #include "DrvAsc.h"
 
 /*----------------------------------------------------------------*/
-/*						Define						  			  */
+/*                        Define                                        */
 /*----------------------------------------------------------------*/
 
 /*----------------------------------------------------------------*/
-/*						Typedefs						  		  */
+/*                        Typedefs                                    */
 /*----------------------------------------------------------------*/
 
 /*----------------------------------------------------------------*/
-/*						Static Function Prototype				  */
+/*                        Static Function Prototype                  */
 /*----------------------------------------------------------------*/
 
 /*----------------------------------------------------------------*/
-/*						Variables				  				  */
+/*                        Variables                                    */
 /*----------------------------------------------------------------*/
 App_Cpu g_AppCpu0;
 
 /*----------------------------------------------------------------*/
-/*						Functions				  				  */
+/*                        Functions                                    */
 /*----------------------------------------------------------------*/
 
 /*---------------------Main Function--------------------------*/
 int main(void)
 {
-	/*System Initialization*/
-	DrvSys();
+    /*System Initialization*/
+    DrvSys();
 
-	/*Register Callback Function*/
-	Scheduler_Init();
+    /*Register Callback Function*/
+    Scheduler_Init();
 
     /*Enable the global interrupts of this CPU*/
     IfxCpu_enableInterrupts();
 
-	/*TLF Init*/
-	Tft_Init();
-	
+    /*TLF Init*/
+    Tft_Init();
+    
     while(1u)
     {
-    	Scheduler();
+        Scheduler();
     }
 
     return 0;

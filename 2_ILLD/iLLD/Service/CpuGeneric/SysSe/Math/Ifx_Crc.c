@@ -600,7 +600,7 @@ boolean Ifx_Crc_Test(Ifc_Crc *driver, uint8 *string, uint32 length, IfxStdIf_DPi
     IfxStdIf_DPipe_print(io, " refin               :  %d"ENDL, driver->table->refin);
     IfxStdIf_DPipe_print(io, " refout              :  %d"ENDL, driver->refout);
     IfxStdIf_DPipe_print(io, ""ENDL);
-//	IfxStdIf_DPipe_print(io," data string         :  '%s' (%d bytes)"ENDL, string, stringLength);
+//    IfxStdIf_DPipe_print(io," data string         :  '%s' (%d bytes)"ENDL, string, stringLength);
     IfxStdIf_DPipe_print(io, ""ENDL);
     IfxStdIf_DPipe_print(io, "Results:"ENDL);
     IfxStdIf_DPipe_print(io, ""ENDL);

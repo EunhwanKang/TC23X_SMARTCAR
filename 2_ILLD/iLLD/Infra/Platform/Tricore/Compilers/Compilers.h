@@ -102,7 +102,7 @@
 #define BEGIN_DATA_SECTION(sec) DATA_SECTION(section farbss #sec)
 #define DATA_SECTION(sec) _Pragma(#sec)
 #define END_DATA_SECTION DATA_SECTION(section farbss align restore) \
-		DATA_SECTION(section farbss)
+        DATA_SECTION(section farbss)
 #elif defined(__DCC__)
 #define BEGIN_DATA_SECTION(sec) DATA_SECTION(section #sec WX)
 #define DATA_SECTION(sec) _Pragma(#sec)

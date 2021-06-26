@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------*/
-/*						Include Header File						  */
+/*                        Include Header File                          */
 /*----------------------------------------------------------------*/
 #include "DrvSys.h"
 #include "DrvWatchdog.h"
@@ -7,44 +7,44 @@
 #include "DrvDio.h"
 #include "DrvAdc.h"
 #include "DrvAsc.h"
-#include "DrvGtmTom.h"
+#include "DrvGtm.h"
 
 /*----------------------------------------------------------------*/
-/*						Define						  			  */
-/*----------------------------------------------------------------*/
-
-
-/*----------------------------------------------------------------*/
-/*						Typedefs						  		  */
+/*                        Define                                        */
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
-/*						Static Function Prototype				  */
+/*                        Typedefs                                    */
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
-/*						Variables				  				  */
+/*                        Static Function Prototype                  */
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
-/*						Functions				  				  */
+/*                        Variables                                    */
+/*----------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------*/
+/*                        Functions                                    */
 /*----------------------------------------------------------------*/
 void DrvSys(void)
 {
-	/*Watchdog Init*/
-	DrvWatchdogInit();
-	/*System Timer Moudle Init*/
-	DrvStmInit();
-	/*Digital Input Output Init*/	
-	DrvDioInit();
-	/*ADC Init*/
-	DrvAdcInit();
-	/*UART Init*/
-	DrvAscInit();
-	/*GTM Init*/
-	DrvGtmTomInit();
+    /*Watchdog Init*/
+    DrvWatchdogInit();
+    /*System Timer Moudle Init*/
+    DrvStmInit();
+    /*Digital Input Output Init*/    
+    DrvDioInit();
+    /*ADC Init*/
+    DrvAdcInit();
+    /*UART Init*/
+    DrvAscInit();
+    /*GTM Init*/
+    DrvGtmInit();
 }
 

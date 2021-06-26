@@ -131,13 +131,13 @@
  *
  *     // pin configuration
  *     const IfxCcu6_PwmBc_Pins pins = {
- *         IfxCcu60_CC60_P02_0_OUT,	// CC60Out pin
- *         IfxCcu60_CC61_P02_2_OUT,	// CC61Out pin
- *         IfxCcu60_CC62_P02_4_OUT,	// CC62Out pin
- *         IfxCcu60_COUT60_P02_1_OUT,	// COUT60 pin
- *         IfxCcu60_COUT60_P02_3_OUT,	// COUT61 pin
- *         IfxCcu60_COUT60_P02_5_OUT,	// COUT62 pin
- *         NULL,	                        // COUT63 pin not used
+ *         IfxCcu60_CC60_P02_0_OUT,    // CC60Out pin
+ *         IfxCcu60_CC61_P02_2_OUT,    // CC61Out pin
+ *         IfxCcu60_CC62_P02_4_OUT,    // CC62Out pin
+ *         IfxCcu60_COUT60_P02_1_OUT,    // COUT60 pin
+ *         IfxCcu60_COUT60_P02_3_OUT,    // COUT61 pin
+ *         IfxCcu60_COUT60_P02_5_OUT,    // COUT62 pin
+ *         NULL,                            // COUT63 pin not used
  *
  *         IfxCcu60_COUT60_P02_6_OUT       // CCPOS0In pin
  *         IfxCcu60_COUT60_P02_7_OUT       // CCPOS1In pin

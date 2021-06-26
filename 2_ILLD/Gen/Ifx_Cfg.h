@@ -29,8 +29,8 @@
 /*______________________________________________________________________________
 ** Configuration for IfxScu_cfg.h
 **____________________________________________________________________________*/
-#define IFX_CFG_SCU_XTAL_FREQUENCY		(20000000)	/**<allowed values 16000000, 20000000 or 40000000*/
-#define IFX_CFG_SCU_PLL_FREQUENCY		(200000000) /**<allowed values 80000000, 133000000, 160000000 or 200000000 */
+#define IFX_CFG_SCU_XTAL_FREQUENCY        (20000000)    /**<allowed values 16000000, 20000000 or 40000000*/
+#define IFX_CFG_SCU_PLL_FREQUENCY        (200000000) /**<allowed values 80000000, 133000000, 160000000 or 200000000 */
 
 /*______________________________________________________________________________
 ** Configuration for Software managed interrupt

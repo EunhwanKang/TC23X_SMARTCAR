@@ -51,27 +51,27 @@ void IfxStdIf_Pos_printStatus(IfxStdIf_Pos *driver, IfxStdIf_DPipe *io)
     {
         if (status.B.commError)
         {
-        	IfxStdIf_DPipe_print(io, "- Communication error"ENDL);
+            IfxStdIf_DPipe_print(io, "- Communication error"ENDL);
         }
         if (status.B.notSynchronised)
         {
-        	IfxStdIf_DPipe_print(io, "- Synchronization error"ENDL);
+            IfxStdIf_DPipe_print(io, "- Synchronization error"ENDL);
         }
         if (status.B.signalDegradation)
         {
-        	IfxStdIf_DPipe_print(io, "- Signal degradation error"ENDL);
+            IfxStdIf_DPipe_print(io, "- Signal degradation error"ENDL);
         }
         if (status.B.signalLoss)
         {
-        	IfxStdIf_DPipe_print(io, "- Signal loss error"ENDL);
+            IfxStdIf_DPipe_print(io, "- Signal loss error"ENDL);
         }
         if (status.B.trackingLoss)
         {
-        	IfxStdIf_DPipe_print(io, "- Tracking error"ENDL);
+            IfxStdIf_DPipe_print(io, "- Tracking error"ENDL);
         }
     }
     else
     {
-    	IfxStdIf_DPipe_print(io, "- Ready"ENDL);
+        IfxStdIf_DPipe_print(io, "- Ready"ENDL);
     }
 }

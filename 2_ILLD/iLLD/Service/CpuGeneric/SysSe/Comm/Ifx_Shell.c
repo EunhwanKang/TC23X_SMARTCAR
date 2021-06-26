@@ -360,10 +360,10 @@ boolean Ifx_Shell_init(Ifx_Shell *shell, const Ifx_Shell_Config *config)
 
     if (shell->control.showPrompt != 0)
     {
-		#if 0 
-		IfxStdIf_DPipe_print(shell->io, ENDL);
+        #if 0 
+        IfxStdIf_DPipe_print(shell->io, ENDL);
         IfxStdIf_DPipe_print(shell->io, IFX_CFG_SHELL_PROMPT);
-		#endif
+        #endif
     }
 
     return TRUE;

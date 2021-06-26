@@ -44,36 +44,36 @@ typedef struct
 /*------------------------------Global variables------------------------------*/
 /******************************************************************************/
 #if TFT_DISPLAY_VAR_LOCATION == 0
-	#if defined(__GNUC__)
+    #if defined(__GNUC__)
     #pragma section
-	#pragma section ".bss_cpu0" awc0
-	#endif
-	#if defined(__TASKING__)
-	#pragma section farbss "bss_cpu0"
-	#endif
-	#if defined(__DCC__)
-	#pragma section DATA ".data_cpu0" ".bss_cpu0" far-absolute RW
-	#endif
+    #pragma section ".bss_cpu0" awc0
+    #endif
+    #if defined(__TASKING__)
+    #pragma section farbss "bss_cpu0"
+    #endif
+    #if defined(__DCC__)
+    #pragma section DATA ".data_cpu0" ".bss_cpu0" far-absolute RW
+    #endif
 #elif TFT_DISPLAY_VAR_LOCATION == 1
-	#if defined(__GNUC__)
-	#pragma section ".bss_cpu1" awc1
-	#endif
-	#if defined(__TASKING__)
-	#pragma section farbss "bss_cpu1"
-	#endif
-	#if defined(__DCC__)
-	#pragma section DATA ".data_cpu1" ".bss_cpu1" far-absolute RW
-	#endif
+    #if defined(__GNUC__)
+    #pragma section ".bss_cpu1" awc1
+    #endif
+    #if defined(__TASKING__)
+    #pragma section farbss "bss_cpu1"
+    #endif
+    #if defined(__DCC__)
+    #pragma section DATA ".data_cpu1" ".bss_cpu1" far-absolute RW
+    #endif
 #elif TFT_DISPLAY_VAR_LOCATION == 2
-	#if defined(__GNUC__)
-	#pragma section ".bss_cpu2" awc2
-	#endif
-	#if defined(__TASKING__)
-	#pragma section farbss "bss_cpu2"
-	#endif
-	#if defined(__DCC__)
-	#pragma section DATA ".data_cpu2" ".bss_cpu2" far-absolute RW
-	#endif
+    #if defined(__GNUC__)
+    #pragma section ".bss_cpu2" awc2
+    #endif
+    #if defined(__TASKING__)
+    #pragma section farbss "bss_cpu2"
+    #endif
+    #if defined(__DCC__)
+    #pragma section DATA ".data_cpu2" ".bss_cpu2" far-absolute RW
+    #endif
 #else
 #error "Set TFT_DISPLAY_VAR_LOCATION to a valid value!"
 #endif
@@ -108,11 +108,11 @@ App_Qspi_Tft g_Qspi_Tft;
 void tft_transmit_callback(void)
 {
     // check that we are ready (no remaining bytes) in case that we are not using the DMA
-	if (g_Qspi_Tft.drivers.spiMaster->dma.useDma == 0)
+    if (g_Qspi_Tft.drivers.spiMaster->dma.useDma == 0)
         if (g_Qspi_Tft.drivers.spiMasterChannel.base.tx.remaining) return;
-	// if our pCallbackFunction is valid then we call it
-	if (pCallbackFunction != (void *)0)
-		pCallbackFunction();
+    // if our pCallbackFunction is valid then we call it
+    if (pCallbackFunction != (void *)0)
+        pCallbackFunction();
 }
 
 static void delay_us (uint32 time)
@@ -164,8 +164,8 @@ static uint32 tft_read_data (uint8 regaddr)
 
     for (cnt=0; cnt<2; cnt++)
     {
-    	tx_data[cnt] = 0;
-    	rx_data[cnt] = 0;
+        tx_data[cnt] = 0;
+        rx_data[cnt] = 0;
     }
 
     /* we need 16 bit for address and 26 bits for value = 42 bits total */
@@ -273,7 +273,7 @@ static uint32 tft_terminate_endless_transfer (void)
 {
     // all our values was send
     uint16 tx_data;
-	// first we reset the callback function to 0
+    // first we reset the callback function to 0
     pCallbackFunction = (void *)0;
     /* wait until Spi is no longer busy (wait until receive is finished) */
     while (IfxQspi_SpiMaster_getStatus(&g_Qspi_Tft.drivers.spiMasterChannel) == SpiIf_Status_busy) {};
@@ -301,8 +301,8 @@ static uint32 tft_terminate_endless_transfer (void)
     g_Qspi_Tft.drivers.spiMasterChannel.bacon.B.DL = 31;
     g_Qspi_Tft.drivers.spiMasterChannel.dataWidth = 32;
     /* we reset the tft status, no longer busy */
-	tft_status = 0;
-	return 0;
+    tft_status = 0;
+    return 0;
 }
 
 void tft_init (void)
@@ -316,8 +316,8 @@ void tft_init (void)
     {
         /* create channel config */
 #if defined(__DCC__)
-   		// bug on DCC not all bits in mode are cleared
-   		memset(&spiMasterChannelConfig, 0, sizeof(spiMasterChannelConfig));
+           // bug on DCC not all bits in mode are cleared
+           memset(&spiMasterChannelConfig, 0, sizeof(spiMasterChannelConfig));
 #endif
         IfxQspi_SpiMaster_initChannelConfig(&spiMasterChannelConfig,
             g_Qspi_Tft.drivers.spiMaster);
@@ -356,7 +356,7 @@ void tft_init (void)
     if (tft_id == 0x0)
     {
         // check for ILI9341 controller
-    	uint16 uwData[6];
+        uint16 uwData[6];
         tft_read_data_ili9341 (0xD3, &uwData[0], 5);
         if ((uwData[3] == 0x0093) && (uwData[4] == 0x0041))
         {
@@ -369,150 +369,150 @@ void tft_init (void)
     if (tft_id == 0x9341)
     {
         // this is an ILI9341 controller
-    	// we will send max. 15 values + 1 value for last write
-    	uint16 uwData[16];
+        // we will send max. 15 values + 1 value for last write
+        uint16 uwData[16];
         /************* Start Initial Sequence **********/
-    	uwData[0] = 0x0000;
-    	uwData[1] = 0x0083;
-    	uwData[2] = 0x0030;
-    	uwData[3] = 0x0000;
-    	tft_write_data_ili9341(0xCF, &uwData[0], 4); // setting from display supplier
+        uwData[0] = 0x0000;
+        uwData[1] = 0x0083;
+        uwData[2] = 0x0030;
+        uwData[3] = 0x0000;
+        tft_write_data_ili9341(0xCF, &uwData[0], 4); // setting from display supplier
 
-    	uwData[0] = 0x0064;
-    	uwData[1] = 0x0003;
-    	uwData[2] = 0x0012;
-    	uwData[3] = 0x0081;
-    	uwData[4] = 0x0000;
-    	tft_write_data_ili9341(0xED, &uwData[0], 5); // setting from display supplier
+        uwData[0] = 0x0064;
+        uwData[1] = 0x0003;
+        uwData[2] = 0x0012;
+        uwData[3] = 0x0081;
+        uwData[4] = 0x0000;
+        tft_write_data_ili9341(0xED, &uwData[0], 5); // setting from display supplier
 
-    	uwData[0] = 0x0085;
-    	uwData[1] = 0x0000;
-    	uwData[2] = 0x0078;
-    	uwData[3] = 0x0000;
-    	tft_write_data_ili9341(0xE8, &uwData[0], 4); // setting from display supplier
+        uwData[0] = 0x0085;
+        uwData[1] = 0x0000;
+        uwData[2] = 0x0078;
+        uwData[3] = 0x0000;
+        tft_write_data_ili9341(0xE8, &uwData[0], 4); // setting from display supplier
 
-    	uwData[0] = 0x0039;
-    	uwData[1] = 0x002C;
-    	uwData[2] = 0x0000;
-    	uwData[3] = 0x0034;
-    	uwData[4] = 0x0002;
-    	uwData[5] = 0x0000;
-    	tft_write_data_ili9341(0xCB, &uwData[0], 6); // setting from display supplier
+        uwData[0] = 0x0039;
+        uwData[1] = 0x002C;
+        uwData[2] = 0x0000;
+        uwData[3] = 0x0034;
+        uwData[4] = 0x0002;
+        uwData[5] = 0x0000;
+        tft_write_data_ili9341(0xCB, &uwData[0], 6); // setting from display supplier
 
-    	uwData[0] = 0x0020;
-    	uwData[1] = 0x0000;
-    	tft_write_data_ili9341(0xF7, &uwData[0], 2); // setting from display supplier
+        uwData[0] = 0x0020;
+        uwData[1] = 0x0000;
+        tft_write_data_ili9341(0xF7, &uwData[0], 2); // setting from display supplier
 
-    	uwData[0] = 0x0000;
-    	uwData[1] = 0x0000;
-    	uwData[2] = 0x0000;
-    	tft_write_data_ili9341(0xEA, &uwData[0], 3); // setting from display supplier
+        uwData[0] = 0x0000;
+        uwData[1] = 0x0000;
+        uwData[2] = 0x0000;
+        tft_write_data_ili9341(0xEA, &uwData[0], 3); // setting from display supplier
 
-    	uwData[0] = 0x0019;  // VRH[5:0]
-    	uwData[1] = 0x0000;
-    	tft_write_data_ili9341(0xC0, &uwData[0], 2); // Power Control 1
+        uwData[0] = 0x0019;  // VRH[5:0]
+        uwData[1] = 0x0000;
+        tft_write_data_ili9341(0xC0, &uwData[0], 2); // Power Control 1
 
-    	uwData[0] = 0x0011;  // SAP[2:0];BT[3:0]
-    	uwData[1] = 0x0000;
-    	tft_write_data_ili9341(0xC1, &uwData[0], 2); // Power Control 2
+        uwData[0] = 0x0011;  // SAP[2:0];BT[3:0]
+        uwData[1] = 0x0000;
+        tft_write_data_ili9341(0xC1, &uwData[0], 2); // Power Control 2
 
-    	uwData[0] = 0x0031;
-    	uwData[1] = 0x003C;
-    	uwData[2] = 0x0000;
-    	tft_write_data_ili9341(0xC5, &uwData[0], 3); // VCM Control 1
+        uwData[0] = 0x0031;
+        uwData[1] = 0x003C;
+        uwData[2] = 0x0000;
+        tft_write_data_ili9341(0xC5, &uwData[0], 3); // VCM Control 1
 
-    	uwData[0] = 0x00B0;
-    	uwData[1] = 0x0000;
-    	tft_write_data_ili9341(0xC7, &uwData[0], 2); // VCM Control 2
+        uwData[0] = 0x00B0;
+        uwData[1] = 0x0000;
+        tft_write_data_ili9341(0xC7, &uwData[0], 2); // VCM Control 2
 
-    	uwData[0] = 0x0028;  // MV=1; BGR=1
-    	uwData[1] = 0x0000;
-    	tft_write_data_ili9341(0x36, &uwData[0], 2); // Memory Access Control
+        uwData[0] = 0x0028;  // MV=1; BGR=1
+        uwData[1] = 0x0000;
+        tft_write_data_ili9341(0x36, &uwData[0], 2); // Memory Access Control
 
-    	uwData[0] = 0x0055;  // 16 bit
-    	uwData[1] = 0x0000;
-    	tft_write_data_ili9341(0x3A, &uwData[0], 2); // Pixel Format Set
+        uwData[0] = 0x0055;  // 16 bit
+        uwData[1] = 0x0000;
+        tft_write_data_ili9341(0x3A, &uwData[0], 2); // Pixel Format Set
 
-    	uwData[0] = 0x0000;
-    	uwData[1] = 0x0017;
-    	uwData[2] = 0x0000;
-    	tft_write_data_ili9341(0xB1, &uwData[0], 3); // Frame Control (in Normal Mode)
+        uwData[0] = 0x0000;
+        uwData[1] = 0x0017;
+        uwData[2] = 0x0000;
+        tft_write_data_ili9341(0xB1, &uwData[0], 3); // Frame Control (in Normal Mode)
 
-    	uwData[0] = 0x000A;
-    	uwData[1] = 0x00A2;
-    	uwData[2] = 0x0000;
-    	tft_write_data_ili9341(0xB6, &uwData[0], 3); // Display Function Control
+        uwData[0] = 0x000A;
+        uwData[1] = 0x00A2;
+        uwData[2] = 0x0000;
+        tft_write_data_ili9341(0xB6, &uwData[0], 3); // Display Function Control
 
-    	uwData[0] = 0x0001;
-    	uwData[1] = 0x0030;
-    	uwData[2] = 0x0000;
-    	tft_write_data_ili9341(0xF6, &uwData[0], 3); // Interface Control
+        uwData[0] = 0x0001;
+        uwData[1] = 0x0030;
+        uwData[2] = 0x0000;
+        tft_write_data_ili9341(0xF6, &uwData[0], 3); // Interface Control
 
-    	uwData[0] = 0x0000;  // Gamma Function Disable
-    	uwData[1] = 0x0000;
-    	tft_write_data_ili9341(0xF2, &uwData[0], 2);  // setting from display supplier
+        uwData[0] = 0x0000;  // Gamma Function Disable
+        uwData[1] = 0x0000;
+        tft_write_data_ili9341(0xF2, &uwData[0], 2);  // setting from display supplier
 
-    	uwData[0] = 0x0001;     //Gamma curve selected
-    	uwData[1] = 0x0000;
-    	tft_write_data_ili9341(0x26, &uwData[0], 2);  // Gamma Set
+        uwData[0] = 0x0001;     //Gamma curve selected
+        uwData[1] = 0x0000;
+        tft_write_data_ili9341(0x26, &uwData[0], 2);  // Gamma Set
 
-    	uwData[0]  = 0x000F;
-    	uwData[1]  = 0x0026;
-    	uwData[2]  = 0x0022;
-    	uwData[3]  = 0x000A;
-    	uwData[4]  = 0x0010;
-    	uwData[5]  = 0x000A;
-    	uwData[6]  = 0x004C;
-    	uwData[7]  = 0x00CA;
-    	uwData[8]  = 0x0036;
-    	uwData[9]  = 0x0000;
-    	uwData[10] = 0x0015;
-    	uwData[11] = 0x0000;
-    	uwData[12] = 0x0010;
-    	uwData[13] = 0x0010;
-    	uwData[14] = 0x0000;
-    	uwData[15] = 0x0000;
-    	tft_write_data_ili9341(0xE0, &uwData[0], 16); // Positive Gamma Correction
+        uwData[0]  = 0x000F;
+        uwData[1]  = 0x0026;
+        uwData[2]  = 0x0022;
+        uwData[3]  = 0x000A;
+        uwData[4]  = 0x0010;
+        uwData[5]  = 0x000A;
+        uwData[6]  = 0x004C;
+        uwData[7]  = 0x00CA;
+        uwData[8]  = 0x0036;
+        uwData[9]  = 0x0000;
+        uwData[10] = 0x0015;
+        uwData[11] = 0x0000;
+        uwData[12] = 0x0010;
+        uwData[13] = 0x0010;
+        uwData[14] = 0x0000;
+        uwData[15] = 0x0000;
+        tft_write_data_ili9341(0xE0, &uwData[0], 16); // Positive Gamma Correction
 
-    	uwData[0]  = 0x0000;
-    	uwData[1]  = 0x0019;
-    	uwData[2]  = 0x001B;
-    	uwData[3]  = 0x0005;
-    	uwData[4]  = 0x000F;
-    	uwData[5]  = 0x0005;
-    	uwData[6]  = 0x0033;
-    	uwData[7]  = 0x0035;
-    	uwData[8]  = 0x0049;
-    	uwData[9]  = 0x000F;
-    	uwData[10] = 0x001F;
-    	uwData[11] = 0x000F;
-    	uwData[12] = 0x003F;
-    	uwData[13] = 0x003F;
-    	uwData[14] = 0x000F;
-    	uwData[15] = 0x0000;
-    	tft_write_data_ili9341(0xE1, &uwData[0], 16); // Negative Gamma Correction
+        uwData[0]  = 0x0000;
+        uwData[1]  = 0x0019;
+        uwData[2]  = 0x001B;
+        uwData[3]  = 0x0005;
+        uwData[4]  = 0x000F;
+        uwData[5]  = 0x0005;
+        uwData[6]  = 0x0033;
+        uwData[7]  = 0x0035;
+        uwData[8]  = 0x0049;
+        uwData[9]  = 0x000F;
+        uwData[10] = 0x001F;
+        uwData[11] = 0x000F;
+        uwData[12] = 0x003F;
+        uwData[13] = 0x003F;
+        uwData[14] = 0x000F;
+        uwData[15] = 0x0000;
+        tft_write_data_ili9341(0xE1, &uwData[0], 16); // Negative Gamma Correction
 
-    	uwData[0] = 0x0000;
-    	uwData[1] = 0x0000;
-    	uwData[2] = ((TFT_XSIZE-1) & 0xFF00)>>8;
-    	uwData[3] = (TFT_XSIZE-1) & 0x00FF;
-    	uwData[4] = 0x0000;
-    	tft_write_data_ili9341(0x2A, &uwData[0], 5);  // Column Address Set
+        uwData[0] = 0x0000;
+        uwData[1] = 0x0000;
+        uwData[2] = ((TFT_XSIZE-1) & 0xFF00)>>8;
+        uwData[3] = (TFT_XSIZE-1) & 0x00FF;
+        uwData[4] = 0x0000;
+        tft_write_data_ili9341(0x2A, &uwData[0], 5);  // Column Address Set
 
-    	uwData[0] = 0x0000;
-    	uwData[1] = 0x0000;
-    	uwData[2] = ((TFT_YSIZE-1) & 0xFF00)>>8;
-    	uwData[3] = (TFT_YSIZE-1) & 0x00FF;
-    	uwData[4] = 0x0000;
-    	tft_write_data_ili9341(0x2B, &uwData[0], 5);  // Page Address Set
+        uwData[0] = 0x0000;
+        uwData[1] = 0x0000;
+        uwData[2] = ((TFT_YSIZE-1) & 0xFF00)>>8;
+        uwData[3] = (TFT_YSIZE-1) & 0x00FF;
+        uwData[4] = 0x0000;
+        tft_write_data_ili9341(0x2B, &uwData[0], 5);  // Page Address Set
 
-    	uwData[0] = 0x0000;
-    	tft_write_data_ili9341(0x11, &uwData[0], 1);  // Exit Sleep
+        uwData[0] = 0x0000;
+        tft_write_data_ili9341(0x11, &uwData[0], 1);  // Exit Sleep
 
         delay_ms (120);
 
-    	uwData[0] = 0x0000;
-    	tft_write_data_ili9341(0x29, &uwData[0], 1);  // Display on
+        uwData[0] = 0x0000;
+        tft_write_data_ili9341(0x29, &uwData[0], 1);  // Display on
     }
     else
     {
@@ -625,17 +625,17 @@ void tft_display_setxy (uint32 x, uint32 y)
 {
     if (tft_id == 0x9341)
     {
-    	uint16 uwData[3];
+        uint16 uwData[3];
 
-    	uwData[0] = (uint16) (x >> 8);
-    	uwData[1] = (uint16) x;
-    	uwData[2] = 0x0000;
-    	tft_write_data_ili9341(0x2A, &uwData[0], 3);  // Column Address Set, we change only the start (2 Parameters)
+        uwData[0] = (uint16) (x >> 8);
+        uwData[1] = (uint16) x;
+        uwData[2] = 0x0000;
+        tft_write_data_ili9341(0x2A, &uwData[0], 3);  // Column Address Set, we change only the start (2 Parameters)
 
-    	uwData[0] = (uint16) (y >> 8);
-    	uwData[1] = (uint16) y;
-    	uwData[2] = 0x0000;
-    	tft_write_data_ili9341(0x2B, &uwData[0], 3);  // Page Address Set, we change only the start (2 Parameters)
+        uwData[0] = (uint16) (y >> 8);
+        uwData[1] = (uint16) y;
+        uwData[2] = 0x0000;
+        tft_write_data_ili9341(0x2B, &uwData[0], 3);  // Page Address Set, we change only the start (2 Parameters)
     }
     else
     {
@@ -679,11 +679,11 @@ void tft_flush_row_buff(void *pFunc, uint32 numberOfPixel)
         g_Qspi_Tft.drivers.spiMasterChannel.dataWidth = 32;
     }
 
-	tft_status = 1; // TFT Busy
+    tft_status = 1; // TFT Busy
 
-	pCallbackFunction = pFunc;
-	if (pCallbackFunction == (void *)0)
-		pCallbackFunction = (void *)&tft_terminate_endless_transfer;
+    pCallbackFunction = pFunc;
+    if (pCallbackFunction == (void *)0)
+        pCallbackFunction = (void *)&tft_terminate_endless_transfer;
 
     /* wait until Spi is no longer busy (should not busy here) */
     while (IfxQspi_SpiMaster_getStatus(&g_Qspi_Tft.drivers.spiMasterChannel) == SpiIf_Status_busy) {};

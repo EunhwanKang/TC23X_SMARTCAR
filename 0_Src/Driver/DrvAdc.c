@@ -1,17 +1,17 @@
 /*----------------------------------------------------------------*/
-/*						Include Header File						  */
+/*                        Include Header File                          */
 /*----------------------------------------------------------------*/
 #include "DrvAdc.h"
 #include <Vadc/Std/IfxVadc.h>
 #include <Vadc/Adc/IfxVadc_Adc.h>
 
 /*----------------------------------------------------------------*/
-/*						Define						  			  */
+/*                        Define                                        */
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
-/*						Typedefs						  		  */
+/*                        Typedefs                                    */
 /*----------------------------------------------------------------*/
 typedef struct
 {
@@ -27,13 +27,13 @@ typedef struct
 
 
 /*----------------------------------------------------------------*/
-/*						Static Function Prototype				  */
+/*                        Static Function Prototype                  */
 /*----------------------------------------------------------------*/
 static void DrvAdc0Init(void);
 static void DrvAdc1Init(void);
 
 /*----------------------------------------------------------------*/
-/*						Variables				  				  */
+/*                        Variables                                    */
 /*----------------------------------------------------------------*/
 App_VadcAutoScan g_VadcAutoScan;
 App_VadcBackgroundScan g_VadcBackgroundScan;
@@ -45,7 +45,7 @@ uint32_t g_Vadc0Result[5] = {0u,};
 uint32_t g_Vadc1Result[2] = {0u,};
 
 /*----------------------------------------------------------------*/
-/*						Functions				  				  */
+/*                        Functions                                    */
 /*----------------------------------------------------------------*/
 
 /*---------------------Interrupt Define--------------------------*/
@@ -55,59 +55,59 @@ uint32_t g_Vadc1Result[2] = {0u,};
 /*---------------------Test Code--------------------------*/
 void VadcAutoScanDemo_run(void)
 {
-	uint32	chnIx;
+    uint32    chnIx;
 
-	for (chnIx = 0; chnIx < 5; ++chnIx)
-	{
-	    //unsigned     group   = adc0Channel[chnIx].group->groupId;
-	    //unsigned     channel = adc0Channel[chnIx].channel;
+    for (chnIx = 0; chnIx < 5; ++chnIx)
+    {
+        //unsigned     group   = adc0Channel[chnIx].group->groupId;
+        //unsigned     channel = adc0Channel[chnIx].channel;
 
-	    /* wait for valid result */
-	    Ifx_VADC_RES conversionResult;
+        /* wait for valid result */
+        Ifx_VADC_RES conversionResult;
 
-	    do
-	    {
-	        conversionResult = IfxVadc_Adc_getResult(&adc0Channel[chnIx]);
-	    } while (!conversionResult.B.VF);
+        do
+        {
+            conversionResult = IfxVadc_Adc_getResult(&adc0Channel[chnIx]);
+        } while (!conversionResult.B.VF);
 
-	    g_Vadc0Result[chnIx] = conversionResult.B.RESULT;
-	}
+        g_Vadc0Result[chnIx] = conversionResult.B.RESULT;
+    }
 
 }
 
 void VadcBackgroundScanDemo_run(void)
 {
-	uint32	chnIx;
+    uint32    chnIx;
 
-	/* check results */
-	for (chnIx = 0; chnIx < 2; ++chnIx)
-	{
-	    //unsigned     group   = adc1Channel[chnIx].group->groupId;
-	    //unsigned     channel = adc1Channel[chnIx].channel;
+    /* check results */
+    for (chnIx = 0; chnIx < 2; ++chnIx)
+    {
+        //unsigned     group   = adc1Channel[chnIx].group->groupId;
+        //unsigned     channel = adc1Channel[chnIx].channel;
 
-	    /* wait for valid result */
-	    Ifx_VADC_RES conversionResult;
+        /* wait for valid result */
+        Ifx_VADC_RES conversionResult;
 
-	    do
-	    {
-	        conversionResult = IfxVadc_Adc_getResult(&adc1Channel[chnIx]);
-	    } while (!conversionResult.B.VF);
+        do
+        {
+            conversionResult = IfxVadc_Adc_getResult(&adc1Channel[chnIx]);
+        } while (!conversionResult.B.VF);
 
-	 	g_Vadc1Result[chnIx] = conversionResult.B.RESULT;
-	}
+         g_Vadc1Result[chnIx] = conversionResult.B.RESULT;
+    }
 }
 
 /*---------------------Init Function--------------------------*/
 void DrvAdcInit(void)
 {
-	DrvAdc0Init();
-	DrvAdc1Init();
+    DrvAdc0Init();
+    DrvAdc1Init();
 }
 
 static void DrvAdc0Init(void)
 {
-	uint32	chnIx;
-	IfxVadc_Adc_ChannelConfig adcChannelConfig[5];	/* create channel config */
+    uint32    chnIx;
+    IfxVadc_Adc_ChannelConfig adcChannelConfig[5];    /* create channel config */
 
     /* VADC Configuration */
 
@@ -161,37 +161,37 @@ static void DrvAdc0Init(void)
 
 static void DrvAdc1Init(void)
 {
-	uint32	chnIx;
-	IfxVadc_Adc_ChannelConfig adcChannelConfig[2]; 	/* create channel config */
+    uint32    chnIx;
+    IfxVadc_Adc_ChannelConfig adcChannelConfig[2];     /* create channel config */
 
-	/* VADC Configuration */
+    /* VADC Configuration */
 
-	/* create configuration */
-	IfxVadc_Adc_Config adcConfig;
-	IfxVadc_Adc_initModuleConfig(&adcConfig, &MODULE_VADC);
+    /* create configuration */
+    IfxVadc_Adc_Config adcConfig;
+    IfxVadc_Adc_initModuleConfig(&adcConfig, &MODULE_VADC);
 
-	/* initialize module */
-	IfxVadc_Adc_initModule(&g_VadcBackgroundScan.vadc, &adcConfig);
+    /* initialize module */
+    IfxVadc_Adc_initModule(&g_VadcBackgroundScan.vadc, &adcConfig);
 
-	/* create group config */
-	IfxVadc_Adc_GroupConfig adcGroupConfig;
-	IfxVadc_Adc_initGroupConfig(&adcGroupConfig, &g_VadcBackgroundScan.vadc);
+    /* create group config */
+    IfxVadc_Adc_GroupConfig adcGroupConfig;
+    IfxVadc_Adc_initGroupConfig(&adcGroupConfig, &g_VadcBackgroundScan.vadc);
 
-	/* with group 1 */
-	adcGroupConfig.groupId = IfxVadc_GroupId_1;
-	adcGroupConfig.master  = adcGroupConfig.groupId;
+    /* with group 1 */
+    adcGroupConfig.groupId = IfxVadc_GroupId_1;
+    adcGroupConfig.master  = adcGroupConfig.groupId;
 
-	/* enable background scan source */
-	adcGroupConfig.arbiter.requestSlotBackgroundScanEnabled = TRUE;
+    /* enable background scan source */
+    adcGroupConfig.arbiter.requestSlotBackgroundScanEnabled = TRUE;
 
-	/* enable background auto scan */
-	adcGroupConfig.backgroundScanRequest.autoBackgroundScanEnabled = TRUE;
+    /* enable background auto scan */
+    adcGroupConfig.backgroundScanRequest.autoBackgroundScanEnabled = TRUE;
 
-	/* enable all gates in "always" mode (no edge detection) */
-	adcGroupConfig.backgroundScanRequest.triggerConfig.gatingMode = IfxVadc_GatingMode_always;
+    /* enable all gates in "always" mode (no edge detection) */
+    adcGroupConfig.backgroundScanRequest.triggerConfig.gatingMode = IfxVadc_GatingMode_always;
 
-	/* initialize the group */
-	IfxVadc_Adc_initGroup(&g_VadcBackgroundScan.adcGroup, &adcGroupConfig);
+    /* initialize the group */
+    IfxVadc_Adc_initGroup(&g_VadcBackgroundScan.adcGroup, &adcGroupConfig);
 
    for (chnIx = 0; chnIx < 2; ++chnIx)
     {

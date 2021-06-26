@@ -71,8 +71,8 @@
  * }
  *
  * // initialise TOM
- * IfxGtm_Tom_Pwm_Config tomConfig;	\\configuration structure
- * IfxGtm_Tom_Pwm_Driver tomHandle;	\\ handle
+ * IfxGtm_Tom_Pwm_Config tomConfig;    \\configuration structure
+ * IfxGtm_Tom_Pwm_Driver tomHandle;    \\ handle
  *
  * IfxGtm_Tom_Pwm_initConfig(&tomConfig, gtm);
  *

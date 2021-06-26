@@ -33,14 +33,14 @@
 /******************************************************************************/
 #define TOUCH_BUFFER_SIZE 5    /**< \brief Tx/Rx Buffer size */
 
-#define XMAX_TOUCH   3700.0f		//maybe a option is needed to trim the values
+#define XMAX_TOUCH   3700.0f        //maybe a option is needed to trim the values
 #define XMIN_TOUCH   240.0f
 #define YMIN_TOUCH   300.0f
 #define YMAX_TOUCH   3740.0f
 
 #ifdef TFT_OVER_DAS
 
-#define XMAX_DAS     3800.0f		//maybe a option is needed to trim the values
+#define XMAX_DAS     3800.0f        //maybe a option is needed to trim the values
 #define XMIN_DAS     340.0f
 #define YMIN_DAS     140.0f
 #define YMAX_DAS     3600.0f
@@ -75,38 +75,38 @@ typedef struct
 /*------------------------------Global variables------------------------------*/
 /******************************************************************************/
 #if TOUCH_VAR_LOCATION == 0
-	#if defined(__GNUC__)
-	#pragma section ".bss_cpu0" awc0
-	#endif
-	#if defined(__TASKING__)
-	#pragma section farbss "bss_cpu0"
-	#pragma section fardata "data_cpu0"
-	#endif
-	#if defined(__DCC__)
-	#pragma section DATA ".data_cpu0" ".bss_cpu0" far-absolute RW
-	#endif
+    #if defined(__GNUC__)
+    #pragma section ".bss_cpu0" awc0
+    #endif
+    #if defined(__TASKING__)
+    #pragma section farbss "bss_cpu0"
+    #pragma section fardata "data_cpu0"
+    #endif
+    #if defined(__DCC__)
+    #pragma section DATA ".data_cpu0" ".bss_cpu0" far-absolute RW
+    #endif
 #elif TOUCH_VAR_LOCATION == 1
-	#if defined(__GNUC__)
-	#pragma section ".bss_cpu1" awc1
-	#endif
-	#if defined(__TASKING__)
-	#pragma section farbss "bss_cpu1"
-	#pragma section fardata "data_cpu1"
-	#endif
-	#if defined(__DCC__)
-	#pragma section DATA ".data_cpu1" ".bss_cpu1" far-absolute RW
-	#endif
+    #if defined(__GNUC__)
+    #pragma section ".bss_cpu1" awc1
+    #endif
+    #if defined(__TASKING__)
+    #pragma section farbss "bss_cpu1"
+    #pragma section fardata "data_cpu1"
+    #endif
+    #if defined(__DCC__)
+    #pragma section DATA ".data_cpu1" ".bss_cpu1" far-absolute RW
+    #endif
 #elif TOUCH_VAR_LOCATION == 2
-	#if defined(__GNUC__)
-	#pragma section ".bss_cpu2" awc2
-	#endif
-	#if defined(__TASKING__)
-	#pragma section farbss "bss_cpu2"
-	#pragma section fardata "data_cpu2"
-	#endif
-	#if defined(__DCC__)
-	#pragma section DATA ".data_cpu2" ".bss_cpu2" far-absolute RW
-	#endif
+    #if defined(__GNUC__)
+    #pragma section ".bss_cpu2" awc2
+    #endif
+    #if defined(__TASKING__)
+    #pragma section farbss "bss_cpu2"
+    #pragma section fardata "data_cpu2"
+    #endif
+    #if defined(__DCC__)
+    #pragma section DATA ".data_cpu2" ".bss_cpu2" far-absolute RW
+    #endif
 #else
 #error "Set TOUCH_VAR_LOCATION to a valid value!"
 #endif
@@ -156,8 +156,8 @@ void touch_init (void)
     {
         /* create channel config */
 #if defined(__DCC__)
-   		// bug on DCC not all bits in mode are cleared
-   		memset(&spiMasterChannelConfig, 0, sizeof(spiMasterChannelConfig));
+           // bug on DCC not all bits in mode are cleared
+           memset(&spiMasterChannelConfig, 0, sizeof(spiMasterChannelConfig));
 #endif
         IfxQspi_SpiMaster_initChannelConfig(&spiMasterChannelConfig,
             g_Qspi_Touch.drivers.spiMaster);
@@ -186,7 +186,7 @@ void touch_init (void)
     }
 
     /* init tx buffer area */
-	g_Qspi_Touch.qspiBuffer.spiTxBuffer[0] = 0;
+    g_Qspi_Touch.qspiBuffer.spiTxBuffer[0] = 0;
     g_Qspi_Touch.qspiBuffer.spiRxBuffer[0] = 0;
 
     /* enable interrupts again */

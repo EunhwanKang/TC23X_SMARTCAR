@@ -1,33 +1,33 @@
 /*----------------------------------------------------------------*/
-/*						Include Header File						  */
+/*                        Include Header File                          */
 /*----------------------------------------------------------------*/
 #include "DrvAsc.h"
 #include "DrvAscTypes.h"
 
 /*----------------------------------------------------------------*/
-/*						Define						  			  */
+/*                        Define                                        */
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
-/*						Typedefs						  		  */
+/*                        Typedefs                                    */
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
-/*						Static Function Prototype				  */
+/*                        Static Function Prototype                  */
 /*----------------------------------------------------------------*/
 static void DrvAsc0Init(void);
 
 
 /*----------------------------------------------------------------*/
-/*						Variables				  				  */
+/*                        Variables                                    */
 /*----------------------------------------------------------------*/
 App_AsclinAsc g_AsclinAsc; /**< \brief Demo information */
 uint32_t gu32nuAscRxData = 0u;
 
 /*----------------------------------------------------------------*/
-/*						Functions				  				  */
+/*                        Functions                                    */
 /*----------------------------------------------------------------*/
 /*---------------------Interrupt Define--------------------------*/
 IFX_INTERRUPT(ASCTxInt0Handler, 0, ISR_PRIORITY_ASC_0_TX);
@@ -37,30 +37,28 @@ IFX_INTERRUPT(ASCExInt0Handler, 0, ISR_PRIORITY_ASC_0_EX);
 /*---------------------Interrupt Service Routine--------------------------*/
 void ASCTxInt0Handler(void)
 {
-	IfxAsclin_Asc_isrTransmit(&g_AsclinAsc.drivers.asc0);
+    IfxAsclin_Asc_isrTransmit(&g_AsclinAsc.drivers.asc0);
 }
 
 void ASCRxInt0Handler(void)
 {
     IfxAsclin_Asc_isrReceive(&g_AsclinAsc.drivers.asc0);
-	IfxAsclin_Asc_read(&g_AsclinAsc.drivers.asc0, g_AsclinAsc.rxData, &g_AsclinAsc.count, TIME_INFINITE);	
-	gu32nuAscRxData = g_AsclinAsc.rxData[0];
+    IfxAsclin_Asc_read(&g_AsclinAsc.drivers.asc0, g_AsclinAsc.rxData, &g_AsclinAsc.count, TIME_INFINITE);    
+    gu32nuAscRxData = g_AsclinAsc.rxData[0];
 
-	#if 1
     g_AsclinAsc.txData[0] = gu32nuAscRxData;    
     IfxAsclin_Asc_write(&g_AsclinAsc.drivers.asc0, g_AsclinAsc.txData, &g_AsclinAsc.count, TIME_INFINITE);
-	#endif
 }
 
 void ASCExInt0Handler(void)
 {
-	IfxAsclin_Asc_isrError(&g_AsclinAsc.drivers.asc0);
+    IfxAsclin_Asc_isrError(&g_AsclinAsc.drivers.asc0);
 }
 
 /*---------------------Init Function--------------------------*/
 void DrvAscInit(void)
 {
-	DrvAsc0Init();
+    DrvAsc0Init();
 }
 
 static void DrvAsc0Init(void)
@@ -87,29 +85,33 @@ static void DrvAsc0Init(void)
     ascConfig.rxBuffer     = g_AsclinAsc.ascBuffer.rx;
     ascConfig.rxBufferSize = ASC_RX_BUFFER_SIZE;
 
-    /* pin configuration */	
+    /* pin configuration */    
     const IfxAsclin_Asc_Pins pins = {
         NULL_PTR,                     IfxPort_InputMode_pullUp,        // CTS pin not used
         &IfxAsclin0_RXB_P15_3_IN, IfxPort_InputMode_pullUp,        // Rx pin
         NULL_PTR,                     IfxPort_OutputMode_pushPull,     //RTS pin not used
         &IfxAsclin0_TX_P15_2_OUT, IfxPort_OutputMode_pushPull,     // Tx pin
         IfxPort_PadDriver_cmosAutomotiveSpeed1
-    };		
+    };        
     ascConfig.pins = &pins;
 
     /* initialize module */
     IfxAsclin_Asc_initModule(&g_AsclinAsc.drivers.asc0, &ascConfig);
 
-    g_AsclinAsc.count = 1;
-    
-    /* Transmit data */
-    IfxAsclin_Asc_write(&g_AsclinAsc.drivers.asc0, g_AsclinAsc.txData, &g_AsclinAsc.count, TIME_INFINITE);
+    g_AsclinAsc.count = 1;    
 }
 
 /*---------------------Driver API--------------------------*/
 void DrvAsc_Test1(void)
 {
-    g_AsclinAsc.count = 1;
+    int i;
+    
+    g_AsclinAsc.count = 17;
+
+    for(i=0;i<17;i++)
+    {
+        g_AsclinAsc.txData[i] = i;
+    }
     
     /* Transmit data */
     IfxAsclin_Asc_write(&g_AsclinAsc.drivers.asc0, g_AsclinAsc.txData, &g_AsclinAsc.count, TIME_INFINITE);

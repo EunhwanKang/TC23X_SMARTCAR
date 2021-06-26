@@ -23,45 +23,45 @@ extern TCOLORTABLEASCII colortable_ascii;
 /*------------------------------Global variables------------------------------*/
 /******************************************************************************/
 #if TFT_DISPLAY_VAR_LOCATION == 0
-	#if defined(__GNUC__)
-	#pragma section ".bss_cpu0" awc0
-	#endif
-	#if defined(__TASKING__)
-	#pragma section farbss "bss_cpu0"
-	#pragma section fardata "data_cpu0"
-	#endif
-	#if defined(__DCC__)
-	#pragma section DATA ".data_cpu0" ".bss_cpu0" far-absolute RW
-	#endif
+    #if defined(__GNUC__)
+    #pragma section ".bss_cpu0" awc0
+    #endif
+    #if defined(__TASKING__)
+    #pragma section farbss "bss_cpu0"
+    #pragma section fardata "data_cpu0"
+    #endif
+    #if defined(__DCC__)
+    #pragma section DATA ".data_cpu0" ".bss_cpu0" far-absolute RW
+    #endif
 #elif TFT_DISPLAY_VAR_LOCATION == 1
-	#if defined(__GNUC__)
-	#pragma section ".bss_cpu1" awc1
-	#endif
-	#if defined(__TASKING__)
-	#pragma section farbss "bss_cpu1"
-	#pragma section fardata "data_cpu1"
-	#endif
-	#if defined(__DCC__)
-	#pragma section DATA ".data_cpu1" ".bss_cpu1" far-absolute RW
-	#endif
+    #if defined(__GNUC__)
+    #pragma section ".bss_cpu1" awc1
+    #endif
+    #if defined(__TASKING__)
+    #pragma section farbss "bss_cpu1"
+    #pragma section fardata "data_cpu1"
+    #endif
+    #if defined(__DCC__)
+    #pragma section DATA ".data_cpu1" ".bss_cpu1" far-absolute RW
+    #endif
 #elif TFT_DISPLAY_VAR_LOCATION == 2
-	#if defined(__GNUC__)
-	#pragma section ".bss_cpu2" awc2
-	#endif
-	#if defined(__TASKING__)
-	#pragma section farbss "bss_cpu2"
-	#pragma section fardata "data_cpu2"
-	#endif
-	#if defined(__DCC__)
-	#pragma section DATA ".data_cpu2" ".bss_cpu2" far-absolute RW
-	#endif
+    #if defined(__GNUC__)
+    #pragma section ".bss_cpu2" awc2
+    #endif
+    #if defined(__TASKING__)
+    #pragma section farbss "bss_cpu2"
+    #pragma section fardata "data_cpu2"
+    #endif
+    #if defined(__DCC__)
+    #pragma section DATA ".data_cpu2" ".bss_cpu2" far-absolute RW
+    #endif
 #else
 #error "Set TFT_DISPLAY_VAR_LOCATION to a valid value!"
 #endif
 
-	TCONIO_DRIVER conio_driver;
-	TCONTROL control;
-	uint32 fifo_display[0x800];
+    TCONIO_DRIVER conio_driver;
+    TCONTROL control;
+    uint32 fifo_display[0x800];
 
 
 #if defined(__GNUC__)
@@ -109,8 +109,8 @@ void conio_periodic (sint16 x, sint16 y, TDISPLAYENTRY * pmenulist, TDISPLAYENTR
         i += sizeof (TDISPLAY) >> 2;
         if (conio_driver.display[conio_driver.displaymode].mode == TEXTMODE)
         {
-        	memcpy32 (&conio_driver.pdasmirror[i], (uint32 *) conio_driver.display[conio_driver.displaymode].pdisplaycolor, sizeof (TDISPLAYCOLOR) >> 2);
-        	i += sizeof (TDISPLAYCOLOR) >> 2;
+            memcpy32 (&conio_driver.pdasmirror[i], (uint32 *) conio_driver.display[conio_driver.displaymode].pdisplaycolor, sizeof (TDISPLAYCOLOR) >> 2);
+            i += sizeof (TDISPLAYCOLOR) >> 2;
         }
         else
         {
@@ -173,7 +173,7 @@ void conio_periodic (sint16 x, sint16 y, TDISPLAYENTRY * pmenulist, TDISPLAYENTR
     //***********************************************************
     for (i=0; i<CONIO_DLG_ENTRIES; i++)
     {
-    	if (conio_dialog_list[i].dialogMode == conio_driver.dialogmode) conio_dialog_list[i].function(x, y);
+        if (conio_dialog_list[i].dialogMode == conio_driver.dialogmode) conio_dialog_list[i].function(x, y);
     }
 
     //MENU
@@ -182,8 +182,8 @@ void conio_periodic (sint16 x, sint16 y, TDISPLAYENTRY * pmenulist, TDISPLAYENTR
     {
         if ((conio_driver.displaymode) == DISPLAY_MENU)
         {
-        	showmenu(x, y, pmenulist);
-        	if (y < (TERMINAL_MAXY-1))
+            showmenu(x, y, pmenulist);
+            if (y < (TERMINAL_MAXY-1))
              {
                  conio_ascii_gotoxy (DISPLAY_MENU, x, y);
                  conio_ascii_textchangebackground (DISPLAY_MENU, RED);
@@ -519,30 +519,30 @@ void conio_periodic (sint16 x, sint16 y, TDISPLAYENTRY * pmenulist, TDISPLAYENTR
     control.timebeg[1] = __mfcr (CPU_CCNT);
     if (conio_driver.display[conio_driver.displaymode].mode == TEXTMODE)
     {
-    	/* this is a text display */
-        if (tft_status == 0)
-        {
-            /* we send new data to the display only when the last transfer to display is finished */
-        	tft_display_setxy (0, 0);
-            tft_ascii_bar (conio_driver.display[DISPLAY_BAR].pdisplay,
-            		    conio_driver.display[DISPLAY_BAR].pdisplaycolor);
-            /* we wait here until our the bar is transfered to display */
-            while (tft_status != 0);
-            tft_display_setxy (0, FONT_YSIZE);
-            tft_ascii (conio_driver.display[conio_driver.displaymode].mode,
-            		    conio_driver.display[conio_driver.displaymode].pdisplay,
-                        conio_driver.display[conio_driver.displaymode].pdisplaycolor);
-        }
-    }
-    else
-    {
-      	/* this is a graphic display */
+        /* this is a text display */
         if (tft_status == 0)
         {
             /* we send new data to the display only when the last transfer to display is finished */
             tft_display_setxy (0, 0);
             tft_ascii_bar (conio_driver.display[DISPLAY_BAR].pdisplay,
-           		           conio_driver.display[DISPLAY_BAR].pdisplaycolor);
+                        conio_driver.display[DISPLAY_BAR].pdisplaycolor);
+            /* we wait here until our the bar is transfered to display */
+            while (tft_status != 0);
+            tft_display_setxy (0, FONT_YSIZE);
+            tft_ascii (conio_driver.display[conio_driver.displaymode].mode,
+                        conio_driver.display[conio_driver.displaymode].pdisplay,
+                        conio_driver.display[conio_driver.displaymode].pdisplaycolor);
+        }
+    }
+    else
+    {
+          /* this is a graphic display */
+        if (tft_status == 0)
+        {
+            /* we send new data to the display only when the last transfer to display is finished */
+            tft_display_setxy (0, 0);
+            tft_ascii_bar (conio_driver.display[DISPLAY_BAR].pdisplay,
+                              conio_driver.display[DISPLAY_BAR].pdisplaycolor);
             /* we wait here until our the bar is transfered to display */
             while (tft_status != 0);
             tft_display_setxy (0, FONT_YSIZE);
@@ -577,14 +577,14 @@ void conio_init (const pTCONIODMENTRY dm_list)
     conio_driver.scanftext[0] = 0x0;
     for (i=0; i<CONIO_MAXDISPLAYS; i++)
     {
-    	conio_driver.display[dm_list[i].displayMode].pdisplay = dm_list[i].display.pdisplay;
-    	conio_driver.display[dm_list[i].displayMode].pdisplaycolor = dm_list[i].display.pdisplaycolor;
-    	conio_driver.display[dm_list[i].displayMode].mode = dm_list[i].display.mode;
-    	conio_driver.display[dm_list[i].displayMode].color = dm_list[i].display.color;
-    	conio_driver.display[dm_list[i].displayMode].maxx = dm_list[i].display.maxx;
-    	conio_driver.display[dm_list[i].displayMode].maxy = dm_list[i].display.maxy;
-    	conio_driver.display[dm_list[i].displayMode].x = dm_list[i].display.x;
-    	conio_driver.display[dm_list[i].displayMode].y = dm_list[i].display.y;
+        conio_driver.display[dm_list[i].displayMode].pdisplay = dm_list[i].display.pdisplay;
+        conio_driver.display[dm_list[i].displayMode].pdisplaycolor = dm_list[i].display.pdisplaycolor;
+        conio_driver.display[dm_list[i].displayMode].mode = dm_list[i].display.mode;
+        conio_driver.display[dm_list[i].displayMode].color = dm_list[i].display.color;
+        conio_driver.display[dm_list[i].displayMode].maxx = dm_list[i].display.maxx;
+        conio_driver.display[dm_list[i].displayMode].maxy = dm_list[i].display.maxy;
+        conio_driver.display[dm_list[i].displayMode].x = dm_list[i].display.x;
+        conio_driver.display[dm_list[i].displayMode].y = dm_list[i].display.y;
     }
     conio_driver.dasstatus = 0;
     conio_driver.pdasmirror = 0;

@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------*/
-/*						Include Header File						  */
+/*                        Include Header File                          */
 /*----------------------------------------------------------------*/
 #include "DrvStm.h"
 #include "IfxStm.h"
@@ -7,14 +7,14 @@
 #include "Common.h"
 
 /*----------------------------------------------------------------*/
-/*						Define						  			  */
+/*                        Define                                        */
 /*----------------------------------------------------------------*/
 #define ISR_PRIORITY_STM_INT0       40 /**< \brief Define the System Timer Interrupt priority.  */
-#define STM_TIME_1MS				100000u
+#define STM_TIME_1MS                100000u
 
 
 /*----------------------------------------------------------------*/
-/*						Typedefs						  		  */
+/*                        Typedefs                                    */
 /*----------------------------------------------------------------*/
 typedef struct stm_info
 {
@@ -24,21 +24,21 @@ typedef struct stm_info
 
 
 /*----------------------------------------------------------------*/
-/*						Static Function Prototype				  */
+/*                        Static Function Prototype                  */
 /*----------------------------------------------------------------*/
 static void DrvStm0Init(void);
 
 
 
 /*----------------------------------------------------------------*/
-/*						Variables				  				  */
+/*                        Variables                                    */
 /*----------------------------------------------------------------*/
 STM_INFO gstnuStmInfo;
 void (*DrvStm0CallbackFnc)(void);
 
 
 /*----------------------------------------------------------------*/
-/*						Functions				  				  */
+/*                        Functions                                    */
 /*----------------------------------------------------------------*/
 
 /*---------------------Interrupt Define--------------------------*/
@@ -48,34 +48,34 @@ IFX_INTERRUPT(STM_Int0Handler, 0, ISR_PRIORITY_STM_INT0);
 void STM_Int0Handler(void)
 {
     IfxStm_clearCompareFlag(gstnuStmInfo.stmSfr, gstnuStmInfo.stmConfig.comparator);
-	IfxStm_increaseCompare(gstnuStmInfo.stmSfr, gstnuStmInfo.stmConfig.comparator, STM_TIME_1MS);
+    IfxStm_increaseCompare(gstnuStmInfo.stmSfr, gstnuStmInfo.stmConfig.comparator, STM_TIME_1MS);
 
-	/*Stm Collback Function*/
-	DrvStm0CallbackFnc();
+    /*Stm Collback Function*/
+    DrvStm0CallbackFnc();
 }
 
 /*---------------------Callback Function--------------------------*/
 void DrvRegStm0CallbackFnc(void (*pDrvRegCallbackFnc)(void))
 {
-	DrvStm0CallbackFnc = pDrvRegCallbackFnc;
+    DrvStm0CallbackFnc = pDrvRegCallbackFnc;
 }
 
 /*---------------------Init Function--------------------------*/
 void DrvStmInit(void)
 {
-	DrvStm0Init();
+    DrvStm0Init();
 }
 
 static void DrvStm0Init(void)
 {
-	IfxStm_enableOcdsSuspend(&MODULE_STM0);
+    IfxStm_enableOcdsSuspend(&MODULE_STM0);
 
     gstnuStmInfo.stmSfr = &MODULE_STM0;
     IfxStm_initCompareConfig(&gstnuStmInfo.stmConfig);
 
     gstnuStmInfo.stmConfig.triggerPriority = ISR_PRIORITY_STM_INT0;
     gstnuStmInfo.stmConfig.typeOfService   = IfxSrc_Tos_cpu0;
-    gstnuStmInfo.stmConfig.ticks           = STM_TIME_1MS*10u;			/*1ms*10 = 10ms*/
+    gstnuStmInfo.stmConfig.ticks           = STM_TIME_1MS*10u;            /*1ms*10 = 10ms*/
 
     IfxStm_initCompare(gstnuStmInfo.stmSfr, &gstnuStmInfo.stmConfig);
 }

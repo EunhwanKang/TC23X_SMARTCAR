@@ -29,14 +29,14 @@
 typedef int ptrdiff_t;
 typedef unsigned int syze_t;
 typedef signed int signed_size_t;
-#define size_t	syze_t
+#define size_t    syze_t
 
 extern void *memcpy(void *s1, const void *s2, syze_t n);
 extern void *memset(void *s, int c, syze_t n);
 
 /* rodata is absolute */
 typedef const char rodata_ptr[];
-# define PIRBASE	0
+# define PIRBASE    0
 
 #define CONST_FUNCP *const
 
@@ -51,42 +51,42 @@ typedef const char rodata_ptr[];
  */
 void Ifx_C_Init(void)
 {
-	/*----------------------------------------------------------------------*/
-	/*									*/
-	/*	Clear BSS							*/
-	/*									*/
-	/*----------------------------------------------------------------------*/
-	    { /* The .secinfo section is in text; declare functions to force PIC */
+    /*----------------------------------------------------------------------*/
+    /*                                    */
+    /*    Clear BSS                            */
+    /*                                    */
+    /*----------------------------------------------------------------------*/
+        { /* The .secinfo section is in text; declare functions to force PIC */
 
-	#pragma ghs rodata
-	    extern rodata_ptr __ghsbinfo_clear;
-	#pragma ghs rodata
-	    extern rodata_ptr __ghseinfo_clear;
+    #pragma ghs rodata
+        extern rodata_ptr __ghsbinfo_clear;
+    #pragma ghs rodata
+        extern rodata_ptr __ghseinfo_clear;
 
-	    void **b = (void **) ((char *)__ghsbinfo_clear);
-	    void **e = (void **) ((char *)__ghseinfo_clear);
+        void **b = (void **) ((char *)__ghsbinfo_clear);
+        void **e = (void **) ((char *)__ghseinfo_clear);
 
-	    while (b != e) {
-		void *		t;			/* target pointer	*/
-		ptrdiff_t	v;			/* value to set		*/
-		size_t		n;			/* set n bytes		*/
-		t = (char *)(*b++);
-		v = *((ptrdiff_t *) b); b++;
-		n = *((size_t    *) b); b++;
-		memset(t, v, n);
-	    }
-	    }
+        while (b != e) {
+        void *        t;            /* target pointer    */
+        ptrdiff_t    v;            /* value to set        */
+        size_t        n;            /* set n bytes        */
+        t = (char *)(*b++);
+        v = *((ptrdiff_t *) b); b++;
+        n = *((size_t    *) b); b++;
+        memset(t, v, n);
+        }
+        }
 
-	/*----------------*/
-	/* initialize iob */
-	/*----------------*/
-	    {
-	    #pragma weak __gh_iob_init
-	    extern void __gh_iob_init(void);
-	    static void (CONST_FUNCP iob_init_funcp)(void) = __gh_iob_init;
-	    /* if cciob.c is loaded, initialize _iob for stdin,stdout,stderr */
-	    if (iob_init_funcp) __gh_iob_init();
-	    }
+    /*----------------*/
+    /* initialize iob */
+    /*----------------*/
+        {
+        #pragma weak __gh_iob_init
+        extern void __gh_iob_init(void);
+        static void (CONST_FUNCP iob_init_funcp)(void) = __gh_iob_init;
+        /* if cciob.c is loaded, initialize _iob for stdin,stdout,stderr */
+        if (iob_init_funcp) __gh_iob_init();
+        }
 }
 
 

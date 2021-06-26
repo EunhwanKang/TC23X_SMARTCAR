@@ -29,38 +29,38 @@
 /*------------------------------Global variables------------------------------*/
 /******************************************************************************/
 #if ISR_PROVIDER_QSPI0 == 0
-	#if defined(__GNUC__)
-	#pragma section ".bss_cpu0" awc0
-	#endif
-	#if defined(__TASKING__)
-	#pragma section farbss "bss_cpu0"
-	#pragma section fardata "data_cpu0"
-	#endif
-	#if defined(__DCC__)
-	#pragma section DATA ".data_cpu0" ".bss_cpu0" far-absolute RW
-	#endif
+    #if defined(__GNUC__)
+    #pragma section ".bss_cpu0" awc0
+    #endif
+    #if defined(__TASKING__)
+    #pragma section farbss "bss_cpu0"
+    #pragma section fardata "data_cpu0"
+    #endif
+    #if defined(__DCC__)
+    #pragma section DATA ".data_cpu0" ".bss_cpu0" far-absolute RW
+    #endif
 #elif ISR_PROVIDER_QSPI0 == 1
-	#if defined(__GNUC__)
-	#pragma section ".bss_cpu1" awc1
-	#endif
-	#if defined(__TASKING__)
-	#pragma section farbss "bss_cpu1"
-	#pragma section fardata "data_cpu1"
-	#endif
-	#if defined(__DCC__)
-	#pragma section DATA ".data_cpu1" ".bss_cpu1" far-absolute RW
-	#endif
+    #if defined(__GNUC__)
+    #pragma section ".bss_cpu1" awc1
+    #endif
+    #if defined(__TASKING__)
+    #pragma section farbss "bss_cpu1"
+    #pragma section fardata "data_cpu1"
+    #endif
+    #if defined(__DCC__)
+    #pragma section DATA ".data_cpu1" ".bss_cpu1" far-absolute RW
+    #endif
 #elif ISR_PROVIDER_QSPI0 == 2
-	#if defined(__GNUC__)
-	#pragma section ".bss_cpu2" awc2
-	#endif
-	#if defined(__TASKING__)
-	#pragma section farbss "bss_cpu2"
-	#pragma section fardata "data_cpu2"
-	#endif
-	#if defined(__DCC__)
-	#pragma section DATA ".data_cpu2" ".bss_cpu2" far-absolute RW
-	#endif
+    #if defined(__GNUC__)
+    #pragma section ".bss_cpu2" awc2
+    #endif
+    #if defined(__TASKING__)
+    #pragma section farbss "bss_cpu2"
+    #pragma section fardata "data_cpu2"
+    #endif
+    #if defined(__DCC__)
+    #pragma section DATA ".data_cpu2" ".bss_cpu2" far-absolute RW
+    #endif
 #else
 #error "Set ISR_PROVIDER_QSPI0 to a valid value!"
 #endif
@@ -95,7 +95,7 @@ IfxQspi_SpiMaster spi0Master={{ 0, 0, 0, 0, 0, { 0, 0, 0, 0, 0}}, 0,{{ 0, 0, 0},
 const IfxQspi_SpiMaster_Pins qspi0_pins = {&QSPI0_SCLK_PIN, IfxPort_OutputMode_pushPull,  /* SCLK */
                                            &QSPI0_MTSR_PIN,  IfxPort_OutputMode_pushPull, /* MTSR */
                                            &QSPI0_MRST_PIN,  IfxPort_InputMode_pullDown,  /* MRST */
-                                           IfxPort_PadDriver_ttlSpeed1		              /* pad driver mode */
+                                           IfxPort_PadDriver_ttlSpeed1                      /* pad driver mode */
 };
 
 /******************************************************************************/

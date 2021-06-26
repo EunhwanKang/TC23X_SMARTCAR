@@ -134,10 +134,10 @@ IFX_INLINE IfxSrc_Tos IfxCpu_Irq_getTos(IfxCpu_ResourceCpu coreId)
  * In a user defined file eg. Ifx_IntPrioDef.h, placed in folder: 0_AppSw/Tricore/DemoApp:
  * \code
  * //file: Ifx_IntPrioDef.h.
- * #define IFX_INTPRIO_FUNCT1	1
- * #define IFX_INTPRIO_FUNCT2	2
- * #define IFX_INTPRIO_FUNCT3	5
- * #define IFX_INTPRIO_STM0	8
+ * #define IFX_INTPRIO_FUNCT1    1
+ * #define IFX_INTPRIO_FUNCT2    2
+ * #define IFX_INTPRIO_FUNCT3    5
+ * #define IFX_INTPRIO_STM0    8
  * #define IFX_INTPRIO_ADC_FUNC1 10
  * //etc.
  * \endcode
@@ -184,8 +184,8 @@ IFX_INLINE IfxSrc_Tos IfxCpu_Irq_getTos(IfxCpu_ResourceCpu coreId)
  *
  * \code
  * //file usercode1.c
- * #include "Compilers.h"		// to get the compiler abstracted macros for interrupt definition
- * #include "Ifx_IntPrioDef.h"	// to get the priority numbers
+ * #include "Compilers.h"        // to get the compiler abstracted macros for interrupt definition
+ * #include "Ifx_IntPrioDef.h"    // to get the priority numbers
  *
  * //define an ISR with name Isr_Stm0 with priority defined by IFX_INTPRIO_STM0
  * IFX_INTERRUPT (Isr_Stm0, 0, IFX_INTPRIO_STM0)
@@ -196,8 +196,8 @@ IFX_INLINE IfxSrc_Tos IfxCpu_Irq_getTos(IfxCpu_ResourceCpu coreId)
  *
  * \code
  * //file usercode2.c
- * #include "Compilers.h"		// to get the compiler abstracted macros for interrupt definition
- * #include "Ifx_IntPrioDef.h"	// to get the priority numbers
+ * #include "Compilers.h"        // to get the compiler abstracted macros for interrupt definition
+ * #include "Ifx_IntPrioDef.h"    // to get the priority numbers
  *
  * //define an ISR with name Isr_Adc_fun1 with priority defined by IFX_INTPRIO_ADC_FUNC1
  * IFX_INTERRUPT (Isr_Adc_fun1, 0, IFX_INTPRIO_ADC_FUNC1)
@@ -214,7 +214,7 @@ IFX_INLINE IfxSrc_Tos IfxCpu_Irq_getTos(IfxCpu_ResourceCpu coreId)
  *  \code
  * //file usermain.c
  * #include "IfxCpu_Irq.h"
- * #include "Ifx_IntPrioDef.h"	// to get the priority numbers
+ * #include "Ifx_IntPrioDef.h"    // to get the priority numbers
  *
  * void userfunction_init(void)
  * {

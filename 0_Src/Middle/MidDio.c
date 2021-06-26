@@ -1,128 +1,128 @@
 /*----------------------------------------------------------------*/
-/*						Include Header File						  */
+/*                        Include Header File                          */
 /*----------------------------------------------------------------*/
 #include "MidDio.h"
 #include "DrvDio.h"
 
 /*----------------------------------------------------------------*/
-/*						Define						  			  */
+/*                        Define                                        */
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
-/*						Typedefs						  		  */
+/*                        Typedefs                                    */
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
-/*						Static Function Prototype				  */
+/*                        Static Function Prototype                  */
 /*----------------------------------------------------------------*/
 
 
 
 
 /*----------------------------------------------------------------*/
-/*						Variables				  				  */
+/*                        Variables                                    */
 /*----------------------------------------------------------------*/
 
 
 
 /*----------------------------------------------------------------*/
-/*						Functions				  				  */
+/*                        Functions                                    */
 /*----------------------------------------------------------------*/
 void MidDio_SetFrontIn1(uint8_t param_SetIn1)
 {
-	if(param_SetIn1 == 0u)
+    if(param_SetIn1 == 0u)
     {
-		DrvDio_SetPinLow(IfxPort_P33_5);
-	}
-	else
+        DrvDio_SetPinLow(IfxPort_P33_5);
+    }
+    else
     {
-		DrvDio_SetPinHigh(IfxPort_P33_5);
-	}
+        DrvDio_SetPinHigh(IfxPort_P33_5);
+    }
 }
 
 void MidDio_SetFrontIn2(uint8_t param_SetIn2)
 {
-	if(param_SetIn2 == 0u)
+    if(param_SetIn2 == 0u)
     {
-		DrvDio_SetPinLow(IfxPort_P33_3);
-	}
-	else
+        DrvDio_SetPinLow(IfxPort_P33_3);
+    }
+    else
     {
-		DrvDio_SetPinHigh(IfxPort_P33_3);
-	}
+        DrvDio_SetPinHigh(IfxPort_P33_3);
+    }
 }
 
 void MidDio_SetFrontIn3(uint8_t param_SetIn3)
 {
-	if(param_SetIn3 == 0u)
+    if(param_SetIn3 == 0u)
     {
-		DrvDio_SetPinLow(IfxPort_P33_1);
-	}
-	else
+        DrvDio_SetPinLow(IfxPort_P33_1);
+    }
+    else
     {
-		DrvDio_SetPinHigh(IfxPort_P33_1);
-	}
+        DrvDio_SetPinHigh(IfxPort_P33_1);
+    }
 }
 
 void MidDio_SetFrontIn4(uint8_t param_SetIn4)
 {
-	if(param_SetIn4 == 0u)
+    if(param_SetIn4 == 0u)
     {
-		DrvDio_SetPinLow(IfxPort_P33_8);
-	}
-	else
+        DrvDio_SetPinLow(IfxPort_P33_8);
+    }
+    else
     {
-		DrvDio_SetPinHigh(IfxPort_P33_8);
-	}
+        DrvDio_SetPinHigh(IfxPort_P33_8);
+    }
 }
 
 void MidDio_SetRearIn1(uint8_t param_SetIn1)
 {
-	if(param_SetIn1 == 0u)
+    if(param_SetIn1 == 0u)
     {
-		DrvDio_SetPinLow(IfxPort_P02_0);
-	}
-	else
+        DrvDio_SetPinLow(IfxPort_P02_0);
+    }
+    else
     {
-		DrvDio_SetPinHigh(IfxPort_P02_0);
-	}
+        DrvDio_SetPinHigh(IfxPort_P02_0);
+    }
 }
 
 void MidDio_SetRearIn2(uint8_t param_SetIn2)
 {
-	if(param_SetIn2 == 0u)
+    if(param_SetIn2 == 0u)
     {
-		DrvDio_SetPinLow(IfxPort_P02_2);
-	}
-	else
+        DrvDio_SetPinLow(IfxPort_P02_2);
+    }
+    else
     {
-		DrvDio_SetPinHigh(IfxPort_P02_2);
-	}
+        DrvDio_SetPinHigh(IfxPort_P02_2);
+    }
 }
 
 void MidDio_SetRearIn3(uint8_t param_SetIn3)
 {
-	if(param_SetIn3 == 0u)
+    if(param_SetIn3 == 0u)
     {
-		DrvDio_SetPinLow(IfxPort_P02_4);
-	}
-	else
+        DrvDio_SetPinLow(IfxPort_P02_4);
+    }
+    else
     {
-		DrvDio_SetPinHigh(IfxPort_P02_4);
-	}
+        DrvDio_SetPinHigh(IfxPort_P02_4);
+    }
 }
 
 void MidDio_SetRearIn4(uint8_t param_SetIn4)
 {
-	if(param_SetIn4 == 0u)
+    if(param_SetIn4 == 0u)
     {
-		DrvDio_SetPinLow(IfxPort_P02_6);
-	}
-	else
+        DrvDio_SetPinLow(IfxPort_P02_6);
+    }
+    else
     {
-		DrvDio_SetPinHigh(IfxPort_P02_6);
-	}
+        DrvDio_SetPinHigh(IfxPort_P02_6);
+    }
 }
 

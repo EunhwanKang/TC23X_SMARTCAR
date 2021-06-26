@@ -1,35 +1,35 @@
 /*----------------------------------------------------------------*/
-/*						Include Header File						  */
+/*                        Include Header File                          */
 /*----------------------------------------------------------------*/
 #include "MotorControl.h"
 #include "MidDio.h"
 
 
 /*----------------------------------------------------------------*/
-/*						Define						  			  */
+/*                        Define                                        */
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
-/*						Typedefs						  		  */
+/*                        Typedefs                                    */
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
-/*						Static Function Prototype				  */
+/*                        Static Function Prototype                  */
 /*----------------------------------------------------------------*/
 
 
 
 
 /*----------------------------------------------------------------*/
-/*						Variables				  				  */
+/*                        Variables                                    */
 /*----------------------------------------------------------------*/
 
 
 
 /*----------------------------------------------------------------*/
-/*						Functions				  				  */
+/*                        Functions                                    */
 /*----------------------------------------------------------------*/
 void Unit_MotorFrontDirectionCtl(MOTOR_CMD_TYPE param_DirectionType)
 {
@@ -37,42 +37,42 @@ void Unit_MotorFrontDirectionCtl(MOTOR_CMD_TYPE param_DirectionType)
     {
         case MOTOR_STOP: /*Stop*/
         {
-        	MidDio_SetFrontIn1(0u);
-        	MidDio_SetFrontIn2(0u);
-        	MidDio_SetFrontIn3(0u);
-        	MidDio_SetFrontIn4(0u);	
+            MidDio_SetFrontIn1(0u);
+            MidDio_SetFrontIn2(0u);
+            MidDio_SetFrontIn3(0u);
+            MidDio_SetFrontIn4(0u);    
             break;
         }
         case MOTOR_FWD: /*Forward*/
         {
-        	MidDio_SetFrontIn1(1u);
-        	MidDio_SetFrontIn2(0u);
-        	MidDio_SetFrontIn3(1u);
-        	MidDio_SetFrontIn4(0u);			
+            MidDio_SetFrontIn1(1u);
+            MidDio_SetFrontIn2(0u);
+            MidDio_SetFrontIn3(1u);
+            MidDio_SetFrontIn4(0u);            
             break;           
         }
         case MOTOR_TURN_RIGHT: /*TurnRight*/
         {
-        	MidDio_SetFrontIn1(1u);
-        	MidDio_SetFrontIn2(0u);
-        	MidDio_SetFrontIn3(0u);
-        	MidDio_SetFrontIn4(1u);	
+            MidDio_SetFrontIn1(1u);
+            MidDio_SetFrontIn2(0u);
+            MidDio_SetFrontIn3(0u);
+            MidDio_SetFrontIn4(1u);    
             break;            
         }
         case MOTOR_TURN_LEFT: /*TurnLeft*/
         {
-        	MidDio_SetFrontIn1(0u);
-        	MidDio_SetFrontIn2(1u);
-        	MidDio_SetFrontIn3(1u);
-        	MidDio_SetFrontIn4(0u);	        
+            MidDio_SetFrontIn1(0u);
+            MidDio_SetFrontIn2(1u);
+            MidDio_SetFrontIn3(1u);
+            MidDio_SetFrontIn4(0u);            
             break;            
         }
         case MOTOR_REVERSE: /*Reverse*/
         {
-        	MidDio_SetFrontIn1(0u);
-        	MidDio_SetFrontIn2(1u);
-        	MidDio_SetFrontIn3(0u);
-        	MidDio_SetFrontIn4(1u);	        
+            MidDio_SetFrontIn1(0u);
+            MidDio_SetFrontIn2(1u);
+            MidDio_SetFrontIn3(0u);
+            MidDio_SetFrontIn4(1u);            
             break;            
         }
         default:
@@ -87,42 +87,42 @@ void Unit_MotorRearDirectionCtl(MOTOR_CMD_TYPE param_DirectionType)
     {
         case MOTOR_STOP: /*Stop*/
         {
-        	MidDio_SetRearIn1(0u);
-        	MidDio_SetRearIn2(0u);
-        	MidDio_SetRearIn3(0u);
-        	MidDio_SetRearIn4(0u);	
+            MidDio_SetRearIn1(0u);
+            MidDio_SetRearIn2(0u);
+            MidDio_SetRearIn3(0u);
+            MidDio_SetRearIn4(0u);    
             break;
         }
         case MOTOR_FWD: /*Forward*/
         {
-        	MidDio_SetRearIn1(1u);
-        	MidDio_SetRearIn2(0u);
-        	MidDio_SetRearIn3(1u);
-        	MidDio_SetRearIn4(0u);	
+            MidDio_SetRearIn1(1u);
+            MidDio_SetRearIn2(0u);
+            MidDio_SetRearIn3(1u);
+            MidDio_SetRearIn4(0u);    
             break;
         }        
         case MOTOR_TURN_RIGHT: /*TurnRight*/
         {
-        	MidDio_SetRearIn1(1u);
-        	MidDio_SetRearIn2(0u);
-        	MidDio_SetRearIn3(0u);
-        	MidDio_SetRearIn4(1u);	
+            MidDio_SetRearIn1(1u);
+            MidDio_SetRearIn2(0u);
+            MidDio_SetRearIn3(0u);
+            MidDio_SetRearIn4(1u);    
             break;
         }
         case MOTOR_TURN_LEFT: /*TurnLeft*/
         {
-        	MidDio_SetRearIn1(0u);
-        	MidDio_SetRearIn2(1u);
-        	MidDio_SetRearIn3(1u);
-        	MidDio_SetRearIn4(0u);	 
+            MidDio_SetRearIn1(0u);
+            MidDio_SetRearIn2(1u);
+            MidDio_SetRearIn3(1u);
+            MidDio_SetRearIn4(0u);     
             break;
         }
         case MOTOR_REVERSE: /*Reverse*/
         {
-        	MidDio_SetRearIn1(0u);
-        	MidDio_SetRearIn2(1u);
-        	MidDio_SetRearIn3(0u);
-        	MidDio_SetRearIn4(1u);	
+            MidDio_SetRearIn1(0u);
+            MidDio_SetRearIn2(1u);
+            MidDio_SetRearIn3(0u);
+            MidDio_SetRearIn4(1u);    
             break;
         }
         default:

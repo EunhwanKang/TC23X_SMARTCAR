@@ -65,8 +65,8 @@ typedef struct DISPLAY_INFO
 
 typedef struct CONIO_DISPLAYMODE_ENTRY
 {
-	TDISPLAYMODE   displayMode;
-	TDISPLAY_INFO  display;
+    TDISPLAYMODE   displayMode;
+    TDISPLAY_INFO  display;
 } TCONIODMENTRY, *pTCONIODMENTRY;
 
 #endif /* _CONIO_CFG_H */

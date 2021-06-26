@@ -2,13 +2,13 @@
 #define DRVASCTYPES_H
 
 /*----------------------------------------------------------------*/
-/*						Include Header File						  */
+/*                        Include Header File                          */
 /*----------------------------------------------------------------*/
 #include "Ifx_Types.h"
 #include <Asclin/Asc/IfxAsclin_Asc.h>
 
 /*----------------------------------------------------------------*/
-/*						Define						  			  */
+/*                        Define                                        */
 /*----------------------------------------------------------------*/
 #define ASC_TX_BUFFER_SIZE 64
 #define ASC_RX_BUFFER_SIZE 64
@@ -18,7 +18,7 @@
 #define ISR_PRIORITY_ASC_0_EX 6
 
 /*----------------------------------------------------------------*/
-/*						Typedefs						  		  */
+/*                        Typedefs                                    */
 /*----------------------------------------------------------------*/
 typedef struct
 {
@@ -34,8 +34,8 @@ typedef struct
         IfxAsclin_Asc asc0;                     /**< \brief ASC interface */
     }         drivers;
 
-    uint8     txData[5];
-    uint8     rxData[5];
+    uint8     txData[17];
+    uint8     rxData[17];
     Ifx_SizeT count;
 } App_AsclinAsc;
 

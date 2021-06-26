@@ -51,8 +51,8 @@
  * In addition, declare global transmit and receive buffers for the data transfers:
  * \code
  * #define SPI_BUFFER_SIZE 8
- * uint8	spiTxBuffer[SPI_BUFFER_SIZE];
- * uint8	spiRxBuffer[SPI_BUFFER_SIZE];
+ * uint8    spiTxBuffer[SPI_BUFFER_SIZE];
+ * uint8    spiRxBuffer[SPI_BUFFER_SIZE];
  * \endcode
  *
  * \subsection IfxLld_Qspi_SpiMaster_Interrupt Interrupt Handler Installation (without dma use)
@@ -367,8 +367,8 @@
  * // This should be 32 bit ; use addition of macros as shown
  * __attribute__ ((aligned(64))) uint32       spi0TxLongBuffer[BACON_SIZE + FIFO_SIZE];
  *
- * uint8	spiTxBuffer[SPI_BUFFER_SIZE];
- * uint8	spiRxBuffer[SPI_BUFFER_SIZE];
+ * uint8    spiTxBuffer[SPI_BUFFER_SIZE];
+ * uint8    spiRxBuffer[SPI_BUFFER_SIZE];
  * \endcode
  *
  * \subsection IfxLld_Qspi_SpiMaster_Init_dma Module Initialisation (with dma use)

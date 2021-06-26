@@ -27,42 +27,42 @@
 /*------------------------Private Variables/Constants-------------------------*/
 /******************************************************************************/
 #if TFT_DISPLAY_VAR_LOCATION == 0
-	#if defined(__GNUC__)
+    #if defined(__GNUC__)
 #pragma section ".data_cpu0" awc0
-	#endif
-	#if defined(__TASKING__)
-	#pragma section fardata "data_cpu0"
-	#endif
-	#if defined(__DCC__)
+    #endif
+    #if defined(__TASKING__)
+    #pragma section fardata "data_cpu0"
+    #endif
+    #if defined(__DCC__)
     #pragma section DATA ".data_cpu0" ".bss_cpu0" far-absolute RW
-	#endif
+    #endif
 #elif TFT_DISPLAY_VAR_LOCATION == 1
-	#if defined(__GNUC__)
-	#pragma section ".data_cpu1" awc1
-	#endif
-	#if defined(__TASKING__)
-	#pragma section fardata "data_cpu1"
-	#endif
-	#if defined(__DCC__)
+    #if defined(__GNUC__)
+    #pragma section ".data_cpu1" awc1
+    #endif
+    #if defined(__TASKING__)
+    #pragma section fardata "data_cpu1"
+    #endif
+    #if defined(__DCC__)
     #pragma section DATA ".data_cpu1" ".bss_cpu1" far-absolute RW
-	#endif
+    #endif
 #elif TFT_DISPLAY_VAR_LOCATION == 2
-	#if defined(__GNUC__)
-	#pragma section ".data_cpu2" awc2
-	#endif
-	#if defined(__TASKING__)
-	#pragma section fardata "data_cpu2"
-	#endif
-	#if defined(__DCC__)
+    #if defined(__GNUC__)
+    #pragma section ".data_cpu2" awc2
+    #endif
+    #if defined(__TASKING__)
+    #pragma section fardata "data_cpu2"
+    #endif
+    #if defined(__DCC__)
     #pragma section DATA ".data_cpu2" ".bss_cpu2" far-absolute RW
-	#endif
+    #endif
 #else
 #error "Set TFT_DISPLAY_VAR_LOCATION to a valid value!"
 #endif
 
 TCOLORTABLEASCII colortable_ascii =
 {
-	COLOR_RGB_BLACK, COLOR_RGB_WHITE, COLOR_RGB_RED, COLOR_RGB_GREEN, COLOR_RGB_BROWN, COLOR_RGB_BLUE, COLOR_RGB_MAGENTA, COLOR_RGB_CYAN,
+    COLOR_RGB_BLACK, COLOR_RGB_WHITE, COLOR_RGB_RED, COLOR_RGB_GREEN, COLOR_RGB_BROWN, COLOR_RGB_BLUE, COLOR_RGB_MAGENTA, COLOR_RGB_CYAN,
     COLOR_RGB_LIGHTGRAY, COLOR_RGB_DARKGRAY, COLOR_RGB_LIGHTRED, COLOR_RGB_LIGHTGREEN, COLOR_RGB_YELLOW, COLOR_RGB_LIGHTBLUE,
     COLOR_RGB_LIGHTMAGENTA,
     COLOR_RGB_LIGHTCYAN
@@ -304,8 +304,8 @@ void conio_ascii_clrscr (TDISPLAYMODE displaymode)
 
     if (conio_driver.display[displaymode].mode != TEXTMODE)
     {
-    	/* This is not a ascii display */
-    	__debug();
+        /* This is not a ascii display */
+        __debug();
     }
 
     for (i = 0; i < (TERMINAL_MAXY - 1); i += 1)
@@ -322,8 +322,8 @@ void conio_ascii_clreol (TDISPLAYMODE displaymode)
     sint32 i;
     if (conio_driver.display[displaymode].mode != TEXTMODE)
     {
-    	/* This is not a ascii display */
-    	__debug();
+        /* This is not a ascii display */
+        __debug();
     }
 
     for (i = conio_driver.display[displaymode].x; i < TERMINAL_MAXX; i += 1)
@@ -354,8 +354,8 @@ void conio_ascii_textchangebackground (TDISPLAYMODE displaymode, sint32 color)
 {
     if (conio_driver.display[displaymode].mode != TEXTMODE)
     {
-    	/* This is not a ascii display */
-    	__debug();
+        /* This is not a ascii display */
+        __debug();
     }
 
     color = (conio_driver.display[displaymode].color & 0xF) | ((color & 0xF) << 4);
@@ -367,8 +367,8 @@ void conio_ascii_textchangeforeground (TDISPLAYMODE displaymode, sint32 color)
 {
     if (conio_driver.display[displaymode].mode != TEXTMODE)
     {
-    	/* This is not a ascii display */
-    	__debug();
+        /* This is not a ascii display */
+        __debug();
     }
 
     color = (conio_driver.display[displaymode].color & 0xF0) | (color & 0xF);
@@ -380,8 +380,8 @@ void conio_ascii_textchangecolor (TDISPLAYMODE displaymode, sint32 color)
 {
     if (conio_driver.display[displaymode].mode != TEXTMODE)
     {
-    	/* This is not a ascii display */
-    	__debug();
+        /* This is not a ascii display */
+        __debug();
     }
 
     conio_driver.display[displaymode].pdisplaycolor[TERMINAL_MAXX * conio_driver.display[displaymode].y +
@@ -392,8 +392,8 @@ void conio_ascii_gotoxy (TDISPLAYMODE displaymode, sint32 x, sint32 y)
 {
     if (conio_driver.display[displaymode].mode != TEXTMODE)
     {
-    	/* This is not a ascii display */
-    	__debug();
+        /* This is not a ascii display */
+        __debug();
     }
 
     if (x >= conio_driver.display[displaymode].maxx || y >= conio_driver.display[displaymode].maxy) return;
@@ -407,8 +407,8 @@ void conio_ascii_cputs (TDISPLAYMODE displaymode, uint8 * s)
     sint32 xtmp, ytmp, i;
     if (conio_driver.display[displaymode].mode != TEXTMODE)
     {
-    	/* This is not a ascii display */
-    	__debug();
+        /* This is not a ascii display */
+        __debug();
     }
 
     i = 0;
@@ -466,8 +466,8 @@ void conio_ascii_putch (TDISPLAYMODE displaymode, uint8 ch)
 {
     if (conio_driver.display[displaymode].mode != TEXTMODE)
     {
-    	/* This is not a ascii display */
-    	__debug();
+        /* This is not a ascii display */
+        __debug();
     }
 
     /* Writes a character directly to the console. */
@@ -558,7 +558,7 @@ static void tft_prepare_ascii_line (uint8 * pdisplay, uint8 * pdisplaycolor)
                 }
                 else
                 {
-                	Row_Buff[buffer_cnt] = colortable_ascii[color_bgnd];
+                    Row_Buff[buffer_cnt] = colortable_ascii[color_bgnd];
                     if (buffer_cnt & 0x1) buffer_cnt--;
                     else buffer_cnt += 3;
                 }
@@ -571,28 +571,28 @@ static void tft_prepare_ascii_line (uint8 * pdisplay, uint8 * pdisplaycolor)
 static uint32 tft_ascii_line_written(void)
 {
     // we prepare the ascii line
-	tft_prepare_ascii_line (&cpy_pdisplay[YROW_cnt*TERMINAL_MAXX], &cpy_pdisplaycolor[YROW_cnt*TERMINAL_MAXX]);
+    tft_prepare_ascii_line (&cpy_pdisplay[YROW_cnt*TERMINAL_MAXX], &cpy_pdisplaycolor[YROW_cnt*TERMINAL_MAXX]);
 
-	if (YROW_cnt == 0)
-	{
-		// this is our last/first ascii line
-		// we send the Row_Buff to the display without callback function
-	    tft_flush_row_buff( (void *)0, FONT_YSIZE*TERMINAL_MAXX*FONT_XSIZE);
-	}
-	else
-	{
-		// this is not our last/first ascii line
-		// we send the Row_Buff to the display with callback function
-	    YROW_cnt--;
-	    tft_flush_row_buff( &tft_ascii_line_written, FONT_YSIZE*TERMINAL_MAXX*FONT_XSIZE);
-	}
-	return 0;
+    if (YROW_cnt == 0)
+    {
+        // this is our last/first ascii line
+        // we send the Row_Buff to the display without callback function
+        tft_flush_row_buff( (void *)0, FONT_YSIZE*TERMINAL_MAXX*FONT_XSIZE);
+    }
+    else
+    {
+        // this is not our last/first ascii line
+        // we send the Row_Buff to the display with callback function
+        YROW_cnt--;
+        tft_flush_row_buff( &tft_ascii_line_written, FONT_YSIZE*TERMINAL_MAXX*FONT_XSIZE);
+    }
+    return 0;
 }
 
 void tft_ascii_bar (uint8 * pdisplay, uint8 * pdisplaycolor)
 {
     // we prepare the ascii line
-	tft_prepare_ascii_line (pdisplay, pdisplaycolor);
+    tft_prepare_ascii_line (pdisplay, pdisplaycolor);
     // we send the Row_Buff to the display
     tft_flush_row_buff( (void *)0, FONT_YSIZE*TERMINAL_MAXX*FONT_XSIZE);
 }
@@ -603,9 +603,9 @@ void tft_ascii (TMODE mode, uint8 * pdisplay, uint8 * pdisplaycolor)
     cpy_mode = mode;
     cpy_pdisplay = pdisplay;
     cpy_pdisplaycolor = pdisplaycolor;
-	// we remove one line from display which is used by bar
-	YROW_cnt = TERMINAL_MAXY-2;
-	// send the
-	tft_ascii_line_written();
+    // we remove one line from display which is used by bar
+    YROW_cnt = TERMINAL_MAXY-2;
+    // send the
+    tft_ascii_line_written();
 }
 

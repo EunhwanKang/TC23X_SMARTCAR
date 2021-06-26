@@ -147,7 +147,7 @@ void perf_meas_init(void)
     }
 
     IfxGtm_Tom_Timer driverPerformanceMeasure;
-	IfxGtm_Tom_Timer_Config driverConfig;
+    IfxGtm_Tom_Timer_Config driverConfig;
 
     IfxGtm_Tom_Timer_initConfig(&driverConfig, &MODULE_GTM);
     driverConfig.tom = PERFORMANCE_MEASURE.tom;
@@ -174,15 +174,15 @@ void perf_meas_init(void)
 }
 
 void perf_meas_idle(void){
-	uint32 cpu0_ccnt_actual;
-	static uint32 cpu0_ccnt_last = 0x7FFFFFFF;
+    uint32 cpu0_ccnt_actual;
+    static uint32 cpu0_ccnt_last = 0x7FFFFFFF;
 
-	cpu0_ccnt_actual = __mfcr(CPU_CCNT);
-	// we ignore the overflow bit, not important for us
-	cpu0_ccnt_diff_min = __minu(cpu0_ccnt_diff_min, cpu0_ccnt_actual-cpu0_ccnt_last);
-	cpu0_ccnt_last = cpu0_ccnt_actual;
-	//Idle_counter for cpu load measurement
-	cpu0_idle_counter++;
+    cpu0_ccnt_actual = __mfcr(CPU_CCNT);
+    // we ignore the overflow bit, not important for us
+    cpu0_ccnt_diff_min = __minu(cpu0_ccnt_diff_min, cpu0_ccnt_actual-cpu0_ccnt_last);
+    cpu0_ccnt_last = cpu0_ccnt_actual;
+    //Idle_counter for cpu load measurement
+    cpu0_idle_counter++;
 }
 
 IFX_INTERRUPT(ISR_perf_meas_call, 0, ISR_PRIORITY_PERF_MEAS);
@@ -209,15 +209,15 @@ void ISR_perf_meas_call(void)
     if (tft_ready == TRUE)
     {
         if (cpu_load < 0.0f) cpu_load = 0.0f;
-    	conio_ascii_printfxy (DISPLAY_IO1, 1,  2, (uint8 *)"CPU0 Load %.3f %c ", cpu_load, 0x25);
-		conio_ascii_printfxy (DISPLAY_IO1, 1,  3, (uint8 *)"Task1Ms Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_1MS]);
-		conio_ascii_printfxy (DISPLAY_IO1, 1,  4, (uint8 *)"Task5Ms Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_5MS]);
-		conio_ascii_printfxy (DISPLAY_IO1, 1,  5, (uint8 *)"Task10Ms Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_10MS]);
-		conio_ascii_printfxy (DISPLAY_IO1, 1,  6, (uint8 *)"Task50Ms Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_50MS]);
-		conio_ascii_printfxy (DISPLAY_IO1, 1,  7, (uint8 *)"Task100Ms Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_100MS]);
-		conio_ascii_printfxy (DISPLAY_IO1, 1,  8, (uint8 *)"Task200Ms Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_200MS]);
-		conio_ascii_printfxy (DISPLAY_IO1, 1,  9, (uint8 *)"Task500Ms Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_500MS]);
-		conio_ascii_printfxy (DISPLAY_IO1, 1,  10, (uint8 *)"Task1s Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_1S]);
+        conio_ascii_printfxy (DISPLAY_IO1, 1,  2, (uint8 *)"CPU0 Load %.3f %c ", cpu_load, 0x25);
+        conio_ascii_printfxy (DISPLAY_IO1, 1,  3, (uint8 *)"Task1Ms Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_1MS]);
+        conio_ascii_printfxy (DISPLAY_IO1, 1,  4, (uint8 *)"Task5Ms Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_5MS]);
+        conio_ascii_printfxy (DISPLAY_IO1, 1,  5, (uint8 *)"Task10Ms Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_10MS]);
+        conio_ascii_printfxy (DISPLAY_IO1, 1,  6, (uint8 *)"Task50Ms Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_50MS]);
+        conio_ascii_printfxy (DISPLAY_IO1, 1,  7, (uint8 *)"Task100Ms Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_100MS]);
+        conio_ascii_printfxy (DISPLAY_IO1, 1,  8, (uint8 *)"Task200Ms Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_200MS]);
+        conio_ascii_printfxy (DISPLAY_IO1, 1,  9, (uint8 *)"Task500Ms Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_500MS]);
+        conio_ascii_printfxy (DISPLAY_IO1, 1,  10, (uint8 *)"Task1s Cycle : %.3f ms", stCycleInfo.fCycleTaskMs[TASK_1S]);
 
         CpuLoad0.counter_diff = counter_diff;
         CpuLoad0.cpu_load = cpu_load;
@@ -230,7 +230,7 @@ void ISR_perf_meas_call(void)
     // we printout if TFT is ready and conio initialized
     if (tft_ready == TRUE)
     {
-    	if (cpu_load < 0.0f) cpu_load = 0.0f;
+        if (cpu_load < 0.0f) cpu_load = 0.0f;
         conio_ascii_printfxy (DISPLAY_IO1, 1,  6, (uint8 *)"CPU1 Load %.3f %c ", cpu_load, 0x25);
 //        conio_ascii_printfxy (DISPLAY_IO1, 1,  7, (uint8 *)"CPU1 Idle Counter-Diff %.10u ", counter_diff);
 //        conio_ascii_printfxy (DISPLAY_IO1, 1,  8, (uint8 *)"CPU1 in use for %.3e Cycles/s ", g_AppCpu1.info.cpuFreq/100.0f*cpu_load);
@@ -245,7 +245,7 @@ void ISR_perf_meas_call(void)
     // we printout if TFT is ready and conio initialized
     if (tft_ready == TRUE)
     {
-    	if (cpu_load < 0.0f) cpu_load = 0.0f;
+        if (cpu_load < 0.0f) cpu_load = 0.0f;
         conio_ascii_printfxy (DISPLAY_IO1, 1, 10, (uint8 *)"CPU2 Load %.3f %c ", cpu_load, 0x25);
 //        conio_ascii_printfxy (DISPLAY_IO1, 1, 11, (uint8 *)"CPU2 Idle Counter-Diff %.10u ", counter_diff);
 //        conio_ascii_printfxy (DISPLAY_IO1, 1, 12, (uint8 *)"CPU2 in use for %.3e Cycles/s ", g_AppCpu2.info.cpuFreq/100.0f*cpu_load);

@@ -404,35 +404,35 @@
 #ifndef IFXSCU_CFG_PLL_INITIAL_STEP_16MHZ_80MHZ
 /** \brief Macro for Initial Pll step, for profile with 16MHz Crystal and 80MHz target */
 #define IFXSCU_CFG_PLL_INITIAL_STEP_16MHZ_80MHZ                           \
-/*{	uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime	}*/\
+/*{    uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime    }*/\
     {(1 - 1), (40 - 1), (7 - 1), 0.000200F}
 #endif /*#ifndef IFXSCU_CFG_PLL_INITIAL_STEP_16MHZ_80MHZ */
 
 #ifndef IFXSCU_CFG_PLL_INITIAL_STEP_16MHZ_133MHZ
 /** \brief Macro for Initial Pll step, for profile with 16MHz Crystal and 133MHz target */
 #define IFXSCU_CFG_PLL_INITIAL_STEP_16MHZ_133MHZ                          \
-/*{	uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime	}*/\
+/*{    uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime    }*/\
     {(1 - 1), (50 - 1), (8 - 1), 0.000200F}
 #endif /*#ifndef IFXSCU_CFG_PLL_INITIAL_STEP_16MHZ_133MHZ */
 
 #ifndef IFXSCU_CFG_PLL_INITIAL_STEP_16MHZ_160MHZ
 /** \brief Macro for Initial Pll step, for profile with 16MHz Crystal and 160MHz target */
 #define IFXSCU_CFG_PLL_INITIAL_STEP_16MHZ_160MHZ                          \
-/*{	uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime	}*/\
+/*{    uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime    }*/\
     {(1 - 1), (40 - 1), (6 - 1), 0.000200F}
 #endif /*#ifndef IFXSCU_CFG_PLL_INITIAL_STEP_16MHZ_160MHZ */
 
 #ifndef IFXSCU_CFG_PLL_INITIAL_STEP_16MHZ_200MHZ
 /** \brief Macro for Initial Pll step, for profile with 16MHz Crystal and 200MHz target */
 #define IFXSCU_CFG_PLL_INITIAL_STEP_16MHZ_200MHZ                          \
-/*{	uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime	}*/\
+/*{    uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime    }*/\
     {(1 - 1), (50 - 1), (8 - 1), 0.000200F}
 #endif /*#ifndef IFXSCU_CFG_PLL_INITIAL_STEP_16MHZ_200MHZ */
 
 #ifndef IFXSCU_CFG_PLL_INITIAL_STEP_16MHZ_240MHZ
 /** \brief Macro for Initial Pll step, for profile with 16MHz Crystal and 240MHz target */
 #define IFXSCU_CFG_PLL_INITIAL_STEP_16MHZ_240MHZ                          \
-/*{	uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime	}*/\
+/*{    uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime    }*/\
     {(1 - 1), (45 - 1), (7 - 1), 0.000200F}
 #endif /*#ifndef IFXSCU_CFG_PLL_INITIAL_STEP_16MHZ_240MHZ */
 
@@ -441,42 +441,42 @@
 #ifndef IFXSCU_CFG_PLL_INITIAL_STEP_20MHZ_80MHZ
 /** \brief Macro for Initial Pll step, for profile with 20MHz Crystal and 80MHz target */
 #define IFXSCU_CFG_PLL_INITIAL_STEP_20MHZ_80MHZ                           \
-/*{	uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime	}*/\
+/*{    uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime    }*/\
     {(2 - 1), (64 - 1), (7 - 1), 0.000200F}
 #endif /*#ifndef IFXSCU_CFG_PLL_INITIAL_STEP_20MHZ_80MHZ */
 
 #ifndef IFXSCU_CFG_PLL_INITIAL_STEP_20MHZ_133MHZ
 /** \brief Macro for Initial Pll step, for profile with 20MHz Crystal and 133MHz target */
 #define IFXSCU_CFG_PLL_INITIAL_STEP_20MHZ_133MHZ                          \
-/*{	uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime	}*/\
+/*{    uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime    }*/\
     {(2 - 1), (80 - 1), (8 - 1), 0.000200F}
 #endif /*#ifndef IFXSCU_CFG_PLL_INITIAL_STEP_20MHZ_133MHZ */
 
 #ifndef IFXSCU_CFG_PLL_INITIAL_STEP_20MHZ_160MHZ
 /** \brief Macro for Initial Pll step, for profile with 20MHz Crystal and 160MHz target */
 #define IFXSCU_CFG_PLL_INITIAL_STEP_20MHZ_160MHZ                          \
-/*{	uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime	}*/\
+/*{    uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime    }*/\
     {(2 - 1), (64 - 1), (6 - 1), 0.000200F}
 #endif /*#ifndef IFXSCU_CFG_PLL_INITIAL_STEP_20MHZ_160MHZ */
 
 #ifndef IFXSCU_CFG_PLL_INITIAL_STEP_20MHZ_200MHZ
 /** \brief Macro for Initial Pll step, for profile with 20MHz Crystal and 200MHz target */
 #define IFXSCU_CFG_PLL_INITIAL_STEP_20MHZ_200MHZ                          \
-/*{	uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime	}*/\
+/*{    uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime    }*/\
     {(2 - 1), (60 - 1), (6 - 1), 0.000200F}
 #endif /*#ifndef IFXSCU_CFG_PLL_INITIAL_STEP_20MHZ_200MHZ */
 
 #ifndef IFXSCU_CFG_PLL_INITIAL_STEP_20MHZ_240MHZ
 /** \brief Macro for Initial Pll step, for profile with 20MHz Crystal and 240MHz target */
 #define IFXSCU_CFG_PLL_INITIAL_STEP_20MHZ_240MHZ                          \
-/*{	uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime	}*/\
+/*{    uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime    }*/\
     {(2 - 1), (72 - 1), (7 - 1), 0.000200F}
 #endif /*#ifndef IFXSCU_CFG_PLL_INITIAL_STEP_20MHZ_240MHZ */
 
 #ifndef IFXSCU_CFG_PLL_INITIAL_STEP_20MHZ_300MHZ
 /** \brief Macro for Initial Pll step, for profile with 20MHz Crystal and 300MHz target */
 #define IFXSCU_CFG_PLL_INITIAL_STEP_20MHZ_300MHZ                          \
-/*{	uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime	}*/\
+/*{    uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime    }*/\
     {(2 - 1), (60 - 1), (6 - 1), 0.000200F}
 #endif /*#ifndef IFXSCU_CFG_PLL_INITIAL_STEP_20MHZ_300MHZ */
 
@@ -485,42 +485,42 @@
 #ifndef IFXSCU_CFG_PLL_INITIAL_STEP_40MHZ_80MHZ
 /** \brief Macro for Initial Pll step, for profile with 40MHz Crystal and 80MHz target */
 #define IFXSCU_CFG_PLL_INITIAL_STEP_40MHZ_80MHZ                           \
-/*{	uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime	}*/\
+/*{    uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime    }*/\
     {(4 - 1), (64 - 1), (7 - 1), 0.000200F}
 #endif /*#ifndef IFXSCU_CFG_PLL_INITIAL_STEP_40MHZ_80MHZ */
 
 #ifndef IFXSCU_CFG_PLL_INITIAL_STEP_40MHZ_133MHZ
 /** \brief Macro for Initial Pll step, for profile with 40MHz Crystal and 133MHz target */
 #define IFXSCU_CFG_PLL_INITIAL_STEP_40MHZ_133MHZ                          \
-/*{	uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime	}*/\
+/*{    uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime    }*/\
     {(4 - 1), (80 - 1), (8 - 1), 0.000200F}
 #endif /*#ifndef IFXSCU_CFG_PLL_INITIAL_STEP_40MHZ_133MHZ */
 
 #ifndef IFXSCU_CFG_PLL_INITIAL_STEP_40MHZ_160MHZ
 /** \brief Macro for Initial Pll step, for profile with 40MHz Crystal and 160MHz target */
 #define IFXSCU_CFG_PLL_INITIAL_STEP_40MHZ_160MHZ                          \
-/*{	uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime	}*/\
+/*{    uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime    }*/\
     {(4 - 1), (64 - 1), (6 - 1), 0.000200F}
 #endif /*#ifndef IFXSCU_CFG_PLL_INITIAL_STEP_40MHZ_160MHZ */
 
 #ifndef IFXSCU_CFG_PLL_INITIAL_STEP_40MHZ_200MHZ
 /** \brief Macro for Initial Pll step, for profile with 40MHz Crystal and 200MHz target */
 #define IFXSCU_CFG_PLL_INITIAL_STEP_40MHZ_200MHZ                          \
-/*{	uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime	}*/\
+/*{    uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime    }*/\
     {(4 - 1), (60 - 1), (6 - 1), 0.000200F}
 #endif /*#ifndef IFXSCU_CFG_PLL_INITIAL_STEP_40MHZ_200MHZ */
 
 #ifndef IFXSCU_CFG_PLL_INITIAL_STEP_40MHZ_240MHZ
 /** \brief Macro for Initial Pll step, for profile with 40MHz Crystal and 240MHz target */
 #define IFXSCU_CFG_PLL_INITIAL_STEP_40MHZ_240MHZ                          \
-/*{	uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime	}*/\
+/*{    uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime    }*/\
     {(4 - 1), (72 - 1), (7 - 1), 0.000200F}
 #endif /*#ifndef IFXSCU_CFG_PLL_INITIAL_STEP_40MHZ_240MHZ */
 
 #ifndef IFXSCU_CFG_PLL_INITIAL_STEP_40MHZ_300MHZ
 /** \brief Macro for Initial Pll step, for profile with 40MHz Crystal and 300MHz target */
 #define IFXSCU_CFG_PLL_INITIAL_STEP_40MHZ_300MHZ                          \
-/*{	uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime	}*/\
+/*{    uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime    }*/\
     {(4 - 1), (60 - 1), (6 - 1), 0.000200F}
 #endif /*#ifndef IFXSCU_CFG_PLL_INITIAL_STEP_40MHZ_300MHZ */
 
@@ -529,21 +529,21 @@
 #ifndef IFXSCU_CFG_PLL_INITIAL_STEP_8MHZ_80MHZ
 /** \brief Macro for Initial Pll step, for profile with 8MHz Crystal and 80MHz target */
 #define IFXSCU_CFG_PLL_INITIAL_STEP_8MHZ_80MHZ                                \
-/*{	uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime	}  ??*/\
+/*{    uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime    }  ??*/\
     {(1 - 1), (50 - 1), (5 - 1), 0.000200F}
 #endif /*#ifndef IFXSCU_CFG_PLL_INITIAL_STEP_8MHZ_80MHZ */
 
 #ifndef IFXSCU_CFG_PLL_INITIAL_STEP_8MHZ_160MHZ
 /** \brief Macro for Initial Pll step, for profile with 8MHz Crystal and 160MHz target */
 #define IFXSCU_CFG_PLL_INITIAL_STEP_8MHZ_160MHZ                           \
-/*{	uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime	}*/\
+/*{    uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime    }*/\
     {(1 - 1), (60 - 1), (5 - 1), 0.000200F}
 #endif /*#ifndef IFXSCU_CFG_PLL_INITIAL_STEP_8MHZ_160MHZ */
 
 #ifndef IFXSCU_CFG_PLL_INITIAL_STEP_8MHZ_200MHZ
 /** \brief Macro for Initial Pll step, for profile with 8MHz Crystal and 200MHz target */
 #define IFXSCU_CFG_PLL_INITIAL_STEP_8MHZ_200MHZ                           \
-/*{	uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime	}*/\
+/*{    uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime    }*/\
     {(1 - 1), (75 - 1), (6 - 1), 0.000200F}
 #endif /*#ifndef IFXSCU_CFG_PLL_INITIAL_STEP_8MHZ_200MHZ */
 
@@ -1235,7 +1235,7 @@
 
 #define IFXSCU_CFG_CLK_DISTRIBUTION                                                            \
     {                                                                                          \
-/*	{	uint32 value,			uint32 mask					}*/                                \
+/*    {    uint32 value,            uint32 mask                    }*/                                \
         {IFXSCU_CFG_CCUCON0, IFXSCU_CFG_CCUCON0_MASK},  /*IfxScuCcu_CcuconRegConfig ccucon0;*/ \
         {IFXSCU_CFG_CCUCON1, IFXSCU_CFG_CCUCON1_MASK},  /*IfxScuCcu_CcuconRegConfig ccucon1;*/ \
         {IFXSCU_CFG_CCUCON2, IFXSCU_CFG_CCUCON2_MASK},  /*IfxScuCcu_CcuconRegConfig ccucon2;*/ \
@@ -1255,7 +1255,7 @@
 #define IFXSCU_CFG_PLL_INITIAL_STEP IFXSCU_CFG_PLL_INITIAL_STEP_BASIC(IFXSCU_CFG_XTAL_FREQ, IFXSCU_CFG_PLL_FREQ)
 
 #define IFXSCU_CFG_FLASH_WAITSTATE       \
-/*	{	uint32 value,			uint32 mask					}*/\
+/*    {    uint32 value,            uint32 mask                    }*/\
     {IFXSCU_CFG_FLASH_WAITSTATE_VAL, IFXSCU_CFG_FLASH_WAITSTATE_MSK}
 
 #if (IFX_CFG_SCU_XTAL_FREQUENCY == (20000000))

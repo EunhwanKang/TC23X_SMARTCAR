@@ -50,8 +50,8 @@
  * In addition, declare global transmit and receive buffers for the data transfers:
  * \code
  * #define SPI_BUFFER_SIZE 8
- * uint8	spiTxBuffer[SPI_BUFFER_SIZE];
- * uint8	spiRxBuffer[SPI_BUFFER_SIZE];
+ * uint8    spiTxBuffer[SPI_BUFFER_SIZE];
+ * uint8    spiRxBuffer[SPI_BUFFER_SIZE];
  * \endcode
  *
  * \subsection IfxLld_Qspi_SpiSlave_Interrupt Interrupt Handler Installation (without dma use)

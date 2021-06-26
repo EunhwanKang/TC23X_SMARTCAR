@@ -82,7 +82,7 @@ IFX_CONST IfxScuCcu_Config        IfxScuCcu_defaultClockConfig = {
 };
 
 IFX_CONST IfxScuCcu_ErayPllConfig IfxScuCcu_defaultErayPllConfig = {
-/*{	uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime	}*/
+/*{    uint8 pDivider, uint8 nDivider, uint8 k2Initial, float32 waitTime    }*/
     {(1 - 1), (24 - 1), (6 - 1), 0}
 };
 

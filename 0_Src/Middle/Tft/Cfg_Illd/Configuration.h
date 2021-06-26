@@ -45,21 +45,21 @@
 
 /* set here the used pins for QSPI0 */
 #define QSPI0_MAX_BAUDRATE          50000000  // maximum baudrate which is possible to get a small timequantum
-#define QSPI0_SCLK_PIN	            IfxQspi0_SCLK_P20_11_OUT
-#define QSPI0_MTSR_PIN	            IfxQspi0_MTSR_P20_14_OUT
-#define QSPI0_MRST_PIN	            IfxQspi0_MRSTA_P20_12_IN
+#define QSPI0_SCLK_PIN                IfxQspi0_SCLK_P20_11_OUT
+#define QSPI0_MTSR_PIN                IfxQspi0_MTSR_P20_14_OUT
+#define QSPI0_MRST_PIN                IfxQspi0_MRSTA_P20_12_IN
 #define QSPI0_USE_DMA  // comment line for not using DMA
 #define DMA_CH_QSPI0_TX             TFT_DMA_CH_TXBUFF_TO_TXFIFO
 #define DMA_CH_QSPI0_RX             TFT_DMA_CH_RXBUFF_FROM_RXFIFO
 #define QSPI0_TRANSMIT_CALLBACK     tft_transmit_callback
 
-#define TFT_QSPI_INIT			    qspi0_init
+#define TFT_QSPI_INIT                qspi0_init
 #define TFT_USE_CHIPSELECT          IfxQspi0_SLSO8_P20_6_OUT
 #define TFT_USE_SCLK                QSPI0_SCLK_PIN
 
 #define TFT_UPDATE_IRQ              MODULE_SRC.GPSR.GPSR[0].SR0
 
-#define TOUCH_QSPI_INIT			    qspi0_init
+#define TOUCH_QSPI_INIT                qspi0_init
 #define TOUCH_USE_CHIPSELECT        IfxQspi0_SLSO9_P20_3_OUT
 #define TOUCH_USE_INT               IfxPort_P20_0
 
@@ -94,6 +94,6 @@
 #define TFT_OVER_DAS
 
 
-#define REFRESH_TFT 200		// Refresh period [ms]; 1x refresh ~0,8 % CPU load; for graphic-out: 4 colors ~ 1.2 % CPU load, 16 colors ~ 0.8 % CPU load
-							// Max refresh rate ~ 40 ms due to QSPI-load
+#define REFRESH_TFT 200        // Refresh period [ms]; 1x refresh ~0,8 % CPU load; for graphic-out: 4 colors ~ 1.2 % CPU load, 16 colors ~ 0.8 % CPU load
+                            // Max refresh rate ~ 40 ms due to QSPI-load
 #endif

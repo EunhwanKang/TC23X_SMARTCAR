@@ -141,7 +141,7 @@ sint32 menu_input_cpusecdelta (sint32 ind, TDISPLAYENTRY * pdisplayentry)
     result = sscanf ((char *) &conio_driver.scanftext[0], "%f", &temp);
     if (result != 1)
         return (-1);
-    	controlmenu.cpusecondsdelta = temp;
+        controlmenu.cpusecondsdelta = temp;
     return (0);
 }
 

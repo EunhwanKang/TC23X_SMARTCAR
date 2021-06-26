@@ -2,36 +2,36 @@
 #define MOTORCONTROL_H
 
 /*----------------------------------------------------------------*/
-/*						Include Header File						  */
+/*                        Include Header File                          */
 /*----------------------------------------------------------------*/
 #include "Ifx_Types.h"
 
 /*----------------------------------------------------------------*/
-/*						Define						  			  */
+/*                        Define                                        */
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
-/*						Typedefs						  		  */
+/*                        Typedefs                                    */
 /*----------------------------------------------------------------*/
 typedef enum t_MOTOR_CMD_TYPE
 {
-	MOTOR_STOP = 0u,
-	MOTOR_FWD,
-	MOTOR_TURN_RIGHT,
-	MOTOR_TURN_LEFT,
-	MOTOR_REVERSE,
-	MOTOR_CMD_MAX
+    MOTOR_STOP = 0u,
+    MOTOR_FWD,
+    MOTOR_TURN_RIGHT,
+    MOTOR_TURN_LEFT,
+    MOTOR_REVERSE,
+    MOTOR_CMD_MAX
 }MOTOR_CMD_TYPE;
 
 
 /*----------------------------------------------------------------*/
-/*						Variables				  				  */
+/*                        Variables                                    */
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
-/*						Global Function Prototype				  */
+/*                        Global Function Prototype                  */
 /*----------------------------------------------------------------*/
 extern void Unit_MotorFrontDirectionCtl(MOTOR_CMD_TYPE param_DirectionType);
 extern void Unit_MotorRearDirectionCtl(MOTOR_CMD_TYPE param_DirectionType);

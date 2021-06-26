@@ -361,24 +361,24 @@ boolean IfxGpt12_IncrEnc_stdIfPosInit(IfxStdIf_Pos *stdif, IfxGpt12_IncrEnc *dri
 
     /* *INDENT-OFF* Note: this file was indented manually by the author. */
     /* Set the API link */
-	stdif->onZeroIrq          =(IfxStdIf_Pos_OnZeroIrq               )&IfxGpt12_IncrEnc_onZeroIrq;
-	stdif->getAbsolutePosition=(IfxStdIf_Pos_GetAbsolutePosition     )&IfxGpt12_IncrEnc_getAbsolutePosition;
-	stdif->getDirection		  =(IfxStdIf_Pos_GetDirection            )&IfxGpt12_IncrEnc_getDirection;
-	stdif->getFault           =(IfxStdIf_Pos_GetFault                )&IfxGpt12_IncrEnc_getFault;
-	stdif->getOffset		  =(IfxStdIf_Pos_GetOffset			     )&IfxGpt12_IncrEnc_getOffset;
-	stdif->getPeriodPerRotation  =(IfxStdIf_Pos_GetPeriodPerRotation )&IfxGpt12_IncrEnc_getPeriodPerRotation;
-	stdif->getPosition		  =(IfxStdIf_Pos_GetPosition			 )&IfxGpt12_IncrEnc_getPosition;
-	stdif->getRawPosition	  =(IfxStdIf_Pos_GetRawPosition         )&IfxGpt12_IncrEnc_getRawPosition;
-	stdif->getRefreshPeriod   =(IfxStdIf_Pos_GetRefreshPeriod        )&IfxGpt12_IncrEnc_getRefreshPeriod;
-	stdif->getResolution      =(IfxStdIf_Pos_GetResolution           )&IfxGpt12_IncrEnc_getResolution;
+    stdif->onZeroIrq          =(IfxStdIf_Pos_OnZeroIrq               )&IfxGpt12_IncrEnc_onZeroIrq;
+    stdif->getAbsolutePosition=(IfxStdIf_Pos_GetAbsolutePosition     )&IfxGpt12_IncrEnc_getAbsolutePosition;
+    stdif->getDirection          =(IfxStdIf_Pos_GetDirection            )&IfxGpt12_IncrEnc_getDirection;
+    stdif->getFault           =(IfxStdIf_Pos_GetFault                )&IfxGpt12_IncrEnc_getFault;
+    stdif->getOffset          =(IfxStdIf_Pos_GetOffset                 )&IfxGpt12_IncrEnc_getOffset;
+    stdif->getPeriodPerRotation  =(IfxStdIf_Pos_GetPeriodPerRotation )&IfxGpt12_IncrEnc_getPeriodPerRotation;
+    stdif->getPosition          =(IfxStdIf_Pos_GetPosition             )&IfxGpt12_IncrEnc_getPosition;
+    stdif->getRawPosition      =(IfxStdIf_Pos_GetRawPosition         )&IfxGpt12_IncrEnc_getRawPosition;
+    stdif->getRefreshPeriod   =(IfxStdIf_Pos_GetRefreshPeriod        )&IfxGpt12_IncrEnc_getRefreshPeriod;
+    stdif->getResolution      =(IfxStdIf_Pos_GetResolution           )&IfxGpt12_IncrEnc_getResolution;
     stdif->getSensorType      =(IfxStdIf_Pos_GetSensorType           )&IfxGpt12_IncrEnc_getSensorType;
-	stdif->reset			  =(IfxStdIf_Pos_Reset				     )&IfxGpt12_IncrEnc_reset;
-	stdif->resetFaults		  =(IfxStdIf_Pos_ResetFaults			 )&IfxGpt12_IncrEnc_resetFaults;
-	stdif->getSpeed           =(IfxStdIf_Pos_GetSpeed                )&IfxGpt12_IncrEnc_getSpeed;
-	stdif->update			  =(IfxStdIf_Pos_Update				     )&IfxGpt12_IncrEnc_update;
-	stdif->setOffset		  =(IfxStdIf_Pos_SetOffset			     )&IfxGpt12_IncrEnc_setOffset;
-	stdif->setRefreshPeriod   =(IfxStdIf_Pos_SetRefreshPeriod        )&IfxGpt12_IncrEnc_setRefreshPeriod;
-	stdif->getTurn            =(IfxStdIf_Pos_GetTurn                 )&IfxGpt12_IncrEnc_getTurn;
+    stdif->reset              =(IfxStdIf_Pos_Reset                     )&IfxGpt12_IncrEnc_reset;
+    stdif->resetFaults          =(IfxStdIf_Pos_ResetFaults             )&IfxGpt12_IncrEnc_resetFaults;
+    stdif->getSpeed           =(IfxStdIf_Pos_GetSpeed                )&IfxGpt12_IncrEnc_getSpeed;
+    stdif->update              =(IfxStdIf_Pos_Update                     )&IfxGpt12_IncrEnc_update;
+    stdif->setOffset          =(IfxStdIf_Pos_SetOffset                 )&IfxGpt12_IncrEnc_setOffset;
+    stdif->setRefreshPeriod   =(IfxStdIf_Pos_SetRefreshPeriod        )&IfxGpt12_IncrEnc_setRefreshPeriod;
+    stdif->getTurn            =(IfxStdIf_Pos_GetTurn                 )&IfxGpt12_IncrEnc_getTurn;
     /* *INDENT-ON* */
 
     return TRUE;

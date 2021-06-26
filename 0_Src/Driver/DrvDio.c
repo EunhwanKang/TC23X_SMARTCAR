@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------*/
-/*						Include Header File						  */
+/*                        Include Header File                          */
 /*----------------------------------------------------------------*/
 #include "DrvDio.h"
 #include "IfxPort.h"
@@ -7,46 +7,46 @@
 #include "Configuration.h"
 
 /*----------------------------------------------------------------*/
-/*						Define						  			  */
+/*                        Define                                        */
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
-/*						Typedefs						  		  */
+/*                        Typedefs                                    */
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
-/*						Static Function Prototype				  */
+/*                        Static Function Prototype                  */
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
-/*						Variables				  				  */
+/*                        Variables                                    */
 /*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
-/*						Functions				  				  */
+/*                        Functions                                    */
 /*----------------------------------------------------------------*/
 
 /*---------------------Driver API--------------------------*/
 void DrvDio_SetPinLow(IfxPort_Pin param_PortPin)
 {
-	IfxPort_setPinLow(param_PortPin.port, param_PortPin.pinIndex);
+    IfxPort_setPinLow(param_PortPin.port, param_PortPin.pinIndex);
 }
 
 void DrvDio_SetPinHigh(IfxPort_Pin param_PortPin)
 {
-	IfxPort_setPinHigh(param_PortPin.port, param_PortPin.pinIndex);
+    IfxPort_setPinHigh(param_PortPin.port, param_PortPin.pinIndex);
 }
 
 /*---------------------Init Function--------------------------*/
 void DrvDioInit(void)
 {
-	/*P33_6	Digital Output*/
+    /*P33_6    Digital Output*/
     IfxPort_setPinModeOutput(IfxPort_P13_0.port, IfxPort_P13_0.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-	IfxPort_setPinLow(IfxPort_P13_0.port, IfxPort_P13_0.pinIndex);
+    IfxPort_setPinLow(IfxPort_P13_0.port, IfxPort_P13_0.pinIndex);
 
     /*CS to touch*/
     IfxPort_setPinModeInput(TOUCH_USE_CHIPSELECT.pin.port, TOUCH_USE_CHIPSELECT.pin.pinIndex, IfxPort_Mode_inputPullUp);
@@ -58,37 +58,37 @@ void DrvDioInit(void)
     /* we enable the background light Application Kit */
     IfxPort_setPinModeOutput(BACKGROUND_LIGHT.pin.port, BACKGROUND_LIGHT.pin.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_alt1);
 
-	/*P02_0	Digital Output*/
+    /*P02_0    Digital Output*/
     IfxPort_setPinModeOutput(IfxPort_P02_0.port, IfxPort_P02_0.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-	IfxPort_setPinLow(IfxPort_P02_0.port, IfxPort_P02_0.pinIndex);
+    IfxPort_setPinLow(IfxPort_P02_0.port, IfxPort_P02_0.pinIndex);
 
-	/*P02_2	Digital Output*/
+    /*P02_2    Digital Output*/
     IfxPort_setPinModeOutput(IfxPort_P02_2.port, IfxPort_P02_2.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-	IfxPort_setPinLow(IfxPort_P02_2.port, IfxPort_P02_2.pinIndex);
+    IfxPort_setPinLow(IfxPort_P02_2.port, IfxPort_P02_2.pinIndex);
 
-	/*P02_4	Digital Output*/
+    /*P02_4    Digital Output*/
     IfxPort_setPinModeOutput(IfxPort_P02_4.port, IfxPort_P02_4.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-	IfxPort_setPinLow(IfxPort_P02_4.port, IfxPort_P02_4.pinIndex);
+    IfxPort_setPinLow(IfxPort_P02_4.port, IfxPort_P02_4.pinIndex);
 
-	/*P02_6	Digital Output*/
+    /*P02_6    Digital Output*/
     IfxPort_setPinModeOutput(IfxPort_P02_6.port, IfxPort_P02_6.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-	IfxPort_setPinLow(IfxPort_P02_6.port, IfxPort_P02_6.pinIndex);
+    IfxPort_setPinLow(IfxPort_P02_6.port, IfxPort_P02_6.pinIndex);
 
-	/*P33_5	Digital Output*/
+    /*P33_5    Digital Output*/
     IfxPort_setPinModeOutput(IfxPort_P33_5.port, IfxPort_P33_5.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-	IfxPort_setPinLow(IfxPort_P33_5.port, IfxPort_P33_5.pinIndex);
+    IfxPort_setPinLow(IfxPort_P33_5.port, IfxPort_P33_5.pinIndex);
 
-	/*P33_3	Digital Output*/
+    /*P33_3    Digital Output*/
     IfxPort_setPinModeOutput(IfxPort_P33_3.port, IfxPort_P33_3.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-	IfxPort_setPinLow(IfxPort_P33_3.port, IfxPort_P33_3.pinIndex);
+    IfxPort_setPinLow(IfxPort_P33_3.port, IfxPort_P33_3.pinIndex);
 
-	/*P33_1	Digital Output*/
+    /*P33_1    Digital Output*/
     IfxPort_setPinModeOutput(IfxPort_P33_1.port, IfxPort_P33_1.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-	IfxPort_setPinLow(IfxPort_P33_1.port, IfxPort_P33_1.pinIndex);
+    IfxPort_setPinLow(IfxPort_P33_1.port, IfxPort_P33_1.pinIndex);
 
-	/*P33_8	Digital Output*/
+    /*P33_8    Digital Output*/
     IfxPort_setPinModeOutput(IfxPort_P33_8.port, IfxPort_P33_8.pinIndex, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-	IfxPort_setPinLow(IfxPort_P33_8.port, IfxPort_P33_8.pinIndex);
+    IfxPort_setPinLow(IfxPort_P33_8.port, IfxPort_P33_8.pinIndex);
 
 
 }

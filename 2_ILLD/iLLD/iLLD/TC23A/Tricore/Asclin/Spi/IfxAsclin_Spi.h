@@ -55,8 +55,8 @@
  *
  *   \code
  *       #define SPI_BUFFER_SIZE 8
- *       uint8	spiTxBuffer[SPI_BUFFER_SIZE];
- *       uint8	spiRxBuffer[SPI_BUFFER_SIZE];
+ *       uint8    spiTxBuffer[SPI_BUFFER_SIZE];
+ *       uint8    spiRxBuffer[SPI_BUFFER_SIZE];
  *   \endcode
  *
  *   \subsection IfxLld_Asclin_Spi_Interrupt Interrupt Handler Installation
