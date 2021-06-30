@@ -70,11 +70,11 @@ void MidDio_SetFrontIn4(uint8_t param_SetIn4)
 {
     if(param_SetIn4 == 0u)
     {
-        DrvDio_SetPinLow(IfxPort_P33_8);
+        DrvDio_SetPinLow(IfxPort_P33_4);
     }
     else
     {
-        DrvDio_SetPinHigh(IfxPort_P33_8);
+        DrvDio_SetPinHigh(IfxPort_P33_4);
     }
 }
 
@@ -118,11 +118,11 @@ void MidDio_SetRearIn4(uint8_t param_SetIn4)
 {
     if(param_SetIn4 == 0u)
     {
-        DrvDio_SetPinLow(IfxPort_P02_6);
+        DrvDio_SetPinLow(IfxPort_P02_3);
     }
     else
     {
-        DrvDio_SetPinHigh(IfxPort_P02_6);
+        DrvDio_SetPinHigh(IfxPort_P02_3);
     }
 }
 

@@ -78,6 +78,7 @@ static void AppTask1ms(void)
 static void AppTask5ms(void)
 {
     CYCLE_CHECK(TASK_5MS);
+    //DrvAsc_Test1();
 }
 
 
@@ -109,12 +110,12 @@ static void AppTask10ms(void)
         Unit_MotorFrontDirectionCtl(MOTOR_TURN_LEFT);    
         Unit_MotorRearDirectionCtl(MOTOR_TURN_LEFT);
     }
-    else if(ucTemp == 's') /*Reverse*/
+    else if(ucTemp == 'x') /*Reverse*/
     {
         Unit_MotorFrontDirectionCtl(MOTOR_REVERSE);    
         Unit_MotorRearDirectionCtl(MOTOR_REVERSE);
     }    
-    else if(ucTemp == 'x') /*Stop*/
+    else if(ucTemp == 's') /*Stop*/
     {
         Unit_MotorFrontDirectionCtl(MOTOR_STOP);    
         Unit_MotorRearDirectionCtl(MOTOR_STOP);

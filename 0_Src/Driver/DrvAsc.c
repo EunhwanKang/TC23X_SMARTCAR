@@ -46,8 +46,10 @@ void ASCRxInt0Handler(void)
     IfxAsclin_Asc_read(&g_AsclinAsc.drivers.asc0, g_AsclinAsc.rxData, &g_AsclinAsc.count, TIME_INFINITE);    
     gu32nuAscRxData = g_AsclinAsc.rxData[0];
 
+    #if 1
     g_AsclinAsc.txData[0] = gu32nuAscRxData;    
     IfxAsclin_Asc_write(&g_AsclinAsc.drivers.asc0, g_AsclinAsc.txData, &g_AsclinAsc.count, TIME_INFINITE);
+    #endif
 }
 
 void ASCExInt0Handler(void)
@@ -104,15 +106,19 @@ static void DrvAsc0Init(void)
 /*---------------------Driver API--------------------------*/
 void DrvAsc_Test1(void)
 {
-    int i;
+    static uint16_t TestCnt1 = 0u;
+    static uint16_t TestCnt2 = 50u;
     
-    g_AsclinAsc.count = 17;
+    g_AsclinAsc.count = 4;
 
-    for(i=0;i<17;i++)
-    {
-        g_AsclinAsc.txData[i] = i;
-    }
-    
+    TestCnt1++;
+    TestCnt2++;
+
+    g_AsclinAsc.txData[0] = (uint8_t)((TestCnt1 & 0xFF00) >> 8);
+    g_AsclinAsc.txData[1] = (uint8_t)(TestCnt1 & 0x00FF);
+    g_AsclinAsc.txData[2] = (uint8_t)((TestCnt2 & 0xFF00) >> 8);
+    g_AsclinAsc.txData[3] = (uint8_t)(TestCnt2 & 0x00FF);
+   
     /* Transmit data */
     IfxAsclin_Asc_write(&g_AsclinAsc.drivers.asc0, g_AsclinAsc.txData, &g_AsclinAsc.count, TIME_INFINITE);
 }
