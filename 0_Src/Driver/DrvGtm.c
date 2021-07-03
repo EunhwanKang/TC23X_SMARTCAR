@@ -11,6 +11,7 @@
 /*----------------------------------------------------------------*/
 
 #define TOM_BASE_FREQ    (100000000.0f/256.0f)
+//#define TOM_BASE_FREQ    (100000000.0f)
 #define PWM_HZ           (100.0f)
 #define PWM_PERIOD_CNT   TOM_BASE_FREQ/PWM_HZ
 
@@ -49,14 +50,22 @@ App_GtmTomTimer g_GtmTomTimer; /**< \brief Demo information */
 
 uint32_t u32nuMyTestPwmDuty = 500u; /*Unit: 0.1%, 500 -> 50.0% duty*/
 float32_t fMyTestPwmDuty = 0.5f;
+uint32_t ulPulseCnt = 0u;
+
+
 /*----------------------------------------------------------------*/
 /*                        Functions                                    */
 /*----------------------------------------------------------------*/
 
 /*---------------------Interrupt Define--------------------------*/
+IFX_INTERRUPT(TIM0_IntHandler, 0, 200);
 
-/*Interrupt Isr*/
-
+/*---------------------Interrupt Service Routine--------------------------*/
+void TIM0_IntHandler(void)
+{
+    IfxCpu_enableInterrupts();
+    ulPulseCnt++;
+}
 
 /*---------------------Test Code--------------------------*/
 void DrvGtmPwmTest(float32_t param_Ch4Duty, float32_t param_Ch5Duty, float32_t param_Ch6Duty, float32_t param_Ch7Duty)
@@ -103,6 +112,7 @@ void DrvGtmInit(void)
     IfxGtm_Cmu_setClkFrequency(&MODULE_GTM, IfxGtm_Cmu_Clk_0, g_GtmTomTimer.info.gtmFreq);
     
     GtmTom1Init();
+    GtmTim0Init();
 
     /*enable interrupts again*/
     IfxCpu_restoreInterrupts(interruptState);
@@ -150,18 +160,17 @@ static void GtmTim0Init(void)
 {
     float32_t temp = 0.0f;
     
-    IfxGtm_PinMap_setTimTin(&IfxGtm_TIM0_0_TIN26_P33_4_IN, IfxPort_InputMode_pullDown);
+    IfxGtm_PinMap_setTimTin(&IfxGtm_TIM0_0_TIN32_P33_10_IN, IfxPort_InputMode_pullDown);
 
     GTM_TIM0_CH0_CTRL.B.TIM_MODE = 2u; 
     GTM_TIM0_CH0_CTRL.B.ISL = 0u;
     GTM_TIM0_CH0_CTRL.B.DSL = 1u;
 
-    GTM_TIM0_CH0_CTRL.B.FLT_EN = 1;
-    temp = 2.0f * TOM_BASE_FREQ;
+    GTM_TIM0_CH0_CTRL.B.FLT_EN = 0;
+    //temp = 2.0f * TOM_BASE_FREQ;
 
-    GTM_TIM0_CH0_FLT_RE.B.FLT_RE = (uint32_t)temp;
-    GTM_TIM0_CH0_CTRL.B.FLT_MODE_RE = (uint8_t)IfxGtm_Tim_FilterMode_individualDeglitchTime;
-    GTM_TIM0_CH0_CTRL.B.FLT_CTR_RE = (uint8_t)IfxGtm_Tim_FilterCounter_upDown;
+    //GTM_TIM0_CH0_FLT_RE.B.FLT_RE = (uint32_t)temp;
+    //GTM_TIM0_CH0_CTRL.B.FLT_MODE_RE = (uint8_t)IfxGtm_Tim_FilterMode_immediateEdgePropagation;
 
     SRC_GTMTIM00.B.SRE = 1;
     SRC_GTMTIM00.B.SRPN = 200u;

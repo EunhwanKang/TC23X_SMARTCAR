@@ -41,7 +41,7 @@ int main(void)
     IfxCpu_enableInterrupts();
 
     /*TLF Init*/
-    Tft_Init();
+    //Tft_Init();
     
     while(1u)
     {

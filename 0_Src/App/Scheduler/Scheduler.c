@@ -49,13 +49,16 @@ static void AppTask1s(void);
 
 static void TaskSchedulerCallbackFnc(void);
 
+
 /*----------------------------------------------------------------*/
 /*                        Variables                                    */
 /*----------------------------------------------------------------*/
 AppTask stAppTaskInfo;
 uint32_t ulScheduler1msCounter = 0u;
 
+extern uint32_t ulPulseCnt;
 extern uint32_t gu32nuAscRxData;
+
 /*----------------------------------------------------------------*/
 /*                        Functions                                    */
 /*----------------------------------------------------------------*/
@@ -64,7 +67,7 @@ extern uint32_t gu32nuAscRxData;
 /*NoTime Taksing*/
 static void AppNoTimeTask(void)
 {
-    perf_meas_idle();
+    //perf_meas_idle();
 }
 
 /*AppTask 1ms*/
@@ -85,45 +88,7 @@ static void AppTask5ms(void)
 /*AppTask 10ms*/
 static void AppTask10ms(void)
 {
-    uint8_t ucTemp = 0u;
-    static float32_t fPwmDuty = 0.5f;
-    
     CYCLE_CHECK(TASK_10MS);
-
-    /*Gtm PWM Test*/
-    DrvGtmPwmTest(fPwmDuty,fPwmDuty,fPwmDuty,fPwmDuty);
-    
-    ucTemp = (uint8_t)gu32nuAscRxData;
-    
-    if(ucTemp == 'w')    /*Forward*/
-    {
-        Unit_MotorFrontDirectionCtl(MOTOR_FWD);
-        Unit_MotorRearDirectionCtl(MOTOR_FWD);
-    }
-    else if(ucTemp == 'd') /*TurnRight*/
-    {
-        Unit_MotorFrontDirectionCtl(MOTOR_TURN_RIGHT);    
-        Unit_MotorRearDirectionCtl(MOTOR_TURN_RIGHT);
-    }
-    else if(ucTemp == 'a') /*TurnLeft*/
-    {
-        Unit_MotorFrontDirectionCtl(MOTOR_TURN_LEFT);    
-        Unit_MotorRearDirectionCtl(MOTOR_TURN_LEFT);
-    }
-    else if(ucTemp == 'x') /*Reverse*/
-    {
-        Unit_MotorFrontDirectionCtl(MOTOR_REVERSE);    
-        Unit_MotorRearDirectionCtl(MOTOR_REVERSE);
-    }    
-    else if(ucTemp == 's') /*Stop*/
-    {
-        Unit_MotorFrontDirectionCtl(MOTOR_STOP);    
-        Unit_MotorRearDirectionCtl(MOTOR_STOP);
-    }
-    else
-    {
-        /*No Code*/
-    }    
 }
 
 /*AppTask 50ms*/
@@ -136,14 +101,17 @@ static void AppTask50ms(void)
 static void AppTask100ms(void)
 {
     CYCLE_CHECK(TASK_100MS);
-    controlmenu.cpuseconds += controlmenu.cpusecondsdelta;
+
+    MotorFeedbackController();
+    Unit_WirelessControl();
+    //DrvAsc_Test1()
 }
 
 /*AppTask 200ms*/
 static void AppTask200ms(void)
 {
     CYCLE_CHECK(TASK_200MS);
-    IfxSrc_setRequest(&TFT_UPDATE_IRQ);    /*trigger the tft lib*/
+    //IfxSrc_setRequest(&TFT_UPDATE_IRQ);    /*trigger the tft lib*/
 }
 
 /*AppTask 500ms*/
